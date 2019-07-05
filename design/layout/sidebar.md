@@ -1,4 +1,4 @@
-### 右侧编辑栏
+# 右侧编辑栏
 
 <img src='./images/sidebar.png' height='600'>
 
