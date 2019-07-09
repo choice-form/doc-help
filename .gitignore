@@ -12,4 +12,3 @@ assets/lang/**/*.json
 /log
 config/local.ts
 /local-data
-*.cfpd
