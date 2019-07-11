@@ -4,7 +4,7 @@
 
 > 在更改设置时，可以配合使用[实时预览](../preview/realtime.md)和[完整预览](../preview/full.md)来查看效果。
 
-排序题提供一堆选项，让答题者对他们排序。
+排序题提供一堆选项，让受访者对他们排序。
 
 <img src='./images/rank.png' width='600'>
 
