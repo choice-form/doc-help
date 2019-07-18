@@ -4,3 +4,69 @@
 
 
 要想熟练使用编辑器，还有很多内容需要了解，建议先了解编辑器[操作界面](./layout/concept.md)，验证各个操作界面了解下去，会接触的各种功能，在对应的章节中会有对功能和相关概念的讲解。
+
+开始设计一份问卷大概会包含下面的部分或全部步骤。
+
+> 以下是导读性的大纲，每个步骤在此仅做简易描述，点击其中包含链接的文字能查看具体内容。
+
+1. 创建问卷
+
+在dashboard中的`我的调查问卷`页中点击`新建调查问卷`按钮，然后输入好问卷名称后点击`建立调查问卷`就能跳转到问卷编辑器，如果是初始使用可以先了解一下[编辑器的基本情况](./layout/concept.md)及[操作技巧](./shortcut/concept.md)。
+新建的问卷默认包含一道选择题，在此基础上进行后续步骤的更改，制作成自己想要的问卷。
+> 也可在新建调查问卷是选择一个范本，以此为基础建立一份问卷。
+
+2. 添加节点（题目）
+
+在问卷中添加题目，题目是以节点的方式加入的，从[左测编辑栏的新增节点](./layout/toolbar.md#新增节点)栏可添加节点。
+
+3. 简单流程控制
+
+被添加的节点会被加到编辑器中间的[画布区域](./layout/canvas.md),在其中可以选中，拖拽，连线等[大量操作](./shortcut/concept.md)控制问卷的流程，可以控制简单的题目跳转。
+
+4. 编辑节点（题目）基本属性
+
+在画布中单独选中某个节点，[右侧编辑栏](./layout/sidebar.md)中就会显示该[节点的设置内容](./node-setting/concept.md)并可以编辑，设置内容会分为多个编辑区域，一开始的简单问卷一般使用常用区域就能满足需求，如[问题设置](./node-setting/question.md)、[选项设置](./node-setting/option.md)、[通用设置](./node-setting/common.md)。
+
+5. 高级流程控制
+
+使用[逻辑节点](./nodes/logic.md)、[循环节点](./nodes/loop.md)、[随机节点](./nodes/random.md)这几个工具节点可以进行复杂的题目跳转控制。
+
+6. 答案验证控制
+
+从结合[通用设置](./node-setting/common.md)、[输入验证](./node-setting/input-validation.md)、[自定义验证](./node-setting/custom-validation.md)，[验证节点](./nodes/verify.md)等可以对题目的答案进行验证，尽量避免受访者输入无效的答案。
+
+7. 高级选项控制
+
+使用选项[高级控制](./node-setting/option.md#高级控制)中的[显示条件](./logic/opt-display.md)、[选中条件](./logic/opt-auto-select.md)、[映射属性](./logic/option-mapping.md)、[自动赋值](./logic/opt-auto-input.md)等功能可以对选项进行各种动态控制。
+
+8. 使用媒体资源
+
+通过[媒体库和媒体选择器](./media/concept.md)可以管理和在问卷中使用图片，视频资源。
+
+9. 使用变量和选项引用
+
+使用[变量](./variable/concept.md)和[选项引用](./opt-reference/concept.md)功能可以设计出异常强大的动态问卷。
+
+10. 主题控制和预览
+
+使用[主题控制](./theme/concept.md)和[预览功能](./preview/concept.md)可以更精准的控制答题页面的展示效果。
+
+11. 使用奖励
+合理使用[抽奖节点](./nodes/lottery.md)和[奖励节点](./nodes/gift.md)可以分派奖励给受访者，适当刺激受访者的积极性。
+
+12. 使用甄别准备配额
+
+使用甄别节点可以将一些节点标记为甄别模式，为后续的[配额设置](./advance-topic/screening-quota.md)做准备。
+
+13. 测试与排错
+结合[错误检测与调试](./advance-topic/debug.md)功能让快速解决错误的设置。
+
+
+14. 发布问卷 
+
+如果已经排除了所有错误，并通过了测试，就可以[发布问卷](./advance-topic/quick-publish.md)，开始收据数据了
+
+
+
+
+
