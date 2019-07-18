@@ -25,7 +25,7 @@
 + [媒体变量](./media-type.md)
 + [数值变量](./number-type.md)
 + [请求变量](./request-type.md)
-+ [字符串变量](./string-type)
++ [字符串变量](./string-type.md)
 
 ## 显式变量
 
