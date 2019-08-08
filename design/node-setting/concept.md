@@ -1,5 +1,5 @@
 # 节点设置
-<img src='./images/concept.png' height='600'>
+<img src='./images/concept.png'>
 
 选中节点后，右侧编辑栏中会显示该节点的设置内容，一般会包含多个tab，点击顶部的tab可以切换编辑区内容，多个tab下共用设置头部区域，每个tab下面会有多个功能区，点击功能区的头部可以展开收起该功能区。
 

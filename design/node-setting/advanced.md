@@ -2,7 +2,7 @@
 
 > 在更改设置时，可以配合使用[实时预览](../preview/realtime.md)和[完整预览](../preview/full.md)来查看效果。
 
-包含一些高级设置
+<img src='./images/advanced.png' />
 
 ## 替身节点
 只针对题目节点使用，开启`替身节点`模式，该节点在单题也不被展示，只用于承载数据，仍然可以被当做[变量](../variable/concept.md)的引用源。
