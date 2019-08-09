@@ -7,7 +7,7 @@
 填空题用于让用户输入任何内容，同一个填空题中可以通过选项的方式，让用户输入多个内容。
 
 ### 输入内容验证
-可以对每一个填空项设置，参照[输入验证](../node-setting/input-validation.md)
+可以对每一个填空项设置验证规则，参照[输入验证](../node-setting/input-validation.md)
 
 ### 最小输入项限制
 参照[最小输入项验证](../node-setting/common.md#最小输入项限制)
