@@ -1,4 +1,4 @@
-# 底部视图工具栏
+# 视图工具栏
 
 <img src='./images/footbar.png'>
 
