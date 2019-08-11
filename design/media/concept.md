@@ -1,5 +1,7 @@
 
-# 媒体基本概念
+# 媒体
+
+<img src='./images/assets-kit-cn.jpg'>
 
 问卷中经常要使用到一些图片或视频，这些图片或视频就是媒体，媒体资源在[媒体库](../layout/toolbar.md#媒体库)中被统一管理。
 
