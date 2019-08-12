@@ -64,7 +64,7 @@
 
 14. 发布问卷 
 
-如果已经排除了所有错误，并通过了测试，就可以[发布问卷](./advance-topic/quick-publish.md)，开始收据数据了
+如果已经排除了所有错误，并通过了测试，就可以[发布问卷](./advance-topic/quick-publish.md)，开始收据数据了。
 
 
 
