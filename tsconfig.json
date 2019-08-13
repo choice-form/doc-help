@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "outDir": "./build/",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "module": "commonjs",
+    "target": "es2017",
+    "noUnusedLocals": true,
+    "lib": [
+      "es2017",
+      "dom",
+    ]
+  },
+  "include": [
+    "task/**/*.ts",
+    "tool/**/*.ts",
+    "doc/config.ts"
+  ]
+}
