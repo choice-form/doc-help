@@ -80,10 +80,13 @@
 > 上图中，`RANKING_2`前面就添加了一个中转点，起到连归集的作用，
 
 ## 节点组合
+
 <video id="video" controls="" preload="none">
     <source id="mp4" src="https://media.choiceform.com/doc-help/zh-cn/design/layout/canvas/group.mp4" type="video/mp4">
 </video>
+
 对节点可以进行组合，组合后节点组也可以展开和收缩，收缩后的节点组会收缩成一个小方块，组合内的节点都会藏起来。
+
 > 参照[组合与模块](../groups/concept.md)了解更多组的信息。
 
 ## 快捷操作
