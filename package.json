@@ -1,0 +1,13 @@
+{
+  "name": "doc-help",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:choice-form/doc-help.git",
+  "author": "fenyiwudian <laiq@cform.io>",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^12.7.1",
+    "marked": "^0.7.0",
+    "typescript": "^3.5.3"
+  }
+}
