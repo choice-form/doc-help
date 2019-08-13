@@ -1,5 +1,4 @@
 import * as fs from 'fs';
-import { IDocTree } from '../doc/config';
 
 const mainLang = 'zh-cn';
 
@@ -14,12 +13,17 @@ const generateTree = (dir: string): IDocTree[] => {
     const stat = fs.statSync(subDir);
     const tree: IDocTree = {
       name: item,
-      alias: { "zh-cn": '', "en-us": '' },
     }
+    // 文件夹继续向内扫描
     if (stat.isDirectory()) {
-      tree.children = generateTree(subDir);
+      const subs = generateTree(subDir);
+      if(subs){
+        tree.children = subs;
+        result.push(tree);
+      }
+    }else if(item.endsWith('.md')){
+      result.push(tree);
     }
-    result.push(tree);
   })
 
   return result.length > 0 ? result : undefined;

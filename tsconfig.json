@@ -15,6 +15,7 @@
   "include": [
     "task/**/*.ts",
     "tool/**/*.ts",
-    "doc/config.ts"
+    "doc/config.ts",
+    "types/**/*.ts"
   ]
 }
