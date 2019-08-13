@@ -76,6 +76,8 @@
 > 对于多选题或者非选择题的输出口设置略有不同，可参见[逻辑设置](../logic/concept.md)
 
 ## 中转点
+https://media.choiceform.com/doc-help/zh-cn/design/layout/canvas/dot.mp4
+
 在连线比较复杂的情况下，可以添加中转点来让连线的归集更加整洁。中转点既可以是输出口又可以是输入口。同样，可以接受多个输入，只能有一个输出。
 > 上图中，`RANKING_2`前面就添加了一个中转点，起到连归集的作用，
 

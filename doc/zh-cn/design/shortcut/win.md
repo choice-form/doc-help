@@ -70,3 +70,4 @@
 | 快速放大缩小画布 | 按住`Ctrl`键，鼠标滚轮滚动|
 
 
+https://media.choiceform.com/doc-help/zh-cn/design/shortcut/select-after-and-before.mp4
