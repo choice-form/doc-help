@@ -1,6 +1,6 @@
 # 视图工具栏
 
-<img src='./images/footbar.png'>
+<img src='./images/footer.png'>
 
 ## 搜索
 点击后打开[全局搜索界面](../advance-topic/search.md)。
