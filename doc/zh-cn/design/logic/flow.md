@@ -1,3 +1,12 @@
+```index
+2
+```
+```tag
+
+```
+```summary
+
+```
 # 节点流逻辑控制
 
 在问卷编辑画布区中可以使用[节点间连线](../layout/canvas.md#连线)，[逻辑节点](../nodes/logic.md)，[循环节点](../nodes/loop.md)，[随机节点](../nodes/random.md)等多种手段控制后续题目的走向。

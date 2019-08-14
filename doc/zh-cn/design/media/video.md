@@ -1,3 +1,12 @@
+```index
+3
+```
+```tag
+
+```
+```summary
+
+```
 # 视频资源
 
 <img src='./images/video.png'>

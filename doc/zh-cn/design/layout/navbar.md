@@ -1,6 +1,16 @@
+```index
+3
+```
+```tag
+
+```
+```summary
+
+```
+
 # 问卷发布工具栏
 
-<img src='./images/navbar.png'>
+<img src='../../assets/snapshots/layout/navbar/operation.png'>
 
 ## 撤销
 点击后撤销之前的操作（Undo）。
@@ -25,6 +35,8 @@
 
 ## 发布
 鼠标覆盖后弹出快速发布弹框，详情参见[快速发布](../advance-topic/quick-publish.md)。
+
+<img src='../../assets/snapshots/layout/navbar/back-to-dashboard.png'>
 
 ## 返回
 点击问卷发布工具栏最左边的巧思logo会出现选择列表，点击列表项可以返回到`我的问卷页面`或者跳转到`问卷设置页面`。

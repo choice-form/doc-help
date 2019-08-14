@@ -1,6 +1,15 @@
+```index
+5
+```
+```tag
+
+```
+```summary
+
+```
 # 视图工具栏
 
-<img src='./images/footbar.png'>
+<img src='../../assets/snapshots/layout/footer-bar.png'>
 
 ## 搜索
 点击后打开[全局搜索界面](../advance-topic/search.md)。

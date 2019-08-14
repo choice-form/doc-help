@@ -1,6 +1,19 @@
+```index
+4
+```
+```tag
+
+```
+```summary
+
+```
+
 # 问卷组件工具栏
 
 问卷组件工具栏上整合了问卷编辑系统核心功能组件的入口，鼠标覆盖按钮后会出现提示文字，点击后会滑出具体的组件工具面板。从上到下依次是：
+
+<img src='../../assets/snapshots/layout/toolbar/top.png'>
+
 1. 新增节点
 2. 媒体库
 3. 主题
@@ -8,8 +21,11 @@
 5. 计时器
 6. 节点导航
 7. 内置接口
+
+<img src='../../assets/snapshots/layout/toolbar/bottom.png'>
+
 8. 打印问卷
-9. 文件操作
+9.  文件操作
 10. 帮助
 
 ## 新增节点
@@ -41,7 +57,7 @@
 
 媒体库用来管理当前问卷中用到的媒体资源。
 
-<img src='./images/assets-kit-cn.jpg'>
+<img src='../../assets/snapshots/kit/assets-cn.jpg'>
 
 新建的问卷默认没有图片和视频，点击下方的`上传`按钮上传媒体文件，如果文件内容较大，上传按钮上会显示上传进度。上传完成后，媒体资源会显示在列表中。
 媒体资源可以在`节点`和`变量`中引用，已经在问卷中被使用的媒体资源右上角会有一个三角形标记。如果三角形是半透明的，则说明该媒体资源虽然被引用了，但是使用它的节点或变量并没有被问卷实际使用。
@@ -61,7 +77,7 @@
 
 点击后滑出主题库面板，用于问卷样式控制。
 
-<img src='./images/theme-kit-cn.jpg'>
+<img src='../../assets/snapshots/kit/theme-cn.jpg'>
 
 > 关于问卷样式的具体控制技巧，参见[主题与样式控制](../theme/concept.md)。
 
@@ -70,7 +86,7 @@
 
 点击后滑出变量库面板，变量库用于创建和管理问卷使用到的显式变量。
 
-<img src='./images/variable-kit-cn.jpg'>
+<img src='../../assets/snapshots/kit/custom-variables-cn.jpg'>
 
 点击`创建变量`，然后选择变量类型，在滑出的变量设置面板中添加变量名和变量值，设置完毕后就能添加一个变量.
 
@@ -91,7 +107,7 @@
 点击后滑出节点导航栏面板，节点导航面板列出所有问卷节点，包括已使用和未使用节点在内。支持一键删除未使用节点。
 拖拽每个题目右边的列表图标可以改变题目的次序，这个次序将会成为问卷数据结果展现时题目列的默认顺序。
 
-<img src='./images/navigator-kit-cn.jpg'>
+<img src='../../assets/snapshots/kit/navigator-cn.jpg'>
 
 可对题目节点打星标。
 

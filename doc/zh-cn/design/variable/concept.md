@@ -1,3 +1,12 @@
+```index
+1
+```
+```tag
+
+```
+```summary
+
+```
 # 变量的概念
 
 变量是设计一份功能强大的动态问卷的必备工具。
@@ -18,12 +27,12 @@
 
 可以添加的变量类型有以下几种，点击链接可以查看详细情况，从中了解如何成功创建一个这样的变量。
 
-+ [布尔变量](./boolean-type.md)
-+ [HTML变量](./html-type.md)
-+ [媒体变量](./media-type.md)
-+ [数值变量](./number-type.md)
-+ [请求变量](./request-type.md)
 + [字符串变量](./string-type.md)
++ [数值变量](./number-type.md)
++ [布尔变量](./boolean-type.md)
++ [媒体变量](./media-type.md)
++ [HTML变量](./html-type.md)
++ [接口请求变量](./request-type.md)
 
 ## 显式变量
 
