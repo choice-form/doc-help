@@ -6,8 +6,13 @@
   "author": "fenyiwudian <laiq@cform.io>",
   "license": "MIT",
   "dependencies": {
+    "@types/mkdirp": "^0.5.2",
     "@types/node": "^12.7.1",
+    "@types/rimraf": "^2.0.2",
+    "hasha": "^5.0.0",
     "marked": "^0.7.0",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.7.0",
     "typescript": "^3.5.3"
   }
 }
