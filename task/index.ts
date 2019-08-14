@@ -180,6 +180,9 @@ const isExclusiveFile = (file: string): boolean => {
   if (['.DS_Store', '.idea'].includes(file)) {
     return true;
   }
+  if (file.startsWith('_')) {
+    return true;
+  }
   return false;
 }
 
