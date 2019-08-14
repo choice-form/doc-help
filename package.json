@@ -6,6 +6,7 @@
   "author": "fenyiwudian <laiq@cform.io>",
   "license": "MIT",
   "dependencies": {
+    "@types/marked": "^0.6.5",
     "@types/mkdirp": "^0.5.2",
     "@types/node": "^12.7.1",
     "@types/rimraf": "^2.0.2",

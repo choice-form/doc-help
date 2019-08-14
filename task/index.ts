@@ -3,6 +3,8 @@ import fs = require('fs');
 import rimraf = require('rimraf');
 import hasha = require('hasha');
 import mkdirp = require('mkdirp');
+import path = require('path');
+import marked = require('marked');
 
 
 export interface ISignStrStr {
@@ -25,6 +27,7 @@ export interface IDocIndexData {
   type?: 'file' | 'dir';
   children?: IDocIndexData[];
   url?: string;
+  path?: string;
 }
 
 export interface IDocSearchData {
@@ -34,13 +37,15 @@ export interface IDocSearchData {
 }
 
 
-const docDir = 'doc';
-const distDir = 'dist';
+const docDir = '/doc';
+const distDir = '/dist';
 
-const indexReg = /```\s*index\s*\n\s*(\d+)\s*\n\s*```/;
-const aliasReg = /```\s*alias\s*\n\s*(.+?)\s*\n\s*```/;
-const tagReg = /```\s*tag\s*\n\s*((?:[^`]+?\n?)*)\s*\n\s*```/;
-const summaryReg = /```\s*summary\s*\n\s*(.+?)\s*\n\s*```/;
+const cdnHost = 'https://media.choiceform.com';
+
+const indexReg = /```\s*index\s*(\d+)\s*```/;
+const aliasReg = /```\s*alias\s*((?:[^`]+?\s?)*)\s*```/;
+const tagReg = /```\s*tag\s*((?:[^`]+?\s?)*)\s*```/;
+const summaryReg = /```\s*summary\s*((?:[^`]+?\s?)*)\s*```/;
 
 const build = () => {
   prepare();
@@ -80,24 +85,24 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[]) 
     // 是文件的才需要再次处理
     if (data.type === 'file') {
       const search: IDocSearchData = { tags: [], summary: '', url: '' };
-      const text = fs.readFileSync(data.url).toString();
+      let text = fs.readFileSync(data.url).toString();
       const indexMatch = text.match(indexReg);
       // 找到了索引配置
       if (indexMatch) {
         // 写入索引，没找到的使用原始的0做索引
         data.index = Number(indexMatch[1]);
-
       }
       const tagMatch = text.match(tagReg);
       // 找到了tag
       if (tagMatch) {
-        search.tags = tagMatch[1].trim().split(' ');
+        // 去除掉多余的空格后按空格分割
+        search.tags = tagMatch[1].replace(/\s+/g, ' ').trim().split(' ');
         // 没有找到tag的话使用各级标题做tag
       } else {
-        const titleMatch = text.match(/#{1,5}\s+.+?\s*\n/g);
+        const titleMatch = text.match(/#{1,5}\s+.+?\s*/g);
         if (titleMatch) {
           search.tags = titleMatch.map(text => {
-            return text.replace(/[#\s\n]/g, '');
+            return text.replace(/[#\s]/g, '');
           });
         }
       }
@@ -107,18 +112,48 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[]) 
       if (summaryReg) {
         search.summary = summaryMatch[1];
         // 没有找到则提取文章第一端作为summary
-      }else{
-        const pMatch = text.match(/\n\s*[^#](.+?)\s*\n/);
-        if(pMatch){
+      } else {
+        const pMatch = text.match(/\s*[^#](.+?)\s*/);
+        if (pMatch) {
           // 但是要清除链接格式
           search.summary = pMatch[1].replace(/\[(.+?)\]\(.+?\)/g, '$1');
         }
       }
       // 移除文档中开头的配置标记
-      text = text.replace(/```\s*index/.+?, '');
-      
+      text = text.replace(indexReg, '')
+        .replace(tagReg, '')
+        .replace(summaryReg, '');
 
+      // 替换图片地址
+      const imgUrlReplaceFn = (match: string, first: string) => {
+        const absoluteUrl = path.resolve(data.path, first);
+        const hashedUrl = assetsHashMap[absoluteUrl];
+        return match.replace(first, hashedUrl);
+      }
+      // 有三种插入格式， 1： 图片标签方式
+      text = text.replace(/<img\s*.+?src=['"](.+?)['"]/, imgUrlReplaceFn)
+        // 2. markdown简洁语法  ![Alt text](图片链接) 
+        .replace(/!\[.+?\]\((.+?)\)/, imgUrlReplaceFn)
+        // 3. markdown携带title的语法 ![Alt text](图片链接 "optional title") 
+        .replace(/!\[.+?\]\((.+?)\s+.+?\)/, imgUrlReplaceFn);
 
+      // 替换markdown链接,仅仅去掉后缀名
+      text = text.replace(/\[.+?\]\((.+?\.md)\)/g, (match, first: string) => {
+        return match.replace(first, first.replace(/\.md$/, ''));
+      })
+      // 转化markdown
+      const resource = {
+        tags: search.tags,
+        content: marked(text),
+      }
+      const resourceText = JSON.stringify(resource);
+      const resourceHash = hasha(resourceText);
+      let writePath = data.url.replace(/\.md$/, '.json')
+      writePath = toDistPath(writePath);
+      writePath = appendHash(writePath, resourceHash);
+      fs.writeFileSync(writePath, resourceText);
+      search.url = writePath;
+      data.url = writePath;
     } else {
       // 是文件夹的深入扫描
       searchList = [
@@ -129,6 +164,10 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[]) 
   })
 
   return searchList;
+}
+
+const toDistPath = (path: string) => {
+  return path.replace(/^\/doc\//, '/dist/');
 }
 
 
@@ -142,6 +181,27 @@ const isExclusiveFile = (file: string): boolean => {
     return true;
   }
   return false;
+}
+
+/**
+ * 凭借hash到文件命中
+ * @param path 
+ * @param hash 
+ */
+const appendHash = (path: string, hash: string) => {
+  hash = hash.substr(0, 8);
+  let result = '';
+  const lastIndex = path.lastIndexOf('.');
+  // 同时有文件名和后缀将hash插到中间
+  if (lastIndex > -1) {
+    const head = path.substr(0, lastIndex);
+    const tail = path.substr(lastIndex);
+    result = head + '-' + hash + tail;
+    // 否则将hash插到前面
+  } else {
+    result = hash + '-' + path;
+  }
+  return result;
 }
 
 
@@ -168,7 +228,10 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
     // 文件夹继续深入
     if (stat.isDirectory()) {
       // 生成一个空索引数据
-      const indexData: IDocIndexData = { name, alias: '??????', index: 0, type: 'dir' };
+      const indexData: IDocIndexData = {
+        name, path: dir,
+        alias: '??????', index: 0, type: 'dir'
+      };
       // 扫描子资源的时候会尝试填充这个数据，如果没有填充别名就仍然会是问号。
       const data = buildAssets(sub, indexData);
       indexData.children = data.indexList;
@@ -203,25 +266,14 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
         indexList.push({
           name, index: 0, alias: '',
           url: sub, type: 'file',
+          path: dir,
         })
         // 是其他资源文件,打好hash后写入到dist里对应文件家中
         // 同时记录大hash映射表
       } else {
         const buff = fs.readFileSync(sub);
-        const hash = hasha(buff).substr(0, 8);
-
-        const lastIndex = sub.lastIndexOf('.');
-        let path = '';
-        // 同时有文件名和后缀将hash插到中间
-        if (lastIndex > -1) {
-          const head = sub.substr(0, lastIndex);
-          const tail = sub.substr(lastIndex);
-          path = head + '-' + hash + tail;
-          // 否则将hash插到前面
-        } else {
-          path = hash + '-' + sub;
-        }
-        path = path.replace(/$doc\//, 'dist/');
+        let path = appendHash(sub, hasha(buff));
+        path = toDistPath(path);
         writeFileInsureDir(path, buff);
         assetsHashMap[sub] = path;
       }
