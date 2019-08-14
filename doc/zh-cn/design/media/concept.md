@@ -1,4 +1,12 @@
+```index
+1
+```
+```tag
 
+```
+```summary
+
+```
 # 媒体
 
 <img src='./images/assets-kit-cn.jpg'>

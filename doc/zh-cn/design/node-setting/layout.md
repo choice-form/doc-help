@@ -1,3 +1,12 @@
+```index
+10
+```
+```tag
+
+```
+```summary
+
+```
 # 布局设置
 
 <img src='../../assets/snapshots/node-setting/common/layout/section.png'>

@@ -1,3 +1,12 @@
+```index
+5
+```
+```tag
+
+```
+```summary
+
+```
 # 视图工具栏
 
 <img src='../../assets/snapshots/layout/footer-bar.png'>

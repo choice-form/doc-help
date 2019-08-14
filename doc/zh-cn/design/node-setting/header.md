@@ -1,3 +1,12 @@
+```index
+2
+```
+```tag
+
+```
+```summary
+
+```
 # 节点设置头部区
 
 <img src='../../assets/snapshots/node-setting/leading-section/section.png'>
