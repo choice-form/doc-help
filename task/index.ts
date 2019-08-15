@@ -6,6 +6,7 @@ import mkdirp = require('mkdirp');
 import path = require('path');
 import marked = require('marked');
 import cheerio = require('cheerio');
+import { isExclusiveFile, indexReg, tagReg, summaryReg, aliasReg } from './common';
 
 
 export interface ISignStrStr {
@@ -46,10 +47,7 @@ const distDir = 'dist';
 
 const cdnHost = 'https://media.choiceform.com/help';
 
-const indexReg = /```\s*index\s*(\d+)\s*```/;
-const aliasReg = /```\s*alias\s*((?:[^`]+?\s?)*)\s*```/;
-const tagReg = /```\s*tag\s*((?:[^`]+?\s?)*)\s*```/;
-const summaryReg = /```\s*summary\s*((?:[^`]+?\s?)*)\s*```/;
+
 
 const build = () => {
   prepare();
@@ -254,22 +252,6 @@ const eraseDistPrefix = (path: string) => {
   return path.replace(/^dist\//, '');
 }
 
-
-
-/**
- * 是否为需要排除的文件
- * @param file 
- */
-const isExclusiveFile = (file: string): boolean => {
-  if (['.DS_Store', '.idea'].includes(file)) {
-    return true;
-  }
-  if (file.startsWith('_')) {
-    return true;
-  }
-  return false;
-}
-
 /**
  * 凭借hash到文件命中
  * @param path 
@@ -317,9 +299,9 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
       // 生成一个空索引数据
       const indexData: IDocIndexData = {
         name, path: dir,
-        alias: '??????', index: 0, type: 'dir'
+        alias: name, index: 1000000, type: 'dir'
       };
-      // 扫描子资源的时候会尝试填充这个数据，如果没有填充别名就仍然会是问号。
+      // 扫描子资源的时候会尝试填充这个数据，如果没有填充别名就仍然会是原始名称。
       const data = buildAssets(sub, indexData);
       // 吸收子资源的hash
       assetsHashMap = {
@@ -358,7 +340,7 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
         // 后续会再次扫描indexList来通过url转化markdown,
         // 那时候会将真实的别名,索引和地址填入
         indexList.push({
-          name, index: 0, alias: '',
+          name, index: 1000000, alias: '',
           url: sub, type: 'file',
           path: dir,
         })
