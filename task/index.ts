@@ -37,8 +37,8 @@ export interface IDocSearchData {
 }
 
 
-const docDir = '/doc';
-const distDir = '/dist';
+const docDir = 'doc';
+const distDir = 'dist';
 
 // const cdnHost = 'https://media.choiceform.com';
 
@@ -57,7 +57,7 @@ const build = () => {
       main[lang] = buildLang(lang);
     }
   })
-  fs.writeFileSync(distDir + '/main.json', JSON.stringify(main));
+  writeFileInsureDir(distDir + '/main.json', JSON.stringify(main));
 }
 
 
@@ -78,13 +78,13 @@ const buildLang = (lang: string): IDocMainUrl => {
   const indexHash = hasha(indexText);
   let indexPath = distDir + '/' + lang + '/index.json';
   indexPath = appendHash(indexPath, indexHash);
-  fs.writeFileSync(indexPath, indexText);
+  writeFileInsureDir(indexPath, indexText);
   // 写入搜索文件
   const searchText = JSON.stringify(searchList);
   const searchHash = hasha(searchText);
   let searchPath = distDir + '/' + lang + '/search.json';
   searchPath = appendHash(searchPath, searchHash);
-  fs.writeFileSync(searchPath, searchText);
+  writeFileInsureDir(searchPath, searchText);
 
   return { indexUrl: indexPath, searchUrl: searchPath };
 }
@@ -113,6 +113,14 @@ const sortIndexList = (indexList: IDocIndexData[]) => {
 }
 
 /**
+ * 检查匹配结果中是包含有效的注释信息
+ * @param rs 
+ */
+const containsCommentData = (rs: RegExpMatchArray) => {
+  return rs && rs[1] && rs[1].replace(/\s+/g, '') !== '';
+}
+
+/**
  * 构建索引目录
  * @param assetsHashMap 
  * @param indexList 
@@ -127,29 +135,31 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[]) 
       const search: IDocSearchData = { tags: [], summary: '', url: '' };
       let text = fs.readFileSync(data.url).toString();
       const indexMatch = text.match(indexReg);
-      // 找到了索引配置
-      if (indexMatch) {
+      // 找到了索引配置且其中有内容
+      if (containsCommentData(indexMatch)) {
         // 写入索引，没找到的使用原始的0做索引
         data.index = Number(indexMatch[1]);
       }
       const tagMatch = text.match(tagReg);
-      // 找到了tag
-      if (tagMatch) {
+      // 找到了tag标记且其中有内容
+      if (containsCommentData(tagMatch)) {
         // 去除掉多余的空格后按空格分割
         search.tags = tagMatch[1].replace(/\s+/g, ' ').trim().split(' ');
         // 没有找到tag的话使用各级标题做tag
       } else {
-        const titleMatch = text.match(/#{1,5}\s+.+?\s*/g);
+        const titleMatch = text.match(/#{1,5}\s+.+?\s*\n/g);
         if (titleMatch) {
           search.tags = titleMatch.map(text => {
             return text.replace(/[#\s]/g, '');
           });
         }
       }
+      // 同时用第一个标题做名称
+      data.alias = search.tags[0] || '';
 
       const summaryMatch = text.match(summaryReg);
       // 找到了summary
-      if (summaryReg) {
+      if (containsCommentData(summaryMatch)) {
         search.summary = summaryMatch[1];
         // 没有找到则提取文章第一端作为summary
       } else {
@@ -166,8 +176,10 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[]) 
 
       // 替换图片地址
       const imgUrlReplaceFn = (match: string, first: string) => {
+        const currentPath = path.resolve();
         const absoluteUrl = path.resolve(data.path, first);
-        const hashedUrl = assetsHashMap[absoluteUrl];
+        const relativeUrl = absoluteUrl.substr(currentPath.length + 1);
+        const hashedUrl = assetsHashMap[relativeUrl];
         return match.replace(first, hashedUrl);
       }
       // 有三种插入格式， 1： 图片标签方式
@@ -191,7 +203,7 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[]) 
       let writePath = data.url.replace(/\.md$/, '.json')
       writePath = toDistPath(writePath);
       writePath = appendHash(writePath, resourceHash);
-      fs.writeFileSync(writePath, resourceText);
+      writeFileInsureDir(writePath, resourceText);
       search.url = writePath;
       data.url = writePath;
     } else {
@@ -206,8 +218,12 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[]) 
   return searchList;
 }
 
+/**
+ * 转化为目标文件地址
+ * @param path 
+ */
 const toDistPath = (path: string) => {
-  return path.replace(/^\/doc\//, '/dist/');
+  return path.replace(/^doc\//, 'dist/');
 }
 
 
@@ -277,12 +293,18 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
       };
       // 扫描子资源的时候会尝试填充这个数据，如果没有填充别名就仍然会是问号。
       const data = buildAssets(sub, indexData);
-      indexData.children = data.indexList;
+      // 吸收子资源的hash
       assetsHashMap = {
         ...assetsHashMap,
         ...data.assetsHashMap,
       }
-      indexList.push(indexData);
+
+      // 文件文件夹中扫描扫描到了有效的文档文件
+      if (data.indexList.length > 0) {
+        indexData.children = data.indexList;
+        indexList.push(indexData);
+        // 扫描不到的话说明这是一个纯资源文件，不需要加入到目录索引中
+      }
       // 是文件
     } else {
       // 是文件夹索引文件
@@ -290,16 +312,16 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
         const text = fs.readFileSync(sub).toString();
         const indexMatch = text.match(indexReg);
         // 能匹配到序号
-        if (indexMatch) {
+        if (containsCommentData(indexMatch)) {
           pIndexData.index = Number(indexMatch[1])
         }
         const aliasMatch = text.match(aliasReg);
         // 能匹配到别名
-        if (aliasMatch) {
-          pIndexData.alias = aliasMatch[1];
+        if (containsCommentData(aliasMatch)) {
+          pIndexData.alias = aliasMatch[1].replace(/\s+/g, ' ').trim();
         }
         // 是markdown文件
-      } else if (name.endsWith('.md')) {
+      } else if (name.endsWith('.md')) {``
         // 推入一个初始数据，
         // 此时填入的地址是原始文件路径，
         // 此时不会转化markdown，
