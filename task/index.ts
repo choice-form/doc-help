@@ -5,6 +5,7 @@ import hasha = require('hasha');
 import mkdirp = require('mkdirp');
 import path = require('path');
 import marked = require('marked');
+import cheerio = require('cheerio');
 
 
 export interface ISignStrStr {
@@ -135,12 +136,20 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[]) 
       const search: IDocSearchData = { tags: [], summary: '', url: '' };
       let text = fs.readFileSync(data.url).toString();
       const indexMatch = text.match(indexReg);
+      // 如果能匹配到，则删除这个注释
+      if (indexMatch) {
+        text = text.replace(indexReg, '');
+      }
       // 找到了索引配置且其中有内容
       if (containsCommentData(indexMatch)) {
         // 写入索引，没找到的使用原始的0做索引
         data.index = Number(indexMatch[1]);
       }
       const tagMatch = text.match(tagReg);
+      // 如果能匹配到，则删除这个注释
+      if (tagMatch) {
+        text = text.replace(tagReg, '');
+      }
       // 找到了tag标记且其中有内容
       if (containsCommentData(tagMatch)) {
         // 去除掉多余的空格后按空格分割
@@ -158,21 +167,15 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[]) 
       data.alias = search.tags[0] || '';
 
       const summaryMatch = text.match(summaryReg);
+      // 如果能匹配到，则删除这个注释
+      if (summaryMatch) {
+        text = text.replace(summaryReg, '');
+      }
       // 找到了summary
       if (containsCommentData(summaryMatch)) {
         search.summary = summaryMatch[1];
-        // 没有找到则提取文章第一端作为summary
-      } else {
-        const pMatch = text.match(/\s*[^#](.+?)\s*/);
-        if (pMatch) {
-          // 但是要清除链接格式
-          search.summary = pMatch[1].replace(/\[(.+?)\]\(.+?\)/g, '$1');
-        }
+        // 没有找到则后续再转化好的HTML提取文章第一个段落作为summary
       }
-      // 移除文档中开头的配置标记
-      text = text.replace(indexReg, '')
-        .replace(tagReg, '')
-        .replace(summaryReg, '');
 
       // 替换图片地址
       const imgUrlReplaceFn = (match: string, first: string) => {
@@ -198,6 +201,15 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[]) 
         tags: search.tags,
         content: marked(text),
       }
+      // 之前没有成功取到summary,从HTML中抽取第一个段落当成summary
+      if (!search.summary) {
+        const pMatch = resource.content.match(/<p>.+?<\/p>/);
+        if (pMatch) {
+          // 但是只要纯文字
+          const $ = cheerio.load(`<div>${pMatch[0]}</div>`);
+          search.summary = $('p').text();
+        }
+      }
       const resourceText = JSON.stringify(resource);
       const resourceHash = hasha(resourceText);
       let writePath = data.url.replace(/\.md$/, '.json')
@@ -206,6 +218,7 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[]) 
       writeFileInsureDir(writePath, resourceText);
       search.url = writePath;
       data.url = writePath;
+      searchList.push(search);
     } else {
       // 是文件夹的深入扫描
       searchList = [
@@ -321,7 +334,8 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
           pIndexData.alias = aliasMatch[1].replace(/\s+/g, ' ').trim();
         }
         // 是markdown文件
-      } else if (name.endsWith('.md')) {``
+      } else if (name.endsWith('.md')) {
+        ``
         // 推入一个初始数据，
         // 此时填入的地址是原始文件路径，
         // 此时不会转化markdown，
