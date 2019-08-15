@@ -90,7 +90,10 @@ const buildLang = (lang: string): IDocMainUrl => {
   searchPath = appendHash(searchPath, searchHash);
   writeFileInsureDir(searchPath, searchText);
 
-  return { indexUrl: indexPath, searchUrl: searchPath };
+  return {
+    indexUrl: eraseDistPrefix(indexPath),
+    searchUrl: eraseDistPrefix(searchPath)
+  };
 }
 
 
@@ -188,12 +191,15 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[]) 
         const hashedUrl = assetsHashMap[relativeUrl];
         return match.replace(first, hashedUrl);
       }
+      if (data.name === 'navbar.md') {
+        debugger;
+      }
       // 有三种插入格式， 1： 图片标签方式
-      text = text.replace(/<img\s*.+?src=['"](.+?)['"]/, imgUrlReplaceFn)
+      text = text.replace(/<img\s*.+?src=['"](.+?)['"]/g, imgUrlReplaceFn)
         // 2. markdown简洁语法  ![Alt text](图片链接) 
-        .replace(/!\[.+?\]\((.+?)\)/, imgUrlReplaceFn)
+        .replace(/!\[.+?\]\((.+?)\)/g, imgUrlReplaceFn)
         // 3. markdown携带title的语法 ![Alt text](图片链接 "optional title") 
-        .replace(/!\[.+?\]\((.+?)\s+.+?\)/, imgUrlReplaceFn);
+        .replace(/!\[.+?\]\((.+?)\s+.+?\)/g, imgUrlReplaceFn);
 
       // 替换markdown链接,仅仅去掉后缀名
       text = text.replace(/\[.+?\]\((.+?\.md)\)/g, (match, first: string) => {
@@ -206,11 +212,10 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[]) 
       }
       // 之前没有成功取到summary,从HTML中抽取第一个段落当成summary
       if (!search.summary) {
-        const pMatch = resource.content.match(/<p>.+?<\/p>/);
-        if (pMatch) {
-          // 但是只要纯文字
-          const $ = cheerio.load(`<div>${pMatch[0]}</div>`);
-          search.summary = $('p').text();
+        const $ = cheerio.load(`<div>${resource.content}</div>`);
+        const ps = $('p:not(blockquote p)');
+        if (ps.length > 0) {
+          search.summary = $(ps[0]).text();
         }
       }
       const resourceText = JSON.stringify(resource);
@@ -219,8 +224,7 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[]) 
       writePath = toDistPath(writePath);
       writePath = appendHash(writePath, resourceHash);
       writeFileInsureDir(writePath, resourceText);
-      search.url = writePath;
-      data.url = writePath;
+      search.url = data.url = eraseDistPrefix(writePath);
       searchList.push(search);
     } else {
       // 是文件夹的深入扫描
@@ -240,6 +244,14 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[]) 
  */
 const toDistPath = (path: string) => {
   return path.replace(/^doc\//, 'dist/');
+}
+
+/**
+ * 擦除路径开头的dist目录信息
+ * @param path 
+ */
+const eraseDistPrefix = (path: string) => {
+  return path.replace(/^dist\//, '');
 }
 
 
@@ -357,7 +369,7 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
         let path = appendHash(sub, hasha(buff));
         path = toDistPath(path);
         writeFileInsureDir(path, buff);
-        assetsHashMap[sub] = path;
+        assetsHashMap[sub] = cdnHost + '/' + eraseDistPrefix(path);
       }
     }
   });
