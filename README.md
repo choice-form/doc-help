@@ -69,13 +69,16 @@
 + 总文件：里面就了支持多少中语言，每个语言对应的目录配置文件的地址，这本文件的文件名不会附加hash值，是一本json文件，需要直接从服务器上读取，而不是从cdn读取，内容如下：
 ```typescript
 {
-  'zh-cn': {
-    indexUrl: 'zh-cn/index-2jh64g78.json', // 各个语言的目录配置文件地址
-    searchUrl: 'zh-cn/search-ffg45re3.json' // 搜索依据文件地址
-  }
-  'en-us': {
-    indexUrl: 'en-us/index-4456gf67.json', // 各个语言的目录配置文件地址
-    searchUrl: 'en-us/search-1122ss33.json' // 搜索依据文件地址
+  'cdn': 'https://media.choiceform.com/help',
+  'langs': {
+    'zh-cn': {
+      indexUrl: 'zh-cn/index-2jh64g78.json', // 各个语言的目录配置文件地址
+      searchUrl: 'zh-cn/search-ffg45re3.json' // 搜索依据文件地址
+    }
+    'en-us': {
+      indexUrl: 'en-us/index-4456gf67.json', // 各个语言的目录配置文件地址
+      searchUrl: 'en-us/search-1122ss33.json' // 搜索依据文件地址
+    }
   }
 }
 

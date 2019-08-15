@@ -18,7 +18,10 @@ export interface IDocMainUrl {
 }
 
 export interface IDocMain {
-  [key: string]: IDocMainUrl;
+  cdn: string;
+  langs: {
+    [key: string]: IDocMainUrl;
+  }
 }
 
 export interface IDocIndexData {
@@ -41,7 +44,7 @@ export interface IDocSearchData {
 const docDir = 'doc';
 const distDir = 'dist';
 
-// const cdnHost = 'https://media.choiceform.com';
+const cdnHost = 'https://media.choiceform.com/help';
 
 const indexReg = /```\s*index\s*(\d+)\s*```/;
 const aliasReg = /```\s*alias\s*((?:[^`]+?\s?)*)\s*```/;
@@ -51,11 +54,11 @@ const summaryReg = /```\s*summary\s*((?:[^`]+?\s?)*)\s*```/;
 const build = () => {
   prepare();
   const langDirs = fs.readdirSync(docDir);
-  const main: IDocMain = {};
+  const main: IDocMain = { cdn: cdnHost, langs: {} };
   langDirs.forEach(lang => {
     const stat = fs.statSync(docDir + '/' + lang);
     if (stat.isDirectory()) {
-      main[lang] = buildLang(lang);
+      main.langs[lang] = buildLang(lang);
     }
   })
   writeFileInsureDir(distDir + '/main.json', JSON.stringify(main));

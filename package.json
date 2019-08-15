@@ -17,5 +17,8 @@
     "mkdirp": "^0.5.1",
     "rimraf": "^2.7.0",
     "typescript": "^3.5.3"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/tsc && node build/task/index.js"
   }
 }
