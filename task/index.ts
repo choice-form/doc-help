@@ -40,7 +40,7 @@ export interface IDocSearchData {
 const docDir = '/doc';
 const distDir = '/dist';
 
-const cdnHost = 'https://media.choiceform.com';
+// const cdnHost = 'https://media.choiceform.com';
 
 const indexReg = /```\s*index\s*(\d+)\s*```/;
 const aliasReg = /```\s*alias\s*((?:[^`]+?\s?)*)\s*```/;
@@ -70,6 +70,46 @@ const buildLang = (lang: string): IDocMainUrl => {
   const { assetsHashMap, indexList } = buildAssets(docDir + '/' + lang, null);
   // 然后处理索引目录
   const searchList = buildIndexList(assetsHashMap, indexList);
+
+  sortIndexList(indexList);
+
+  // 写入索引文件
+  const indexText = JSON.stringify(indexList);
+  const indexHash = hasha(indexText);
+  let indexPath = distDir + '/' + lang + '/index.json';
+  indexPath = appendHash(indexPath, indexHash);
+  fs.writeFileSync(indexPath, indexText);
+  // 写入搜索文件
+  const searchText = JSON.stringify(searchList);
+  const searchHash = hasha(searchText);
+  let searchPath = distDir + '/' + lang + '/search.json';
+  searchPath = appendHash(searchPath, searchHash);
+  fs.writeFileSync(searchPath, searchText);
+
+  return { indexUrl: indexPath, searchUrl: searchPath };
+}
+
+
+/**
+ * 给索引目录排序并移除临时属性
+ * @param indexList 
+ */
+const sortIndexList = (indexList: IDocIndexData[]) => {
+  indexList.sort((a, b) => {
+    return a.index > b.index ? 1 : -1;
+  })
+  indexList.forEach(item => {
+    delete item.index;
+    delete item.path;
+    delete item.type
+    if (item.children) {
+      if (item.children.length === 0) {
+        delete item.children;
+      } else {
+        sortIndexList(item.children)
+      }
+    }
+  })
 }
 
 /**
@@ -312,3 +352,4 @@ const prepare = () => {
 
 
 
+build();
