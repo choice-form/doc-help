@@ -39,6 +39,8 @@ export interface IDocSearchData {
   tags: string[];
   summary: string;
   url: string;
+  name: string;
+  title: string;
 }
 
 
@@ -130,14 +132,18 @@ const containsCommentData = (rs: RegExpMatchArray) => {
  * @param assetsHashMap 
  * @param indexList 
  */
-const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[]) => {
+const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[], pTitle = '') => {
 
   let searchList: IDocSearchData[] = [];
 
   indexList.forEach(data => {
+
     // 是文件的才需要再次处理
     if (data.type === 'file') {
-      const search: IDocSearchData = { tags: [], summary: '', url: '' };
+      const search: IDocSearchData = {
+        name: data.name, title: '',
+        tags: [], summary: '', url: ''
+      };
       let text = fs.readFileSync(data.url).toString();
       const indexMatch = text.match(indexReg);
       // 如果能匹配到，则删除这个注释
@@ -223,12 +229,14 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[]) 
       writePath = appendHash(writePath, resourceHash);
       writeFileInsureDir(writePath, resourceText);
       search.url = data.url = eraseDistPrefix(writePath);
+      search.title = pTitle ? pTitle + '->' + data.alias : data.alias;
       searchList.push(search);
     } else {
+      const title = pTitle ? pTitle + '->' + data.alias : data.alias;
       // 是文件夹的深入扫描
       searchList = [
         ...searchList,
-        ...buildIndexList(assetsHashMap, data.children)
+        ...buildIndexList(assetsHashMap, data.children, title)
       ];
     }
   })
@@ -340,7 +348,8 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
         // 后续会再次扫描indexList来通过url转化markdown,
         // 那时候会将真实的别名,索引和地址填入
         indexList.push({
-          name, index: 1000000, alias: '',
+          name: name.replace(/.md$/, ''),
+          index: 1000000, alias: '',
           url: sub, type: 'file',
           path: dir,
         })
