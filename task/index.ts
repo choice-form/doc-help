@@ -111,25 +111,29 @@ const rewriteDoc = (searchList: IDocSearchData[]) => {
   searchList.forEach(item => {
     const filePath = distDir + '/' + item.url;
     const data = JSON.parse(fs.readFileSync(filePath).toString()) as IDocData;
-    const $ = cheerio.load(`<div>${data.content}</div>`);
+    const $ = cheerio.load(`<div>${data.content}</div>`, { decodeEntities: false });
     const $aList = $('a');
     const selfPath = path.dirname(item.url)
     // 尝试替换其中a标签的链接
     $aList.each((idx, a) => {
       const $a = $(a);
       const href = $a.attr('href');
-      if (href && href.endsWith('.md')) {
-        const relativeHref = href.replace(/.md$/, '');
-        const realUrl = getRealUrl(selfPath, relativeHref);
-        const targetItem = searchList.find(sItem => {
-          return sItem.url.startsWith(realUrl) && sItem.url.length === realUrl.length + 14;
-        })
-        if (targetItem) {
-          $a.attr('href', targetItem.url);
+      if (href) {
+        const [realHref, suffix] = href.split('#');
+        if (realHref.endsWith('.md')) {
+          const relativeHref = realHref.replace(/.md$/, '');
+          const realUrl = getRealUrl(selfPath, relativeHref);
+          const targetItem = searchList.find(sItem => {
+            return sItem.url.startsWith(realUrl) && sItem.url.length === realUrl.length + 14;
+          })
+          if (targetItem) {
+            const recoverUrl = suffix ? targetItem.url + '#' + suffix : targetItem.url;
+            $a.attr('href', recoverUrl);
+          }
         }
       }
     });
-    data.content = $.html({decodeEntities: false});
+    data.content = $('body > div').html();
     // 替换完成后写回文件
     fs.writeFileSync(filePath, JSON.stringify(data));
   })
