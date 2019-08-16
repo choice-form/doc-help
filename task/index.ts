@@ -52,14 +52,19 @@ export interface IDocData {
 const docDir = 'doc';
 const distDir = 'dist';
 
-const cdnHost = 'https://media.choiceform.com/help';
+const cdnHost: { [key: string]: string } = {
+  staging: 'https://media.choiceform.io/os-help-source/assets',
+  prod: 'https://media.choiceform.com/os-help-source/assets',
+}
 
 
 
 const build = () => {
   prepare();
+  const env = process.argv[2];
+  const cdn = cdnHost[env] || cdnHost.staging;
   const langDirs = fs.readdirSync(docDir);
-  const main: IDocMain = { cdn: cdnHost, langs: {} };
+  const main: IDocMain = { cdn, langs: {} };
   langDirs.forEach(lang => {
     const stat = fs.statSync(docDir + '/' + lang);
     if (stat.isDirectory()) {
