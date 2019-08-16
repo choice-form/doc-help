@@ -43,6 +43,11 @@ export interface IDocSearchData {
   title: string;
 }
 
+export interface IDocData {
+  tags: string[],
+  content: string;
+}
+
 
 const docDir = 'doc';
 const distDir = 'dist';
@@ -74,9 +79,7 @@ const buildLang = (lang: string): IDocMainUrl => {
   const { assetsHashMap, indexList } = buildAssets(docDir + '/' + lang, null);
   // 然后处理索引目录
   const searchList = buildIndexList(assetsHashMap, indexList);
-
   sortIndexList(indexList);
-
   // 写入索引文件
   const indexText = JSON.stringify(indexList);
   const indexHash = hasha(indexText);
@@ -89,11 +92,47 @@ const buildLang = (lang: string): IDocMainUrl => {
   let searchPath = distDir + '/' + lang + '/search.json';
   searchPath = appendHash(searchPath, searchHash);
   writeFileInsureDir(searchPath, searchText);
-
+  // 重写文档文件
+  rewriteDoc(searchList);
   return {
     indexUrl: eraseDistPrefix(indexPath),
     searchUrl: eraseDistPrefix(searchPath)
   };
+}
+
+/**
+ * 重写文档,因为要更正里面的链接，而连接都得带hash
+ * 所以只能等全部文件写完判定好hash后才能改写，
+ * 改写后元hash会和真实hash不一样，但这不影响我们，
+ * 我们的hash只用来区别更改的版本。
+ * @param searchList 
+ */
+const rewriteDoc = (searchList: IDocSearchData[]) => {
+  searchList.forEach(item => {
+    const filePath = distDir + '/' + item.url;
+    const data = JSON.parse(fs.readFileSync(filePath).toString()) as IDocData;
+    const $ = cheerio.load(`<div>${data.content}</div>`);
+    const $aList = $('a');
+    const selfPath = path.dirname(item.url)
+    // 尝试替换其中a标签的链接
+    $aList.each((idx, a) => {
+      const $a = $(a);
+      const href = $a.attr('href');
+      if (href && href.endsWith('.md')) {
+        const relativeHref = href.replace(/.md$/, '');
+        const realUrl = getRealUrl(selfPath, relativeHref);
+        const targetItem = searchList.find(sItem => {
+          return sItem.url.startsWith(realUrl) && sItem.url.length === realUrl.length + 14;
+        })
+        if (targetItem) {
+          $a.attr('href', targetItem.url);
+        }
+      }
+    });
+    data.content = $.html({decodeEntities: false});
+    // 替换完成后写回文件
+    fs.writeFileSync(filePath, JSON.stringify(data));
+  })
 }
 
 
@@ -125,6 +164,18 @@ const sortIndexList = (indexList: IDocIndexData[]) => {
  */
 const containsCommentData = (rs: RegExpMatchArray) => {
   return rs && rs[1] && rs[1].replace(/\s+/g, '') !== '';
+}
+
+/**
+ * 获取基于当成仓库的根目录的真实路径
+ * @param selfPath 
+ * @param relativeHref 
+ */
+const getRealUrl = (selfPath: string, relativeHref: string) => {
+  const cwd = path.resolve();
+  const absoluteUrl = path.resolve(selfPath, relativeHref);
+  const realUrl = absoluteUrl.substr(cwd.length + 1);
+  return realUrl;
 }
 
 /**
@@ -189,10 +240,8 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[], 
 
       // 替换图片地址
       const imgUrlReplaceFn = (match: string, first: string) => {
-        const currentPath = path.resolve();
-        const absoluteUrl = path.resolve(data.path, first);
-        const relativeUrl = absoluteUrl.substr(currentPath.length + 1);
-        const hashedUrl = assetsHashMap[relativeUrl];
+        const realUrl = getRealUrl(data.path, first);
+        const hashedUrl = assetsHashMap[realUrl];
         return match.replace(first, hashedUrl);
       }
       if (data.name === 'navbar.md') {
@@ -205,23 +254,23 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[], 
         // 3. markdown携带title的语法 ![Alt text](图片链接 "optional title") 
         .replace(/!\[.+?\]\((.+?)\s+.+?\)/g, imgUrlReplaceFn);
 
-      // 替换markdown链接,仅仅去掉后缀名
-      text = text.replace(/\[.+?\]\((.+?\.md)\)/g, (match, first: string) => {
-        return match.replace(first, first.replace(/\.md$/, ''));
-      })
       // 转化markdown
-      const resource = {
+      const resource: IDocData = {
         tags: search.tags,
         content: marked(text),
       }
+
       // 之前没有成功取到summary,从HTML中抽取第一个段落当成summary
       if (!search.summary) {
+
         const $ = cheerio.load(`<div>${resource.content}</div>`);
-        const ps = $('p:not(blockquote p)');
-        if (ps.length > 0) {
-          search.summary = $(ps[0]).text();
+        const $ps = $('p:not(blockquote p)');
+        if ($ps.length > 0) {
+          search.summary = $($ps[0]).text();
         }
       }
+
+
       const resourceText = JSON.stringify(resource);
       const resourceHash = hasha(resourceText);
       let writePath = data.url.replace(/\.md$/, '.json')
