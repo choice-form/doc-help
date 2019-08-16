@@ -1,4 +1,11 @@
 {
     "editor.tabSize": 2,
-    "editor.detectIndentation": false
+    "editor.detectIndentation": false,
+    "search.exclude": {
+      "/.git": true,
+      "/node_modules": true,
+      "/build": true,
+      "/dist": true,
+      "/tmp": true
+    },
 }

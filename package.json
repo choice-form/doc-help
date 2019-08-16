@@ -19,6 +19,7 @@
     "typescript": "^3.5.3"
   },
   "scripts": {
+    "check-link": "./node_modules/.bin/tsc && node build/tool/check-link.js",
     "build": "./node_modules/.bin/tsc && node build/task/index.js"
   }
 }
