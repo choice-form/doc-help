@@ -26,7 +26,6 @@ export interface IDocMain {
 }
 
 export interface IDocIndexData {
-  name: string;
   alias: string;
   index?: number;
   type?: 'file' | 'dir';
@@ -39,7 +38,7 @@ export interface IDocSearchData {
   tags: string[];
   summary: string;
   url: string;
-  name: string;
+  path: string;
   title: string;
 }
 
@@ -156,7 +155,10 @@ const sortIndexList = (indexList: IDocIndexData[]) => {
   indexList.forEach(item => {
     delete item.index;
     delete item.path;
-    delete item.type
+    delete item.type;
+    if (item.url) {
+      item.path = jsonUrlToArticleName(item.url);
+    }
     if (item.children) {
       if (item.children.length === 0) {
         delete item.children;
@@ -187,6 +189,17 @@ const getRealUrl = (selfPath: string, relativeHref: string) => {
   return realUrl;
 }
 
+
+const mdUrlToArticleName = (url: string) => {
+  return url.replace(/doc\/.+?\//, '')
+    .replace(/\.md$/, '').replace(/\//g, '_');
+}
+
+const jsonUrlToArticleName = (url: string) => {
+  return url.replace(/^.+?\//, '')
+    .replace(/-\w{8}\.json$/, '').replace(/\//g, '_');
+}
+
 /**
  * 构建索引目录
  * @param assetsHashMap 
@@ -201,7 +214,8 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[], 
     // 是文件的才需要再次处理
     if (data.type === 'file') {
       const search: IDocSearchData = {
-        name: data.name, title: '',
+        path: mdUrlToArticleName(data.url),
+        title: '',
         tags: [], summary: '', url: ''
       };
       let text = fs.readFileSync(data.url).toString();
@@ -253,9 +267,6 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[], 
         const hashedUrl = assetsHashMap[realUrl];
         return match.replace(first, hashedUrl);
       }
-      if (data.name === 'navbar.md') {
-        debugger;
-      }
       // 有三种插入格式， 1： 图片标签方式
       text = text.replace(/<img\s*.+?src=['"](.+?)['"]/g, imgUrlReplaceFn)
         // 2. markdown简洁语法  ![Alt text](图片链接) 
@@ -287,10 +298,10 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[], 
       writePath = appendHash(writePath, resourceHash);
       writeFileInsureDir(writePath, resourceText);
       search.url = data.url = eraseDistPrefix(writePath);
-      search.title = pTitle ? pTitle + '->' + data.alias : data.alias;
+      search.title = pTitle ? pTitle + '>' + data.alias : data.alias;
       searchList.push(search);
     } else {
-      const title = pTitle ? pTitle + '->' + data.alias : data.alias;
+      const title = pTitle ? pTitle + '>' + data.alias : data.alias;
       // 是文件夹的深入扫描
       searchList = [
         ...searchList,
@@ -364,7 +375,7 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
     if (stat.isDirectory()) {
       // 生成一个空索引数据
       const indexData: IDocIndexData = {
-        name, path: dir,
+        path: dir,
         alias: name, index: 1000000, type: 'dir'
       };
       // 扫描子资源的时候会尝试填充这个数据，如果没有填充别名就仍然会是原始名称。
@@ -406,7 +417,6 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
         // 后续会再次扫描indexList来通过url转化markdown,
         // 那时候会将真实的别名,索引和地址填入
         indexList.push({
-          name: name.replace(/.md$/, ''),
           index: 1000000, alias: '',
           url: sub, type: 'file',
           path: dir,
