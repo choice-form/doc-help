@@ -56,12 +56,14 @@ const cdnHost: { [key: string]: string } = {
   prod: 'https://media.choiceform.com/os-help-source/assets',
 }
 
+const env = process.argv[2];
+const cdn = cdnHost[env] || cdnHost.staging;
 
 
 const build = () => {
   prepare();
-  const env = process.argv[2];
-  const cdn = cdnHost[env] || cdnHost.staging;
+
+
   const langDirs = fs.readdirSync(docDir);
   const main: IDocMain = { cdn, langs: {} };
   langDirs.forEach(lang => {
@@ -444,7 +446,7 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
         let path = appendHash(sub, hasha(buff));
         path = toDistPath(path);
         writeFileInsureDir(path, buff);
-        assetsHashMap[sub] = cdnHost + '/' + eraseDistPrefix(path);
+        assetsHashMap[sub] = cdn + '/' + eraseDistPrefix(path);
       }
     }
   });
