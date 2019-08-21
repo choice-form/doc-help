@@ -96,52 +96,52 @@ const buildLang = (lang: string): IDocMainUrl => {
   let searchPath = distDir + '/' + lang + '/search.json';
   searchPath = appendHash(searchPath, searchHash);
   writeFileInsureDir(searchPath, searchText);
-  // 重写文档文件
-  rewriteDoc(searchList);
+  // // 重写文档文件
+  // rewriteDoc(searchList);
   return {
     indexUrl: eraseDistPrefix(indexPath),
     searchUrl: eraseDistPrefix(searchPath)
   };
 }
 
-/**
- * 重写文档,因为要更正里面的链接，而连接都得带hash
- * 所以只能等全部文件写完判定好hash后才能改写，
- * 改写后元hash会和真实hash不一样，但这不影响我们，
- * 我们的hash只用来区别更改的版本。
- * @param searchList 
- */
-const rewriteDoc = (searchList: IDocSearchData[]) => {
-  searchList.forEach(item => {
-    const filePath = distDir + '/' + item.url;
-    const data = JSON.parse(fs.readFileSync(filePath).toString()) as IDocData;
-    const $ = cheerio.load(`<div>${data.content}</div>`, { decodeEntities: false });
-    const $aList = $('a');
-    const selfPath = path.dirname(item.url)
-    // 尝试替换其中a标签的链接
-    $aList.each((idx, a) => {
-      const $a = $(a);
-      const href = $a.attr('href');
-      if (href) {
-        const [realHref, suffix] = href.split('#');
-        if (realHref.endsWith('.md')) {
-          const relativeHref = realHref.replace(/.md$/, '');
-          const realUrl = getRealUrl(selfPath, relativeHref);
-          const targetItem = searchList.find(sItem => {
-            return sItem.url.startsWith(realUrl) && sItem.url.length === realUrl.length + 14;
-          })
-          if (targetItem) {
-            const recoverUrl = suffix ? targetItem.url + '#' + suffix : targetItem.url;
-            $a.attr('href', recoverUrl);
-          }
-        }
-      }
-    });
-    data.content = $('body > div').html();
-    // 替换完成后写回文件
-    fs.writeFileSync(filePath, JSON.stringify(data));
-  })
-}
+// /**
+//  * 重写文档,因为要更正里面的链接，而连接都得带hash
+//  * 所以只能等全部文件写完判定好hash后才能改写，
+//  * 改写后元hash会和真实hash不一样，但这不影响我们，
+//  * 我们的hash只用来区别更改的版本。
+//  * @param searchList 
+//  */
+// const rewriteDoc = (searchList: IDocSearchData[]) => {
+//   searchList.forEach(item => {
+//     const filePath = distDir + '/' + item.url;
+//     const data = JSON.parse(fs.readFileSync(filePath).toString()) as IDocData;
+//     const $ = cheerio.load(`<div>${data.content}</div>`, { decodeEntities: false });
+//     const $aList = $('a');
+//     const selfPath = path.dirname(item.url)
+//     // 尝试替换其中a标签的链接
+//     $aList.each((idx, a) => {
+//       const $a = $(a);
+//       const href = $a.attr('href');
+//       if (href) {
+//         const [realHref, suffix] = href.split('#');
+//         if (realHref.endsWith('.md')) {
+//           const relativeHref = realHref.replace(/.md$/, '');
+//           const realUrl = getRealUrl(selfPath, relativeHref);
+//           const targetItem = searchList.find(sItem => {
+//             return sItem.url.startsWith(realUrl) && sItem.url.length === realUrl.length + 14;
+//           })
+//           if (targetItem) {
+//             const recoverUrl = suffix ? targetItem.url + '#' + suffix : targetItem.url;
+//             $a.attr('href', recoverUrl);
+//           }
+//         }
+//       }
+//     });
+//     data.content = $('body > div').html();
+//     // 替换完成后写回文件
+//     fs.writeFileSync(filePath, JSON.stringify(data));
+//   })
+// }
 
 
 /**
@@ -273,6 +273,23 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[], 
         .replace(/!\[.+?\]\((.+?)\)/g, imgUrlReplaceFn)
         // 3. markdown携带title的语法 ![Alt text](图片链接 "optional title") 
         .replace(/!\[.+?\]\((.+?)\s+.+?\)/g, imgUrlReplaceFn);
+      const selfPath = path.dirname(data.url);
+      // 替换链接地址 
+      const linkReplaceFn = (match: string, first: string, second: string) => {
+        if (second) {
+          const [realHref, suffix] = second.split('#');
+          if (realHref.endsWith('.md')) {
+            const relativeHref = realHref.replace(/.md$/, '');
+            const realUrl = getRealUrl(selfPath, relativeHref);
+            const linkUrl = '/articles/' + mdUrlToArticleName(realUrl)
+            const fullLinkUrl = suffix ? linkUrl + '#' + suffix : linkUrl;
+            return first + '(' + fullLinkUrl + ')';
+          }
+        }
+        return match;
+      }
+
+      text = text.replace(/(\[.+?\])\((.+?)\)/g, linkReplaceFn);
 
       // 转化markdown
       const resource: IDocData = {
@@ -282,7 +299,6 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[], 
 
       // 之前没有成功取到summary,从HTML中抽取第一个段落当成summary
       if (!search.summary) {
-
         const $ = cheerio.load(`<div>${resource.content}</div>`);
         const $ps = $('p:not(blockquote p)');
         if ($ps.length > 0) {
