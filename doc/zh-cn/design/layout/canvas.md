@@ -106,6 +106,6 @@ https://media.choiceform.com/doc-help/zh-cn/design/layout/canvas/dot.mp4
 > 参照[组合与模块](../groups/concept.md)了解更多组的信息。
 
 ## 快捷操作
-各种操作参见[快捷键与操作技巧](../shortcut/concept.md)，当你基本了解这些操作后，再继续阅读下面的内容。
+各种操作参见[快捷键与操作技巧](../operation/concept.md)，当你基本了解这些操作后，再继续阅读下面的内容。
 
 
