@@ -4,17 +4,20 @@
 ```typescript
 // main.json
 {
-  'zh-cn': {
-    indexUrl: '',
-    searchUrl: '',
-  },
-  'en-us': {
-    indexUrl: '',
-    searchUrl: '',
-  },
+  'cdn': 'https://media.choiceform.com/help',
+  'langs': {
+    'zh-cn': {
+      indexUrl: '',
+      searchUrl: '',
+    },
+    'en-us': {
+      indexUrl: '',
+      searchUrl: '',
+    },
+  }
 }
 ```
-2. 扫描各个语言的文档目录，区分markdown文件和其他文件，要忽略某些系统生成的文件如.DS_Store之流。
+2. 扫描各个语言的文档目录，区分markdown文件和其他文件，要忽略某些系统生成的文件如.DS_Store之流。以下划线_开头的目录和文件也会被忽略。
   + 生成一个空的目录概览数据。
   + 生成一个空的搜索概要数据
 2. 对于非markdown文件，全部读取内容并生成hash，生成一个hash值对照表。

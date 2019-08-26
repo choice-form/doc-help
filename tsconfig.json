@@ -7,6 +7,7 @@
     "module": "commonjs",
     "target": "es2017",
     "noUnusedLocals": true,
+    "sourceMap": true,
     "lib": [
       "es2017",
       "dom",
@@ -15,7 +16,6 @@
   "include": [
     "task/**/*.ts",
     "tool/**/*.ts",
-    "doc/config.ts",
     "types/**/*.ts"
   ]
 }

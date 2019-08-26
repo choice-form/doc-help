@@ -5,6 +5,8 @@ import hasha = require('hasha');
 import mkdirp = require('mkdirp');
 import path = require('path');
 import marked = require('marked');
+import cheerio = require('cheerio');
+import { isExclusiveFile, indexReg, tagReg, summaryReg, aliasReg } from './common';
 
 
 export interface ISignStrStr {
@@ -17,11 +19,13 @@ export interface IDocMainUrl {
 }
 
 export interface IDocMain {
-  [key: string]: IDocMainUrl;
+  cdn: string;
+  langs: {
+    [key: string]: IDocMainUrl;
+  }
 }
 
 export interface IDocIndexData {
-  name: string;
   alias: string;
   index?: number;
   type?: 'file' | 'dir';
@@ -34,30 +38,41 @@ export interface IDocSearchData {
   tags: string[];
   summary: string;
   url: string;
+  path: string;
+  title: string;
+}
+
+export interface IDocData {
+  tags: string[],
+  content: string;
 }
 
 
-const docDir = '/doc';
-const distDir = '/dist';
+const docDir = 'doc';
+const distDir = 'dist';
 
-const cdnHost = 'https://media.choiceform.com';
+const cdnHost: { [key: string]: string } = {
+  staging: 'https://media.choiceform.io/os-help-source/assets',
+  prod: 'https://media.choiceform.com/os-help-source/assets',
+}
 
-const indexReg = /```\s*index\s*(\d+)\s*```/;
-const aliasReg = /```\s*alias\s*((?:[^`]+?\s?)*)\s*```/;
-const tagReg = /```\s*tag\s*((?:[^`]+?\s?)*)\s*```/;
-const summaryReg = /```\s*summary\s*((?:[^`]+?\s?)*)\s*```/;
+const env = process.argv[2];
+const cdn = cdnHost[env] || cdnHost.staging;
+
 
 const build = () => {
   prepare();
+
+
   const langDirs = fs.readdirSync(docDir);
-  const main: IDocMain = {};
+  const main: IDocMain = { cdn, langs: {} };
   langDirs.forEach(lang => {
     const stat = fs.statSync(docDir + '/' + lang);
     if (stat.isDirectory()) {
-      main[lang] = buildLang(lang);
+      main.langs[lang] = buildLang(lang);
     }
   })
-  fs.writeFileSync(distDir + '/main.json', JSON.stringify(main));
+  writeFileInsureDir(distDir + '/main.json', JSON.stringify(main));
 }
 
 
@@ -70,6 +85,121 @@ const buildLang = (lang: string): IDocMainUrl => {
   const { assetsHashMap, indexList } = buildAssets(docDir + '/' + lang, null);
   // 然后处理索引目录
   const searchList = buildIndexList(assetsHashMap, indexList);
+  sortIndexList(indexList);
+  // 写入索引文件
+  const indexText = JSON.stringify(indexList);
+  const indexHash = hasha(indexText);
+  let indexPath = distDir + '/' + lang + '/index.json';
+  indexPath = appendHash(indexPath, indexHash);
+  writeFileInsureDir(indexPath, indexText);
+  // 写入搜索文件
+  const searchText = JSON.stringify(searchList);
+  const searchHash = hasha(searchText);
+  let searchPath = distDir + '/' + lang + '/search.json';
+  searchPath = appendHash(searchPath, searchHash);
+  writeFileInsureDir(searchPath, searchText);
+  // // 重写文档文件
+  // rewriteDoc(searchList);
+  return {
+    indexUrl: eraseDistPrefix(indexPath),
+    searchUrl: eraseDistPrefix(searchPath)
+  };
+}
+
+// /**
+//  * 重写文档,因为要更正里面的链接，而连接都得带hash
+//  * 所以只能等全部文件写完判定好hash后才能改写，
+//  * 改写后元hash会和真实hash不一样，但这不影响我们，
+//  * 我们的hash只用来区别更改的版本。
+//  * @param searchList 
+//  */
+// const rewriteDoc = (searchList: IDocSearchData[]) => {
+//   searchList.forEach(item => {
+//     const filePath = distDir + '/' + item.url;
+//     const data = JSON.parse(fs.readFileSync(filePath).toString()) as IDocData;
+//     const $ = cheerio.load(`<div>${data.content}</div>`, { decodeEntities: false });
+//     const $aList = $('a');
+//     const selfPath = path.dirname(item.url)
+//     // 尝试替换其中a标签的链接
+//     $aList.each((idx, a) => {
+//       const $a = $(a);
+//       const href = $a.attr('href');
+//       if (href) {
+//         const [realHref, suffix] = href.split('#');
+//         if (realHref.endsWith('.md')) {
+//           const relativeHref = realHref.replace(/.md$/, '');
+//           const realUrl = getRealUrl(selfPath, relativeHref);
+//           const targetItem = searchList.find(sItem => {
+//             return sItem.url.startsWith(realUrl) && sItem.url.length === realUrl.length + 14;
+//           })
+//           if (targetItem) {
+//             const recoverUrl = suffix ? targetItem.url + '#' + suffix : targetItem.url;
+//             $a.attr('href', recoverUrl);
+//           }
+//         }
+//       }
+//     });
+//     data.content = $('body > div').html();
+//     // 替换完成后写回文件
+//     fs.writeFileSync(filePath, JSON.stringify(data));
+//   })
+// }
+
+
+/**
+ * 给索引目录排序并移除临时属性
+ * @param indexList 
+ */
+const sortIndexList = (indexList: IDocIndexData[]) => {
+  indexList.sort((a, b) => {
+    return a.index > b.index ? 1 : -1;
+  })
+  indexList.forEach(item => {
+    delete item.index;
+    delete item.path;
+    delete item.type;
+    if (item.url) {
+      item.path = jsonUrlToArticleName(item.url);
+    }
+    if (item.children) {
+      if (item.children.length === 0) {
+        delete item.children;
+      } else {
+        sortIndexList(item.children)
+      }
+    }
+  })
+}
+
+/**
+ * 检查匹配结果中是包含有效的注释信息
+ * @param rs 
+ */
+const containsCommentData = (rs: RegExpMatchArray) => {
+  return rs && rs[1] && rs[1].replace(/\s+/g, '') !== '';
+}
+
+/**
+ * 获取基于当成仓库的根目录的真实路径
+ * @param selfPath 
+ * @param relativeHref 
+ */
+const getRealUrl = (selfPath: string, relativeHref: string) => {
+  const cwd = path.resolve();
+  const absoluteUrl = path.resolve(selfPath, relativeHref);
+  const realUrl = absoluteUrl.substr(cwd.length + 1);
+  return realUrl;
+}
+
+
+const mdUrlToArticleName = (url: string) => {
+  return url.replace(/doc\/.+?\//, '')
+    .replace(/\.md$/, '').replace(/\//g, '_');
+}
+
+const jsonUrlToArticleName = (url: string) => {
+  return url.replace(/^.+?\//, '')
+    .replace(/-\w{8}\.json$/, '').replace(/\//g, '_');
 }
 
 /**
@@ -77,88 +207,123 @@ const buildLang = (lang: string): IDocMainUrl => {
  * @param assetsHashMap 
  * @param indexList 
  */
-const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[]) => {
+const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[], pTitle = '') => {
 
   let searchList: IDocSearchData[] = [];
 
   indexList.forEach(data => {
+
     // 是文件的才需要再次处理
     if (data.type === 'file') {
-      const search: IDocSearchData = { tags: [], summary: '', url: '' };
+      const search: IDocSearchData = {
+        path: mdUrlToArticleName(data.url),
+        title: '',
+        tags: [], summary: '', url: ''
+      };
       let text = fs.readFileSync(data.url).toString();
       const indexMatch = text.match(indexReg);
-      // 找到了索引配置
+      // 如果能匹配到，则删除这个注释
       if (indexMatch) {
+        text = text.replace(indexReg, '');
+      }
+      // 找到了索引配置且其中有内容
+      if (containsCommentData(indexMatch)) {
         // 写入索引，没找到的使用原始的0做索引
         data.index = Number(indexMatch[1]);
       }
       const tagMatch = text.match(tagReg);
-      // 找到了tag
+      // 如果能匹配到，则删除这个注释
       if (tagMatch) {
+        text = text.replace(tagReg, '');
+      }
+      // 找到了tag标记且其中有内容
+      if (containsCommentData(tagMatch)) {
         // 去除掉多余的空格后按空格分割
         search.tags = tagMatch[1].replace(/\s+/g, ' ').trim().split(' ');
         // 没有找到tag的话使用各级标题做tag
       } else {
-        const titleMatch = text.match(/#{1,5}\s+.+?\s*/g);
+        const titleMatch = text.match(/#{1,5}\s+.+?\s*\n/g);
         if (titleMatch) {
           search.tags = titleMatch.map(text => {
             return text.replace(/[#\s]/g, '');
           });
         }
       }
+      // 同时用第一个标题做名称
+      data.alias = search.tags[0] || '';
 
       const summaryMatch = text.match(summaryReg);
-      // 找到了summary
-      if (summaryReg) {
-        search.summary = summaryMatch[1];
-        // 没有找到则提取文章第一端作为summary
-      } else {
-        const pMatch = text.match(/\s*[^#](.+?)\s*/);
-        if (pMatch) {
-          // 但是要清除链接格式
-          search.summary = pMatch[1].replace(/\[(.+?)\]\(.+?\)/g, '$1');
-        }
+      // 如果能匹配到，则删除这个注释
+      if (summaryMatch) {
+        text = text.replace(summaryReg, '');
       }
-      // 移除文档中开头的配置标记
-      text = text.replace(indexReg, '')
-        .replace(tagReg, '')
-        .replace(summaryReg, '');
+      // 找到了summary
+      if (containsCommentData(summaryMatch)) {
+        search.summary = summaryMatch[1];
+        // 没有找到则后续再转化好的HTML提取文章第一个段落作为summary
+      }
 
       // 替换图片地址
       const imgUrlReplaceFn = (match: string, first: string) => {
-        const absoluteUrl = path.resolve(data.path, first);
-        const hashedUrl = assetsHashMap[absoluteUrl];
+        const realUrl = getRealUrl(data.path, first);
+        const hashedUrl = assetsHashMap[realUrl];
         return match.replace(first, hashedUrl);
       }
       // 有三种插入格式， 1： 图片标签方式
-      text = text.replace(/<img\s*.+?src=['"](.+?)['"]/, imgUrlReplaceFn)
+      text = text.replace(/<img\s*.+?src=['"](.+?)['"]/g, imgUrlReplaceFn)
         // 2. markdown简洁语法  ![Alt text](图片链接) 
-        .replace(/!\[.+?\]\((.+?)\)/, imgUrlReplaceFn)
+        .replace(/!\[.+?\]\((.+?)\)/g, imgUrlReplaceFn)
         // 3. markdown携带title的语法 ![Alt text](图片链接 "optional title") 
-        .replace(/!\[.+?\]\((.+?)\s+.+?\)/, imgUrlReplaceFn);
+        .replace(/!\[.+?\]\((.+?)\s+.+?\)/g, imgUrlReplaceFn);
+      const selfPath = path.dirname(data.url);
+      // 替换链接地址 
+      const linkReplaceFn = (match: string, first: string, second: string) => {
+        if (second) {
+          const [realHref, suffix] = second.split('#');
+          if (realHref.endsWith('.md')) {
+            const relativeHref = realHref.replace(/.md$/, '');
+            const realUrl = getRealUrl(selfPath, relativeHref);
+            const linkUrl = '/articles/' + mdUrlToArticleName(realUrl)
+            const fullLinkUrl = suffix ? linkUrl + '#' + suffix : linkUrl;
+            return first + '(' + fullLinkUrl + ')';
+          }
+        }
+        return match;
+      }
 
-      // 替换markdown链接,仅仅去掉后缀名
-      text = text.replace(/\[.+?\]\((.+?\.md)\)/g, (match, first: string) => {
-        return match.replace(first, first.replace(/\.md$/, ''));
-      })
+      text = text.replace(/(\[.+?\])\((.+?)\)/g, linkReplaceFn);
+
       // 转化markdown
-      const resource = {
+      const resource: IDocData = {
         tags: search.tags,
         content: marked(text),
       }
+
+      // 之前没有成功取到summary,从HTML中抽取第一个段落当成summary
+      if (!search.summary) {
+        const $ = cheerio.load(`<div>${resource.content}</div>`);
+        const $ps = $('p:not(blockquote p)');
+        if ($ps.length > 0) {
+          search.summary = $($ps[0]).text();
+        }
+      }
+
+
       const resourceText = JSON.stringify(resource);
       const resourceHash = hasha(resourceText);
       let writePath = data.url.replace(/\.md$/, '.json')
       writePath = toDistPath(writePath);
       writePath = appendHash(writePath, resourceHash);
-      fs.writeFileSync(writePath, resourceText);
-      search.url = writePath;
-      data.url = writePath;
+      writeFileInsureDir(writePath, resourceText);
+      search.url = data.url = eraseDistPrefix(writePath);
+      search.title = pTitle ? pTitle + '>' + data.alias : data.alias;
+      searchList.push(search);
     } else {
+      const title = pTitle ? pTitle + '>' + data.alias : data.alias;
       // 是文件夹的深入扫描
       searchList = [
         ...searchList,
-        ...buildIndexList(assetsHashMap, data.children)
+        ...buildIndexList(assetsHashMap, data.children, title)
       ];
     }
   })
@@ -166,21 +331,20 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[]) 
   return searchList;
 }
 
+/**
+ * 转化为目标文件地址
+ * @param path 
+ */
 const toDistPath = (path: string) => {
-  return path.replace(/^\/doc\//, '/dist/');
+  return path.replace(/^doc\//, 'dist/');
 }
 
-
-
 /**
- * 是否为需要排除的文件
- * @param file 
+ * 擦除路径开头的dist目录信息
+ * @param path 
  */
-const isExclusiveFile = (file: string): boolean => {
-  if (['.DS_Store', '.idea'].includes(file)) {
-    return true;
-  }
-  return false;
+const eraseDistPrefix = (path: string) => {
+  return path.replace(/^dist\//, '');
 }
 
 /**
@@ -229,17 +393,23 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
     if (stat.isDirectory()) {
       // 生成一个空索引数据
       const indexData: IDocIndexData = {
-        name, path: dir,
-        alias: '??????', index: 0, type: 'dir'
+        path: dir,
+        alias: name, index: 1000000, type: 'dir'
       };
-      // 扫描子资源的时候会尝试填充这个数据，如果没有填充别名就仍然会是问号。
+      // 扫描子资源的时候会尝试填充这个数据，如果没有填充别名就仍然会是原始名称。
       const data = buildAssets(sub, indexData);
-      indexData.children = data.indexList;
+      // 吸收子资源的hash
       assetsHashMap = {
         ...assetsHashMap,
         ...data.assetsHashMap,
       }
-      indexList.push(indexData);
+
+      // 文件文件夹中扫描扫描到了有效的文档文件
+      if (data.indexList.length > 0) {
+        indexData.children = data.indexList;
+        indexList.push(indexData);
+        // 扫描不到的话说明这是一个纯资源文件，不需要加入到目录索引中
+      }
       // 是文件
     } else {
       // 是文件夹索引文件
@@ -247,16 +417,17 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
         const text = fs.readFileSync(sub).toString();
         const indexMatch = text.match(indexReg);
         // 能匹配到序号
-        if (indexMatch) {
+        if (containsCommentData(indexMatch)) {
           pIndexData.index = Number(indexMatch[1])
         }
         const aliasMatch = text.match(aliasReg);
         // 能匹配到别名
-        if (aliasMatch) {
-          pIndexData.alias = aliasMatch[1];
+        if (containsCommentData(aliasMatch)) {
+          pIndexData.alias = aliasMatch[1].replace(/\s+/g, ' ').trim();
         }
         // 是markdown文件
       } else if (name.endsWith('.md')) {
+        ``
         // 推入一个初始数据，
         // 此时填入的地址是原始文件路径，
         // 此时不会转化markdown，
@@ -264,7 +435,7 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
         // 后续会再次扫描indexList来通过url转化markdown,
         // 那时候会将真实的别名,索引和地址填入
         indexList.push({
-          name, index: 0, alias: '',
+          index: 1000000, alias: '',
           url: sub, type: 'file',
           path: dir,
         })
@@ -275,7 +446,7 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
         let path = appendHash(sub, hasha(buff));
         path = toDistPath(path);
         writeFileInsureDir(path, buff);
-        assetsHashMap[sub] = path;
+        assetsHashMap[sub] = cdn + '/' + eraseDistPrefix(path);
       }
     }
   });
@@ -309,3 +480,4 @@ const prepare = () => {
 
 
 
+build();

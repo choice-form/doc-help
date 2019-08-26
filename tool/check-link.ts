@@ -13,7 +13,7 @@ const getDirs = () => {
       return dirs;
     }
   }
-  const allDirs = fs.readdirSync('./');
+  const allDirs = fs.readdirSync('doc').map(i => 'doc/' + i);
   return allDirs;
 }
 
@@ -27,6 +27,9 @@ const scanMd = (p: string) => {
   if (links) {
     links.forEach(link => {
       let realLink = link.match(/\([^)]+/)[0].substr(1);
+      if (realLink.startsWith('http')) {
+        return;
+      }
       if (realLink.includes('#')) {
         realLink = realLink.substr(0, realLink.indexOf('#'));
       }
@@ -38,6 +41,8 @@ const scanMd = (p: string) => {
     })
   }
 }
+
+
 
 const check = (dirs = ['']) => {
   dirs.forEach(dir => {
