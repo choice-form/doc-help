@@ -20,6 +20,7 @@
     "typescript": "^3.5.3"
   },
   "scripts": {
+    "gen-lang":"./node_modules/.bin/tsc && node build/task/copy-lang-dir.js",
     "check-link": "./node_modules/.bin/tsc && node build/tool/check-link.js",
     "prod": "./node_modules/.bin/tsc  && node build/tool/check-link.js && node build/task/index.js prod",
     "staging": "./node_modules/.bin/tsc && node build/tool/check-link.js && node build/task/index.js staging"
