@@ -18,6 +18,6 @@
 
 上一集：[循环节点和循环控制](./loop-control.md)
 
-<video src='https://media.choiceform.com/help/video/advance-validation.mp4'>
+<video src='https://media.choiceform.com/help/video/advance-validation.mp4' controls></video>
 
 下一集：[甄别与配额](./screen-quota.md)

@@ -19,6 +19,6 @@
 
 上一集：[变量与选项引用](./variable-option-reference.md)
 
-<video src='https://media.choiceform.com/help/video/loop-control.mp4'>
+<video src='https://media.choiceform.com/help/video/loop-control.mp4' controls></video>
 
 下一集：[自定义验证](./advance-validation.md)

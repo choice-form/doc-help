@@ -17,6 +17,6 @@
 
 上一集：[选项控制](./option-control.md)
 
-<video src='https://media.choiceform.com/help/video/variable-opt-reference.mp4'>
+<video src='https://media.choiceform.com/help/video/variable-opt-reference.mp4' controls></video>
 
 下一集：[循环节点和循环控制](./loop-control.md)

@@ -21,6 +21,6 @@
 
 上一集：[问卷样式控制](./style-control.md)
 
-<video src='https://media.choiceform.com/help/video/publish-result.mp4'>
+<video src='https://media.choiceform.com/help/video/publish-result.mp4' controls></video>
 
 这是系列视频教程中的最后一集。

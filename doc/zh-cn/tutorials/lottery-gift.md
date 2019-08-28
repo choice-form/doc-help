@@ -19,7 +19,7 @@
 
 上一集：[甄别与配额](./screen-quota.md)
 
-<video src='https://media.choiceform.com/help/video/lottery-gift.mp4'>
+<video src='https://media.choiceform.com/help/video/lottery-gift.mp4' controls></video>
 
 下一集：[问卷样式控制](./style-control.md)
 

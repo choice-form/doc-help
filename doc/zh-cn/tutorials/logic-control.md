@@ -19,6 +19,6 @@
 
 上一集：[新建简单流程问卷](./simple-survey.md)
 
-<video src='https://media.choiceform.com/help/video/logic-control.mp4'>
+<video src='https://media.choiceform.com/help/video/logic-control.mp4' controls></video>
 
 下一集：[选项控制](./option-control.md)

@@ -19,6 +19,6 @@
 
 上一集：[验证与奖励](./lottery-gift.md)
 
-<video src='https://media.choiceform.com/help/video/style-control.mp4'>
+<video src='https://media.choiceform.com/help/video/style-control.mp4' controls></video>
 
 下一集：[发布问卷和查看数据](./publish-result.md)
