@@ -7,7 +7,7 @@
 ```summary
 
 ```
-# 节点设置
+# 节点通用设置
 
 选中一个节点后，右侧属性编辑栏中会显示该节点的设置内容，顶部一般会包含2个tab，点击tab可以切换属性编辑区内容，每个tab下面会有多个功能区，点击功能区的头部标题可以展开或收起该功能区。
 
@@ -23,9 +23,9 @@
 ## [选项排他](./option-exclude.md)
 ## [输入验证](./input-validation.md)
 ## [自动提示](./auto-complete.md)
-## [通用设置](./common.md)
+## -----[通用设置](./common.md)
 ## [选项随机](./option-random.md)
-## [布局设置](./layout.md)
+## -----[布局设置](./layout.md)
 ## [其他选项](./other-option.md)
 ## [自定义验证](./custom-validation.md)
 ## [高级设置](./advanced.md)
