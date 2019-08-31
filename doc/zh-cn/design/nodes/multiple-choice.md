@@ -67,9 +67,8 @@
   <img src='../../assets/snapshots/node/multiple-choice/node.png'>
   + 选项展示方式：
     + 常规标记：选项左侧显示圆圈（单选）或方框（多选）作为选中标记。
+    <img src='../../assets/snapshots/node-setting/adjust-layout/display-type/normal.png'>
     + 无标记：没有标记，选项文字外围显示矩形边框。
-  <img src='../../assets/snapshots/node/multiple-choice/type-block.png'>
-
-
+    <img src='../../assets/snapshots/node-setting/adjust-layout/display-type/normal.png'>
 
 > 不同题型或功能节点共有的通用设置在[节点设置](../node-setting/concept.md)中有讲解，此处只讲解选择题特有的功能。
