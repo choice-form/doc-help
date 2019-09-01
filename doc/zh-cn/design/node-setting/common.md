@@ -35,9 +35,6 @@
 
 控制选项在答题时打乱顺序随机展示，详细规则参见[选项随机](./option-random.md)。
 
-
-
-
 ## 最小输入项限制
 
 <img src='../../assets/snapshots/node-setting/common/minimum-limit.png'>

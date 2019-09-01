@@ -103,10 +103,10 @@
 添加选项引用配置后，选项列表后面会展示引用配置的列表，具体参见[选项引用](../opt-reference/concept.md)。
 
 + 显示条件：点击后对选项的显示进行控制。
-  <img src='../../assets/snapshots/node-setting/answer-choices/display-logic/node-002.png'>
+  <img src='../../assets/snapshots/node-setting/answer-choices/display-logic/node-Q02.png'>
   点击后，弹出`选项显示逻辑设置`窗口，在其中进行设置。
   下图中，Q01是一道选择题，被访者可从素食或肉食中选择一个，Q02是在Q01基础上进一步呢询问具体吃一些什么，很明显，素食和肉食者看到的内容是完全不同的。
-  <img src='../../assets/snapshots/node-setting/answer-choices/display-logic/node-001.png'>
+  <img src='../../assets/snapshots/node-setting/answer-choices/display-logic/node-Q01.png'>
   为了实现Q02根据Q01的选择显示部分选项的功能，打开`选项显示逻辑设置`窗口。
   <img src='../../assets/snapshots/node-setting/answer-choices/display-logic/popup.png'>
   随后，按以下步骤设置：

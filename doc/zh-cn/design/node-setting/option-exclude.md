@@ -19,6 +19,5 @@
 如下图：选项排他编号相同的选项间具有互相排斥的关系。
 <img src='../../assets/snapshots/node-setting/answer-choices/exclusive/group-exclusive.png'>
 
-
 + `EXC`：表示该选项与所有其他选项排斥，只要选中该选项，其他任何选项都自动会被取消选中，当选中任何其他选项时，这个选项也会自动被取消选中。
 

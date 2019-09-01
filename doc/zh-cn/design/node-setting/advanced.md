@@ -11,7 +11,7 @@
 
 ## 替身节点
 替身节点功能只针对题型节点有效，也就是说只能把某一道问题题目设置成替身节点。
-<img src='../../assets/snapshots/node-setting/advanced.png'>
+<img src='../../assets/snapshots/node-setting/advance.png'>
 
 开启`替身节点`模式后，该节点只用于承载数据而不会被展示给被访者，其所有属性仍然可以被当做[变量](../variable/concept.md)的引用源。
 
