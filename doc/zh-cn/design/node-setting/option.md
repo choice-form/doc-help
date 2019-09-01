@@ -98,9 +98,35 @@
 `高级控制`菜单包含下列功能：
 + 批量输入：点击后打开`批量输入`窗口。
 
-+ 选项引用：点击后添加`选项引用`配置。
+
++ 选项引用：题目除了可以自己添加指定选项之外，还能引用之前其他节点的指定选项。
   <img src='../../assets/snapshots/node-setting/answer-choices/variable/menu.png'>
-添加选项引用配置后，选项列表后面会展示引用配置的列表，具体参见[选项引用](../opt-reference/concept.md)。
+
+  选项引用通过变量引擎来实现，下面我们用几个案例来说明选项引用的使用方法。
+  首先，按下面图示，创建2个选择题节点，并设定Q01的选项。
+  <img src='../../assets/snapshots/node-setting/answer-choices/variable/node-Q01.png'>
+  随后，设置Q02的选项。
+  <img src='../../assets/snapshots/node-setting/answer-choices/variable/node-Q02.png'>
+  点击后打开`变量选择器`，就可以对引用进行配置了，下图是选择"Q01/已选中的选项/选项文字"后的效果，Q02的选项引用Q01中已选中选项的文字内容：
+    <img src='../../assets/snapshots/node-setting/answer-choices/variable/selected-choices/text.png'>
+
+    + 引用不同的属性：选项引用时，可以选择引用选项的不同属性，以满足不同的需求。
+    下图是Q02的选项引用Q01中已选中选项的选项编号：
+    <img src='../../assets/snapshots/node-setting/answer-choices/variable/selected-choices/number.png'>
+
+     + 叠加过滤条件：可以对引用过来的选项再叠加判断条件。点击Q02的引用选项，弹出过滤设置面板。
+    <img src='../../assets/snapshots/node-setting/answer-choices/variable/var-filter.png'>
+    按下图设置，我们可以在Q02中仅仅引用Q01中选项编号大于1的选项的文字。
+    <img src='../../assets/snapshots/node-setting/answer-choices/variable/require.png'>
+    其实，除了编号外，还可以判断一切其他的属性，有以下可判断属性：
+    <img src='../../assets/snapshots/node-setting/answer-choices/variable/require-menu.png'>
+
+    + 从符合条件的选项中随机抽取引用：可以从符合条件的所有选项中，抽取一部分引用到当前题目。
+    下图是Q02的选项从Q01中已选中选项抽取2个，并引用抽取到的选项的编号。
+    <img src='../../assets/snapshots/node-setting/answer-choices/variable/randomly.png'>
+    再进一步，还能对抽取到的选项进行随机排序。
+    <img src='../../assets/snapshots/node-setting/answer-choices/variable/disorder.png'>
+
 
 + 显示条件：点击后对选项的显示进行控制。
   <img src='../../assets/snapshots/node-setting/answer-choices/display-logic/node-Q02.png'>
@@ -118,32 +144,6 @@
 
   设定完毕后，当被访者在Q01中选择素食时，Q02的选项就只会显示属于素食食材的选项了。反之亦然。
 
-  + 扩展案例
-
-    下面我们来看几个选项引用的扩展案例，
-    首先，按下面图示，创建2个选择题节点，并设定Q01的选项。
-    <img src='../../assets/snapshots/node-setting/answer-choices/variable/node-Q01.png'>
-    随后，设置Q02的选项。
-    <img src='../../assets/snapshots/node-setting/answer-choices/variable/node-Q02.png'>
-
-    + 引用不同的属性：选项引用时，可以选择引用选项的不同属性，以满足不同的需求。
-    下图是Q02的选项引用Q01中已选中选项的文字内容：
-    <img src='../../assets/snapshots/node-setting/answer-choices/variable/selected-choices/text.png'>
-    下图是Q02的选项引用Q01中已选中选项的选项编号：
-    <img src='../../assets/snapshots/node-setting/answer-choices/variable/selected-choices/number.png'>
-
-     + 叠加过滤条件：可以对引用过来的选项再叠加判断条件。点击Q02的引用选项，弹出过滤设置面板。
-    <img src='../../assets/snapshots/node-setting/answer-choices/variable/var-filter.png'>
-    按下图设置，我们可以在Q02中仅仅引用Q01中选项编号大于1的选项的文字。
-    <img src='../../assets/snapshots/node-setting/answer-choices/variable/require.png'>
-    其实，除了编号外，还可以判断一切其他的属性，有以下可判断属性：
-    <img src='../../assets/snapshots/node-setting/answer-choices/variable/require-menu.png'>
-
-    + 从符合条件的选项中随机抽取引用：可以从符合条件的所有选项中，抽取一部分引用到当前题目。
-    下图是Q02的选项从Q01中已选中选项抽取2个，并引用抽取到的选项的编号。
-    <img src='../../assets/snapshots/node-setting/answer-choices/variable/randomly.png'>
-    再进一步，还能对抽取到的选项进行随机排序。
-    <img src='../../assets/snapshots/node-setting/answer-choices/variable/disorder.png'>
 
 + 选中条件：对选项的自动选中进行控制，符合条件时，题目出现时就会按条件勾选选项。仅对选择类型题目有效。
   <img src='../../assets/snapshots/node-setting/answer-choices/active-logic/node-Q02.png'>
@@ -161,10 +161,12 @@
 
   设定完毕后，当被访者在Q01中选择肉食时，Q02的肉食食材选项就只会被自动勾选。在这个基础上，被访者可以选择更多选项，或者去掉自动勾选项。
 
+
 + 自动赋值：针对输入输入类型题目的设置，点击后弹出`选项自动填充`窗口，在其中进行设置。
+
 
 + 映射属性：编辑选项的映射数据，点击后弹出`选项映射`窗口，在其中进行设置。
   <img src='../../assets/snapshots/node-setting/answer-choices/choices-mapping.png'>
-  
+
 
 > 根据不同题型，`高级控制`菜单列表中的内容会略有不同。
