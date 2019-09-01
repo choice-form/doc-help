@@ -22,7 +22,7 @@
 
 + 预设选项：
 选择题预设了一些常用的选项内容，选择即可直接使用预设的选项内容。
-<img src='../../assets/snapshots/node/multiple-choice/section.png'>
+<img src='../../assets/snapshots/node-setting/answer-choices/answer-presets/normal.png'>
 预设内容类型有：
   + 性别
   + 年龄
