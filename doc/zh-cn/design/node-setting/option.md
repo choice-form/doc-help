@@ -114,6 +114,8 @@
     下图是Q02的选项引用Q01中已选中选项的选项编号：
     <img src='../../assets/snapshots/node-setting/answer-choices/variable/selected-choices/number.png'>
 
+    使用`选项引用过滤器`可被引用的选项进行进过滤筛选。
+
      + 叠加过滤条件：可以对引用过来的选项再叠加判断条件。点击Q02的引用选项，弹出过滤设置面板。
     <img src='../../assets/snapshots/node-setting/answer-choices/variable/var-filter.png'>
     按下图设置，我们可以在Q02中仅仅引用Q01中选项编号大于1的选项的文字。
