@@ -11,7 +11,7 @@
 
 通常问卷都会由被访者完成选择与填充，不过也可以设置`自动选中`功能让某些选项默认被自动选中。
 
-<img src='./images/option-logic.png'>
+<img src='../../assets/snapshots/layout/logic/option-logic.png'>
 
 在选项的[高级控制](../node-setting/option.md#高级控制)按钮组中点击`选中控制`，打开`选项选中逻辑控制`的[逻辑编辑面板](./logic-editor.md)，按`逻辑编辑`面板的操作规则设置好逻辑条件就能控制选项的自动选中。
 

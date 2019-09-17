@@ -10,9 +10,9 @@
 
 # 选项显示控制逻辑
 
-选项显示控制逻辑用于控制题目选项是否显示，通常用于根据前题的回答情况，在后题仅出示相应的选项给被访者。
+`选项显示控制逻辑`用于控制题目选项是否显示，通常用于根据前题的回答情况，在后题仅出示相应的选项给被访者。
 
-<img src='./images/option-display-logic.png'>
+<img src='../../assets/snapshots/layout/logic/option-display-logic.png'>
 
 在选项的[高级控制](../node-setting/option.md#高级控制)按钮组中点击`显示控制`，打开`选项显示逻辑控制`的[逻辑编辑面板](./logic-editor.md)，按`逻辑编辑`面板的操作规则设置逻辑条件就可以控制选项显示。
 
