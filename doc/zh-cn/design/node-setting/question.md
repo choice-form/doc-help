@@ -18,16 +18,12 @@
 <img src='../../assets/snapshots/node-setting/question/variable.png'>
 
 ## 题目描述
-开启后，会出现描述输入框，可以在问题文字的基础上增加辅助描述。
+开启后出现`问题描述`输入框，可以在问题文字的基础上增加辅助描述。
 <img src='../../assets/snapshots/node-setting/question/description.png'>
 
 ## 添加媒体
-开启后，会出现[图片选择器](../media/image.md)和[视频选择器](../media/video.md)。
+开启后出现[图片选择器](../media/image.md)和[视频选择器](../media/video.md)。
 <img src='../../assets/snapshots/node-setting/question/image.png'>
-
-上传图片或视频媒体资源后，点击右侧按钮，可以设置如下选项：
-  + 图片媒体：开启缩放
-  + 视频媒体：完整播放、自动播放
 
 + 图片：
 
@@ -61,7 +57,7 @@
   + 删除视频：
   点击频资源列表最上面的`移除视频`按钮移除题目的当前视频。
 
-  + `完整播放`： 被访者必须看完视频是才能进入下一题的。
+  + `完整播放`：被访者必须看完视频是才能进入下一题的。
   + `自动播放`：进入题目时，自动播放视频。
   <img src='../../assets/snapshots/node-setting/question/auto-play.png'>
 
