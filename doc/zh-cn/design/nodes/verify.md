@@ -11,12 +11,12 @@
 ```
 # 验证节点
 
-验证节点用于确定被访者是否符合要求，不能通过验证的被访者无法继续答题。
+`验证节点`用于确定被访者是否符合要求，不能通过验证的被访者无法继续答题。
 <img src='../../assets/snapshots/node/verification/node.png'>
 
 ## 通用设置
 
-验证节点支持三种验证方式：短信验证、密码验证、验证码验证。
+`验证节点`支持三种验证方式：`短信验证`、`密码验证`、`验证码验证`。
 
 + 短信验证：
   <img src='../../assets/snapshots/node/verification/sms.png'>
@@ -24,7 +24,7 @@
 
 + 密码验证：
   <img src='../../assets/snapshots/node/verification/password.png'>
-在验证节点中设置密码，然后只告诉目标被访者密码内容，被访者在答题时输入密码后，点击下一题即可进行验证。
+在`验证节点`中设置密码，然后只告诉目标被访者密码内容，被访者在答题时输入密码后，点击`下一题`按钮进行验证。
 
 + 验证码验证：
   <img src='../../assets/snapshots/node/verification/CAPTCHA.png'>
