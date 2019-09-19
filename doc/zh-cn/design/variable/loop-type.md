@@ -12,7 +12,7 @@
 
 循环变量和其他几种变量类型不一样，循环变量不可以在`自定义变量`中被手动添加，循环变量只能是`隐式变量`。
 
-<img src='./images/loop-type.png'>
+<img src='../../assets/snapshots/design/variable/loop-type.png'>
 
 一般情况下，循环变量只能在某个[循环节点](../nodes/loop.md)的`循环圈节点`内被访问到，引用的时候可以尝试从对应于节点名称的循环变量中抽取文字，图片，索引的内容。
 
