@@ -6,7 +6,7 @@
 ```
 ```summary
 ```
-# 时间设置
+# 计时设置
 
 <img src='./images/time-kit.png' width='1000'>
 
