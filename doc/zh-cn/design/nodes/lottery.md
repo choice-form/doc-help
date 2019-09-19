@@ -12,11 +12,11 @@
 # 抽奖节点
 
 `抽奖节点`连在`结束节点`之后、`奖励节点`之前，作为`结束节点`和`奖励节点`间的桥梁，作用是按照设定的中奖策略决定当前被访者可以领取到的奖励。
-<img src='../../assets/snapshots/node/lottery/node.png'>
+<img src='../../assets/snapshots/nodes/lottery/node.png'>
 
 ## 抽奖设置
 
-<img src='../../assets/snapshots/node/lottery/section.png'>
+<img src='../../assets/snapshots/nodes/lottery/section.png'>
 
 + 中奖描述和未中奖描述
 设置中奖和未中奖时候显示的页面文字和图片。
@@ -36,6 +36,6 @@
 
 ## 显示奖励信息
 开启后，抽奖页面上会显示各个奖项名称和他们的数量。
-<img src='../../assets/snapshots/node/lottery/show-rewards.png'>
+<img src='../../assets/snapshots/nodes/lottery/show-rewards.png'>
 
 > 不同题型或功能节点共有的通用设置在[节点设置](../node-setting/concept.md)中有讲解，此处只讲解抽奖节点特有的功能。

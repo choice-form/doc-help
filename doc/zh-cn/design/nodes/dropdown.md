@@ -12,7 +12,7 @@
 # 菜单题
 
 `菜单题`使用下拉列表的方式呈现题目选项供被访者选择。
-<img src='../../assets/snapshots/node/dropdown/node.png'>
+<img src='../../assets/snapshots/nodes/dropdown/node.png'>
 
 ## 选项设置
 
@@ -51,20 +51,20 @@
 
 + 菜单弹出方式：可设定为以下三种方式。
   + 底部滑出：
-  <img src='../../assets/snapshots/node/dropdown/bottom.png'>
+  <img src='../../assets/snapshots/nodes/dropdown/bottom.png'>
   + 顶部滑出：
-  <img src='../../assets/snapshots/node/dropdown/top.png'>
+  <img src='../../assets/snapshots/nodes/dropdown/top.png'>
   + 中间弹出：
-  <img src='../../assets/snapshots/node/dropdown/center.png'>
+  <img src='../../assets/snapshots/nodes/dropdown/center.png'>
 
 + 菜单项文本行数：控制每个菜单项里的文字的大小和行数，行数越多字体越小。当选项文字较多，系统会自动切断超长的文字。
 
   例如：
   单行文本数设定为1时的效果：
-  <img src='../../assets/snapshots/node/dropdown/line-count-1.png'>
+  <img src='../../assets/snapshots/nodes/dropdown/line-count-1.png'>
 
   单行文本数设定为2时的效果：
-  <img src='../../assets/snapshots/node/dropdown/line-count-1.png'>
+  <img src='../../assets/snapshots/nodes/dropdown/line-count-1.png'>
 
 > 菜单题可以用来为级联题提供数据，参见[级联题](./cascade.md)。
 

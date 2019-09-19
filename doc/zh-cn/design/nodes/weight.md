@@ -22,17 +22,17 @@
   所有选项的分值加起来不能超过该数值。
 
 + 允许相加小于总分值：
-  <img src='../../assets/snapshots/node/weight-slider/relax.png'>
+  <img src='../../assets/snapshots/nodes/weight-slider/relax.png'>
   开启后，允许所有选项的分值加起来小于总权重值，否则所有选项的分值加起来必须等于`权重总值`。
 
 + 自定义单位：
-  <img src='../../assets/snapshots/node/weight-slider/unit.png'>
+  <img src='../../assets/snapshots/nodes/weight-slider/unit.png'>
   设置选项分值单位。
 
 ## 通用设置
 
 点击选项右侧的颜色设定，可以给每个选项设置颜色。
-<img src='../../assets/snapshots/node/weight-slider/section.png'>
+<img src='../../assets/snapshots/nodes/weight-slider/section.png'>
 
 点击`附加设置`的小箭头图标，在`附加设置`中设置该选项允许的最大值。
 

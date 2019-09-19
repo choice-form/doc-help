@@ -12,7 +12,7 @@
 # 选择题
 
 `选择题`提供一系列选项给被访者，被访者从中选择一项或多项作为问题的答案。
-<img src='../../assets/snapshots/node/multiple-choice/node.png'>
+<img src='../../assets/snapshots/nodes/multiple-choice/node.png'>
 
 当设置为多选时，选项之间可以进行互斥控制，通常用于选项间存在互相矛盾而无法被同时选中的情况。
 
@@ -64,7 +64,7 @@
 
 + 选项布局：
   + 选项布局：用于设置选项图标的排列方式，可选方式有：垂直、水平和指定列数。
-  <img src='../../assets/snapshots/node/multiple-choice/node.png'>
+  <img src='../../assets/snapshots/nodes/multiple-choice/node.png'>
   + 选项展示方式：
     + 常规标记：选项左侧显示圆圈（单选）或方框（多选）作为选中标记。
     <img src='../../assets/snapshots/node-setting/adjust-layout/display-type/normal.png'>
