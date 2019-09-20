@@ -1,5 +1,5 @@
 ```index
-8
+7
 ```
 ```tag
 
@@ -8,7 +8,7 @@
 
 ```
 
-# 问题通用设置
+# 通用设置
 
 `通用设置`用于设置问卷题型的基本属性，适用于几乎所有题型。
 <img src='../../assets/snapshots/node-setting/options/section.png'>

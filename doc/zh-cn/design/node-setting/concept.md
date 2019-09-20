@@ -19,17 +19,17 @@
   
 节点通用设置主要说明绝大多数节点都会用到的共有的设置项，点击下方的链接查看每个功能区的详情：
 
-## -----[头部](./header.md)
-## -----[问题设置](./question.md)
+## [头部](./header.md)
+## [问题设置](./question.md)
 ## [选项设置](./option.md)
 ## [选项排他](./option-exclude.md)
-## -----[输入验证](./input-validation.md)
-## -----[自动提示](./auto-complete.md)
-## -----[通用设置](./common.md)
-## -----[选项随机](./option-random.md)
-## -----[布局设置](./layout.md)
-## -----[其他选项](./other-option.md)
-## -----[自定义验证](./custom-validation.md)
-## -----[高级设置](./advanced.md)
+## [输入验证](./input-validation.md)
+## [自动提示](./auto-complete.md)
+## [通用设置](./common.md)
+## [选项随机](./option-random.md)
+## [高级设置](./advanced.md)
+## [布局设置](./layout.md)
+## [其他选项](./other-option.md)
+## [自定义验证](./custom-validation.md)
 
 > 不同的节点还会包含一些特有的功能区，将会在节点介绍中具体说明。
