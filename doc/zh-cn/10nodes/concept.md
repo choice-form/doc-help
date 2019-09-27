@@ -55,4 +55,4 @@
 既不属于题型节点，又不属于工具节点：
 
 + [开始节点](./start.md)
-+ [中转点](./breakpoint.md)
++ [中转节点](./breakpoint.md)
