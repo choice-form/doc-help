@@ -7,7 +7,6 @@
 ```summary
 
 ```
-
 # 视频资源
 
 <img src='../../assets/snapshots/layout/media/video.png'>
