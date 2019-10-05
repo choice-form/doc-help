@@ -13,4 +13,4 @@
 
 <img src='../../assets/snapshots/kit/embed-api.png'>
 
-详情参见[内置接口](../embed-api/concept.md)。
+详情参见[内置接口](../../14customValidation/02interfaceValidation.md)。

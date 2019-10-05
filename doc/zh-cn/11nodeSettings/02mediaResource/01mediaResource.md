@@ -8,7 +8,6 @@
 
 ```
 # 媒体资源
-
 <img src='../../assets/snapshots/layout/media/assets-kit-cn.jpg'>
 
 问卷中经常要使用到图片或视频，这些图片或视频就是媒体，媒体资源在[媒体库](../layout/toolbar.md#媒体库)中被统一管理。
