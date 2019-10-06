@@ -19,4 +19,4 @@
 系统预设了一些配色模板方案，用户也可以保存自己配色模板方案。
 <img src='../../assets/snapshots/kit/theme/my-theme.png'>
 
-> 关于问卷样式的具体控制技巧，参见[主题与样式控制](../theme/concept.md)。
+> 在题型节点的属性控制中，还可以[自定义字体尺寸](../../12layoutAndTheme/questionLayoutSetting/02userdefinedFontSize.md)。
