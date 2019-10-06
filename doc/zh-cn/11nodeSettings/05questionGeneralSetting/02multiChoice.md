@@ -1,4 +1,13 @@
-## 多选题
+```index
+2
+```
+```tag
+
+```
+```summary
+
+```
+# 多选题
 
 对于选择类型的题目，默认为单选题。开启`多选题`后，将该题设定为多选题。可以控制必须选中选项的总数量范围，如果选中选项的总数量不在设定范围值内，无法进入下一题。
 <img src='../../assets/snapshots/node-setting/options/required.png'>

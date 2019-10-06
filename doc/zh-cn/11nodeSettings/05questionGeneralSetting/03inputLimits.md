@@ -1,4 +1,13 @@
-## 最小输入项限制
+```index
+3
+```
+```tag
+
+```
+```summary
+
+```
+# 最小输入项限制
 
 <img src='../../assets/snapshots/node-setting/common/minimum-limit.png'>
 
