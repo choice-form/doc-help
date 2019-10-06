@@ -30,7 +30,7 @@
   <img src='../../assets/snapshots/nodes/reward/custom-rewards.png'>
   <img src='../../assets/snapshots/nodes/reward/verification.png'>
 
-> 关于资金扣除，奖励发放等具体功能介绍，参见[奖励机制](../advance-topic/reward.md)。
+> 关于资金扣除，奖励发放等具体功能介绍，参见[奖励机制](../../17advancedFunction/03rewardAndLottery.md)。
 
 + 结束跳转链接：
 指定一个URL地址，当领取完奖励后，页面跳转到该地址。
