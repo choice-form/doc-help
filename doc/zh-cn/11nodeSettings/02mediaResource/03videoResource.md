@@ -11,7 +11,7 @@
 
 <img src='../../assets/snapshots/layout/media/video.png'>
 
-视频资源只能在节点的[问题设置](../node-setting/question.md)中使用。
+视频资源只能在节点的[图片和视频](../../11nodeSettings/01questionSetting/03questionPictureAndVideo.md)中使用。
 
 ## 添加视频
 点击`问题设置`面板中的`视频选择器`就会出现一个视频资源列表，显示当前`媒体库`中的所有视频资源，点击视频资源选择该视频。
@@ -21,3 +21,4 @@
 
 ## 删除视频
 点击视频资源列表最上面的`移除视频`按钮移除题目的当前视频。
+
