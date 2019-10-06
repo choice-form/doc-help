@@ -20,4 +20,4 @@
 
 在分析答案时，甄别题目的数据也会被特殊对待，详情参见[甄别与配额](../advance-topic/screening-quota.md)。
 
-
+> 不同题型或功能节点共有的通用设置在[通用设置](../../18screenAndQuota/concept.md)中有完整说明。

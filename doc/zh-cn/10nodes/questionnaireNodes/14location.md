@@ -45,4 +45,4 @@
 <img src='../../assets/snapshots/nodes/location/info-only.png'>
 可以设置定位信息的不同精确度。
 
-> 不同题型或功能节点共有的通用设置在[节点设置](../node-setting/concept.md)中有讲解，此处只讲解定位题特有的功能。
+> 不同题型或功能节点共有的通用设置在[通用设置](../../11nodeSettings/concept.md)中有完整说明。

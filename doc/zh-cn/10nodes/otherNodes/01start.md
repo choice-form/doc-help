@@ -35,4 +35,4 @@
 
 初始验证的规则与[自定义验证](../node-setting/custom-validation.md)相同，但是错误消息不可被禁用。
 
-> 不同题型或功能节点共有的通用设置在[节点设置](../node-setting/concept.md)中有讲解，此处只讲解开始节点特有的功能。
+> 不同题型或功能节点共有的通用设置在[通用设置](../../11nodeSettings/concept.md)中有完整说明。

@@ -11,8 +11,6 @@
 ```
 # 矩阵题
 
-> 不同题型或功能节点共有的通用设置在[节点设置](../node-setting/concept.md)中有讲解，此处只讲解矩阵特有的功能。
-
 `矩阵题`也称为表格题、阵列题，设置矩阵题`行选项`和`列选项`后，由这2组选项行列交叉生成矩阵选项，被访者在矩阵选项位置进行选择。
 
 答题时，矩阵题在宽屏设备中会被展示为二维矩阵方式，在窄屏设备中会被展示为层级列表的方式。
@@ -30,7 +28,10 @@
 + 行列随机：行和列都打乱顺序；
 + 行随机：行打乱循序，列不动；
 + 列随机：列打乱顺序，行不动；
-+ 行固定位循环：对行采取[固定位循环](../node-setting/option-random.md#固定位循环)的随机方式；
-+ 列固定位循环：对列采取[固定位循环](../node-setting/option-random.md#固定位循环)的随机方式；
++ 行固定位循环：对行采取[固定位循环](../../11nodeSettings/05questionGeneralSetting/05randomOption.md#固定位循环)的随机方式；
++ 列固定位循环：对列采取[固定位循环](../../11nodeSettings/05questionGeneralSetting/05randomOption.md#固定位循环)的随机方式；
 
-> 关于随机的详细内容参见[选项随机](../node-setting/option-random.md)。
+> 更多关于随机的详细内容参见[选项随机](../../11nodeSettings/05questionGeneralSetting/05randomOption.md)。
+
+> 不同题型或功能节点共有的通用设置在[通用设置](../../11nodeSettings/concept.md)中有完整说明。
+

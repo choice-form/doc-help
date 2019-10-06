@@ -47,3 +47,5 @@
 <img src='../../assets/snapshots/nodes/cascade-group/tabs.png'>
 + 层级展开：像多层选择题一样展示，选中部分会层层展开，以供继续选择。
 <img src='../../assets/snapshots/nodes/cascade-group/expand.png'>
+
+> 不同题型或功能节点共有的通用设置在[通用设置](../../11nodeSettings/concept.md)中有完整说明。

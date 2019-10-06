@@ -26,4 +26,4 @@
 无论设定了多少选项，默认时，仅要求被访者上传任意一项即可。开启上传数量限制后，可以设置上传文件的最小数量和最大数量限制。
 <img src='../../assets/snapshots/nodes/file-upload/common.png'>
 
-> 不同题型或功能节点共有的通用设置在[节点设置](../node-setting/concept.md)中有讲解，此处只讲解上传题特有的功能。
+> 不同题型或功能节点共有的通用设置在[通用设置](../../11nodeSettings/concept.md)中有完整说明。

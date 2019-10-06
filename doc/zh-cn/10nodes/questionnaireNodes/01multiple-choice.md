@@ -43,4 +43,4 @@
     + 无标记：没有标记，选项文字外围显示矩形边框。
     <img src='../../assets/snapshots/node-setting/adjust-layout/display-type/normal.png'>
 
-> 不同题型或功能节点共有的通用设置在[节点设置](../node-setting/concept.md)中有讲解，此处只讲解选择题特有的功能。
+> 不同题型或功能节点共有的通用设置在[通用设置](../../11nodeSettings/concept.md)中有完整说明。

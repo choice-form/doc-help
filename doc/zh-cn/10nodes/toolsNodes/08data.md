@@ -26,3 +26,4 @@
 ## 相似功能
 开启[替身节点](../node-setting/advanced.md#替身节点)功能和[选项映射属性](../logic/option-mapping.md)功能的题目节点也可以达到和数据节点类似的功能。
 
+> 不同题型或功能节点共有的通用设置在[通用设置](../../11nodeSettings/concept.md)中有完整说明。
