@@ -39,6 +39,6 @@
   单行文本数设定为2时的效果：
   <img src='../../assets/snapshots/nodes/dropdown/line-count-1.png'>
 
-> 菜单题可以用来为级联题提供数据，参见[级联题](./cascade.md)。
+> 菜单题可以用来为级联题提供数据，参见[级联题](./08cascade.md)。
 
 > 不同题型或功能节点共有的通用设置在[通用设置](../../11nodeSettings/concept.md)中有完整说明。

@@ -35,7 +35,8 @@
 ## 通用设置
 
 + 最小输入项限制
-设定必须被打分的选项总数量，参见[最小输入项验证](../node-setting/common.md#最小输入项限制)。
+设定必须被打分的选项总数量，参见[最小输入项验证](../../11nodeSettings/05questionGeneralSetting/03inputLimits.md)。
 <img src='../../assets/snapshots/nodes/rating/common.png'>
 
 > 不同题型或功能节点共有的通用设置在[通用设置](../../11nodeSettings/concept.md)中有完整说明。
+

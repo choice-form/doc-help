@@ -18,13 +18,13 @@
 <img src='../../assets/snapshots/nodes/textbox/section.png'>
 
 + 输入内容验证：
-对每一个填空项设置验证规则，详情参见[输入验证](../node-setting/input-validation.md)。
+对每一个填空项设置验证规则，详情参见[输入验证](../../11nodeSettings/03optionSetting/04inputValidation.md)。
 <img src='../../assets/snapshots/nodes/textbox/validate.png'>
 
 ## 通用设置
 
 + 最小输入项限制
-设定必填填空项的数量，参见[最小输入项验证](../node-setting/common.md#最小输入项限制)。
+设定必填填空项的数量，参见[最小输入项验证](../../11nodeSettings/05questionGeneralSetting/03inputLimits.md)。。
 <img src='../../assets/snapshots/nodes/textbox/common.png'>
 
 > 不同题型或功能节点共有的通用设置在[通用设置](../../11nodeSettings/concept.md)中有完整说明。
