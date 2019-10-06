@@ -16,7 +16,6 @@
 选项分组会在[选项随机](../../11nodeSettings/05questionGeneralSetting/05randomOption.md)中分组随机相关场景中使用，一般不需要进行分组。
 
 # 选项排他
-
 在多选题中，有时选项间会存在一种互相排斥的关系。当选了某个选项时，另外一个就不应该被选中，这时候就要用到`选项互斥`功能。
 <img src='../../assets/snapshots/node-setting/answer-choices/exclusive/exclusive.png'>
 

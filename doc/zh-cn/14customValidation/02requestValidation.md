@@ -14,10 +14,10 @@
 
 ## 接口请求验证的使用场景
 `接口请求验证`在以下地方都可以使用，熟练使用后能极大扩展问卷性能。
-+ [接口请求变量](../variable/request-type.md)
-+ [节点自定义验证](../node-setting/custom-validation.md)
-+ [开始节点验证](../nodes/start.md)
-+ [结束节点的结束请求](../nodes/end.md)
++ [接口请求变量](../16varible/06requestVarible.md)
++ [节点自定义验证](../14customValidation/01customValidation.md)
++ [开始节点验证](../10nodes/otherNodes/01start.md)
++ [结束节点的结束请求](../10nodes/questionnaireNodes/17end.md)
 
 ## 请求方式：
 下图是一个接口请求的设置，点击头部下拉列表选择请求方式，请求方式包含：GET、POST、FAKE、EMBED。
