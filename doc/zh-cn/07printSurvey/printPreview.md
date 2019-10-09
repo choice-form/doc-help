@@ -13,7 +13,7 @@
 `打印预览`页面以问卷题目列表的方式显示问卷的内容，便于快速查看问卷流程。
 
 下图是一份问卷的打印预览效果。
-<img src='../../assets/snapshots/print-preview/preview.png'>
+<img src='./assets/preview.png'>
 
 `打印预览`页面最上方是问卷概要，其后从上到下排列出问卷的所有题目的内容、选项和配置条件。
 
@@ -31,7 +31,7 @@
 ## 打印控制
 
 打印预览页面最上方的工具栏中有一排按钮，可以控制题目是否显示节点编号、选项标号和媒体资源。
-<img src='../../assets/snapshots/print-preview/print.png'>
+<img src='./assets/print.png'>
 
 ## 打印问卷
 点击`打印`按钮打印当前问卷。

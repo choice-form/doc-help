@@ -24,7 +24,7 @@
 ## 针对节点
 针对节点的`逻辑控制编辑器`如下图：
 
-<img src='../../assets/snapshots/layout/logic/node-logic.png'>
+<img src='../assets/advancedLogicSetting/01logicSetting/node-logic.png'>
 
 逻辑控编辑器包含4列：
 
@@ -63,7 +63,7 @@
 ## 针对选项
 `针对选项`的逻辑编辑器会比`针对节点`的的逻辑编辑器左边多出一个选项列表栏，点中列表中的选项后，可以分别每个选项添加逻辑条件。如下图所示：
 
-<img src='../../assets/snapshots/layout/logic/option-logic.png'>
+<img src='../assets/advancedLogicSetting/01logicSetting/option-logic.png'>
 
 设置过逻辑条件的选项会变成黄色背景。
 

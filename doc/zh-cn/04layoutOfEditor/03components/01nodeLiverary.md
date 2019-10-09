@@ -11,7 +11,7 @@
 
 `新增节点`面板里是系统的所有预置`节点`和`内容`模块。点击滑出新增节点库面板，其中包含`节点`和`模块`两个版块。
 
-<img src='../../assets/snapshots/kit/nodes/grid.png'>
+<img src='../assets/03components/01nodeLiverary/grid.png'>
 
 ## 节点
 `节点`里是系统的所有节点，包含`基本节点`和`工具节点`。点击节点图标，在画布区新增一个节点。或者拖动节点图标到画布的指定位置后释放鼠标，在指定的位置添加节点。
@@ -24,4 +24,4 @@
 > 在同一账号或组织里都能看到保存的问卷内容模块。
 
 网格按钮用于切换排列方式。
-<img src='../../assets/snapshots/kit/nodes/list.png'>
+<img src='../assets/03components/01nodeLiverary/list.png'>

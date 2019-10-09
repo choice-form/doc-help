@@ -12,7 +12,7 @@
 
 `内置逻辑验证编辑器`内置了一些常用的逻辑运算功能。
 
-> 内置逻辑运算的规则参见[内置逻辑编辑器](../logic/logic-editor.md)。
+> 内置逻辑运算的规则参见[逻辑编辑器](../17advancedFunction/advancedLogicSetting/01logicSetting.md)。
 
 > 内置逻辑运算工作方式参见[逻辑验证](../logic/validation.md)。
 

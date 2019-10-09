@@ -11,7 +11,7 @@
 
 `循环变量`和其他变量类型不同，`循环变量`不可以在`自定义变量`中被手动添加，只能是`隐式变量`。
 
-<img src='../../assets/snapshots/design/variable/loop-type.png'>
+<img src='./assets/10loopVarible/loop-type.png'>
 
 一般情况下，`循环变量`只能在某个[循环节点](../10nodes/toolsNodes/02loop.md)的`内部循环圈节点`被访问到，引用的时候可以尝试从对应于节点名称的`循环变量`中抽取文字、图片和索引的内容。
 

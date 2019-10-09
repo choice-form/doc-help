@@ -10,7 +10,7 @@
 
 在`富文本框`中插入的`变量`标签和选项设置中增加的`选项引用`设置项，都会弹出一个`变量过滤器`面板，在这里可以继续对已引用的变量进行更多设置：
 
-<img src='../../assets/snapshots/design/variable/var-filter.png'>
+<img src='./assets/11varibleFilter/var-filter.png'>
 
 ## 不记录到回复记录中
 勾选后，这个变量不会被记录到问卷回复数据结果中，只对`富文本框`中插入的`变量标签`可用。

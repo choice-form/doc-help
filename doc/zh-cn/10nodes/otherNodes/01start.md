@@ -12,10 +12,10 @@
 # 开始节点
 
 `开始节点`是问卷的封面，可以设定问卷标题、图片、说明等信息。一份问卷必须有，且仅有一个开始节点。答题开始时，先显示问卷封面，随后点击页面上的开始按钮正式开始问卷答题。
-<img src='../../assets/snapshots/nodes/start/node.png'>
+<img src='../assets/otherNodes/01start/node.png'>
 
 ## 问卷信息
-<img src='../../assets/snapshots/nodes/start/section.png'>
+<img src='../assets/otherNodes/01start/section.png'>
 
 + 问卷标题：
 在问卷封面中展示的标题。如果不设置，封面上默认展示问卷项目名称。
@@ -26,8 +26,12 @@
 + 自动跳过首页开始答题：
 开启后，问卷封面的所有内容不会被展示给被访者，而是直接到问卷的第一道题目。
 
+<img src='../assets/otherNodes/01start/start-auto.png'>
+
 + 内嵌页面：
 指定一个URL地址，问卷封面中将会展示该URL地址的页面内容。
+
+<img src='../assets/otherNodes/01start/embed.png'>
 
 ## 初始验证
 

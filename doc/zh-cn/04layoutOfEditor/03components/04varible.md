@@ -11,7 +11,7 @@
 
 `变量库`用于创建和管理问卷使用到的`显式变量`，点击后滑出`变量库`面板。
 
-<img src='../../assets/snapshots/kit/custom-variables-cn.jpg'>
+<img src='../assets/03components/04varible/custom-variables-cn.jpg'>
 
 ## 创建变量
 点击`创建变量`，然后选择`变量类型`，在滑出的`变量设置`面板中添加`变量名`和`变量值`，设置完毕后就能添加一个变量.

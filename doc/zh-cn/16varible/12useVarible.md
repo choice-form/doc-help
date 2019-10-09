@@ -18,7 +18,7 @@
 ## 变量选择器
 使用变量需要用到`变量选择器`，在富文本框中输入`@`符号，或者点击[选项引用](../11nodeSettings/04optionAdvancedSetting/01optionReference.md)按钮，都会弹出变量选择器。顶部的筛选输入框中输入关键字，可以对变量进行筛选。
 
-<img src='../../assets/snapshots/design/variable/var-select.png'>
+<img src='./assets/12useVarible/var-select.png'>
 
 `变量选择器`会列出当前位置可以使用的所有变量。变量选择器会按以下顺序依次显示：
 + 系统变量分组：包含所有系统变量，系统变量说明参见[系统变量](./09buildinVarible.md)。
