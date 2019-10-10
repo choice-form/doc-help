@@ -8,15 +8,21 @@
 
 ```
 # 选中条件
-对选项的自动选中进行控制。符合条件时，题目出现时就会按条件勾选选项。仅对选择类型题目有效。
-<img src='../../assets/snapshots/node-setting/answer-choices/active-logic/node-Q02.png'>
+对选项的自动选中进行控制。符合条件时，题目出现时就会按条件勾选选项。
 
-点击后，弹出`选项选中逻辑设置`窗口，在其中进行设置。
-  下图中，Q01是一道选择题，被访者可从素食或肉食中选择一个，Q02是在Q01基础上进一步呢询问具体吃一些什么。
+> 仅对选择类型题目有效。
+
+下图中，Q01是一道选择题，被访者可从素食或肉食中选择一个，Q02是在Q01基础上进一步呢询问具体吃一些什么。
+
+<img src='../assets/04optionAdvancedSetting/03selectedCondition/node-Q01.png'>
+
+点击`高级设置`按钮后，弹出`选项选中逻辑设置`窗口，在其中进行设置。
+
+<img src='../assets/04optionAdvancedSetting/03selectedCondition/node-Q02.png'>
 
 现在，我们希望当Q01选择肉食时，Q02能自动勾选所有肉食食材选项，打开`选项选中逻辑设置`窗口。
 
-<img src='../../assets/snapshots/node-setting/answer-choices/active-logic/popup.png'>
+<img src='../assets/04optionAdvancedSetting/03selectedCondition/popup.png'>
 
 随后，按以下步骤设置：
 + 在`当前选项`列表中，选择编号5-8的4款素食；

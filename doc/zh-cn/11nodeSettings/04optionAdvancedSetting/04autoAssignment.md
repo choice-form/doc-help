@@ -14,7 +14,7 @@
 
 问卷会有一些题型期待被访者给予打分，或输入文字，这些打分和填空操作可以通过设置`自动赋值`功能，让某些选项一开始就被赋予指定的内容，使问卷更具灵活性。
 
-<img src='../../assets/snapshots/layout/logic/opt-auto-input.png'>
+<img src='../assets/04optionAdvancedSetting/04autoAssignment/opt-auto-input.png'>
 
 在选项的`高级控制`中点击`自动赋值`，打开`选项自动赋值`面板。面板中，每个选项对应一个输入框，在输入框中输入内容，答题时该选项就会自动被填上这个值。如果输入的是变量，则会解析出该变量的真实内容填充到这个选项。
 
