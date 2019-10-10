@@ -48,7 +48,7 @@
 + 随后，创建需要进行循环的问题，按变量设定规则在问题中嵌入设定的变量。
 + 完成以上工作后，将循环第一题输入端连接到循环节点的循环开始，循环最后一题输出端连接到循环节点的循环结束，形成闭环。
 
-<img src='../../assets/snapshots/nodes/loop/loop.png'>
+<img src='../assets/toolsNodes/02loop/loop.png'>
 
 上图第二个右侧编辑栏中，`R3`的问题文字中展示了循环变量的使用方法。
 
@@ -73,7 +73,7 @@
 ## 举例1：创建外部循环变量
 1、设定循环变量
 打开新增节点面板，点击或拖动基本节点栏中的选择题，进行填充。
-<img src='../../assets/snapshots/nodes/loop/Sample1-1.png'>
+<img src='../assets/toolsNodes/02loop/Sample1-1.png'>
 
 + 编号：Q1
 + 问题：购买汽车，你会关注哪些品牌？
@@ -82,7 +82,7 @@
 2、创建循环节点
 
 打开新增节点面板，点击或拖动工具节点栏中的循环节点，无需填充。
-<img src='../../assets/snapshots/nodes/loop/Sample1-2.png'>
+<img src='../assets/toolsNodes/02loop/Sample1-2.png'>
 
 + 编号：Loop1
 
@@ -90,7 +90,7 @@
 
 问题中插入标签"@"，系统自动弹出变量列表，选择“Loop1-循环变量”，系统自动插入被访者选中的变量。
 打开新增节点面板，点击或拖动基本节点栏中的选择题、打分题，进行填充。
-<img src='../../assets/snapshots/nodes/loop/Sample1-3.png'>
+<img src='../assets/toolsNodes/02loop/Sample1-3.png'>
 
 + 编号：Q2
 + 问题：你关注Loop1:循环变量的原因是？
@@ -103,7 +103,7 @@
 4、创建非循环题（正式题）
 
 打开新增节点面板，点击或拖动基本节点栏中的选择题，进行填充。
-<img src='../../assets/snapshots/nodes/loop/Sample1-4.png'>
+<img src='../assets/toolsNodes/02loop/Sample1-4.png'>
 
 + 编号：Q4
 + 问题：你购买汽车最注重什么？
@@ -118,7 +118,7 @@
 
 打开新增节点面板，点击或拖动基本节点栏中的选择题，进行填充。
 
-<img src='../../assets/snapshots/nodes/loop/Sample2-1.png'>
+<img src='../assets/toolsNodes/02loop/Sample2-1.png'>
 
 + 编号：Q1
 + 问题：购买汽车，你会关注哪些品牌？
@@ -127,7 +127,7 @@
 2、创建循环节点
 
 打开新增节点面板，点击或拖动工具节点栏中的循环节点，进行填充。
-<img src='../../assets/snapshots/nodes/loop/Sample2-2.png'>
+<img src='../assets/toolsNodes/02loop/Sample2-2.png'>
 
 + 编号：Loop2
 + 自身循环变量：奔驰、宝马、奥迪
@@ -136,7 +136,7 @@
 
 问题中插入标签"@"，系统自动弹出变量列表，选择“Loop2-循环变量”，系统自动插入被访者选中的变量。
 打开新增节点面板，点击或拖动基本节点栏中的选择题、打分题，进行填充。
-<img src='../../assets/snapshots/nodes/loop/Sample2-3.png'>
+<img src='../assets/toolsNodes/02loop/Sample2-3.png'>
 
 + 编号：Q2
 + 问题：你关注Loop2:循环变量的原因是？
@@ -149,7 +149,7 @@
 4、创建非循环题（正式题）
 
 打开新增节点面板，点击或拖动基本节点栏中的选择题，进行填充。
-<img src='../../assets/snapshots/nodes/loop/Sample2-4.png'>
+<img src='../assets/toolsNodes/02loop/Sample2-4.png'>
 
 + 编号：Q4
 + 问题：你购买汽车最注重什么？
@@ -161,7 +161,7 @@
 ## 举例3：创建嵌套循环题（2层）
 在循环圈中再接入1个循环节点，在循环中增加1层循环，从而实现嵌套循环。并且，第2层循环中，题目和选项可以应用到第1层和第2层的所有循环变量。
 
-<img src='../../assets/snapshots/nodes/loop/Sample3-1.png'>
+<img src='../assets/toolsNodes/02loop/Sample3-1.png'>
 
 1、创建非循环题（正式题）
 
@@ -173,7 +173,7 @@
 2、创建循环节点
 
 打开新增节点面板，点击或拖动工具节点栏中的循环节点，无需填充。
-<img src='../../assets/snapshots/nodes/loop/Sample3-2.png'>
+<img src='../assets/toolsNodes/02loop/Sample3-2.png'>
 
 + 编号：Loop2
 
@@ -181,7 +181,7 @@
 
 问题中插入标签"@"，系统自动弹出变量列表，选择“Loop2-循环变量”，系统自动插入被访者选中的变量。
 打开新增节点面板，点击或拖动基本节点栏中的选择题，进行填充。
-<img src='../../assets/snapshots/nodes/loop/Sample3-3.png'>
+<img src='../assets/toolsNodes/02loop/Sample3-3.png'>
 
 + 编号：Q2
 + 问题：你购买Loop2:循环变量的汽车，会考虑哪些方面？
@@ -195,7 +195,7 @@
 5、创建嵌套循环问题
 
 打开新增节点面板，点击或拖动基本节点栏中的打分题，进行填充。
-<img src='../../assets/snapshots/nodes/loop/Sample3-4.png'>
+<img src='../assets/toolsNodes/02loop/Sample3-4.png'>
 
 + 编号：Q3
 + 问题：你认为Loop2:循环变量的 Loop3:循环变量怎么样？
@@ -215,12 +215,12 @@
 
 ## 举例4：循环节点引用选项图片
 当循环节点前连接的是图片选择题时，在循环节点中打开该选项后，可以在循环节点中引用前题中的图片。
-<img src='../../assets/snapshots/nodes/loop/Sample4-1.png'>
+<img src='../assets/toolsNodes/02loop/Sample4-1.png'>
 
 1、创建图片选择题
 
 打开新增节点面板，点击或拖动图片选择题节点，进行填充。
-<img src='../../assets/snapshots/nodes/loop/Sample4-2.png'>
+<img src='../assets/toolsNodes/02loop/Sample4-2.png'>
 
 + 编号：Q1
 + 问题：购买汽车，你会关注哪些品牌？
@@ -229,7 +229,7 @@
 2、创建循环节点
 
 打开新增节点面板，点击或拖动工具节点栏中的循环节点，无需填充。
-<img src='../../assets/snapshots/nodes/loop/Sample4-3.png'>
+<img src='../assets/toolsNodes/02loop/Sample4-3.png'>
 
 + 编号：Loop4
 
@@ -245,7 +245,7 @@
 4、创建非循环题（正式题）
 
 打开新增节点面板，点击或拖动基本节点栏中的填空题，进行填充。
-<img src='../../assets/snapshots/nodes/loop/Sample4-4.png'>
+<img src='../assets/toolsNodes/02loop/Sample4-4.png'>
 
 + 编号：Q3
 + 问题：你购买汽车最注重什么？

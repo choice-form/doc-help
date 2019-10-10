@@ -12,15 +12,15 @@
 # 图标题
 
 `图标题`其实就是每个选项都是图标的选择题，各种设置与选择题相同。
-<img src='../../assets/snapshots/nodes/icon/node.png'>
+<img src='../assets/questionnaireNodes/09icon/node.png'>
 
 ## 选项设置
 
 点击选项右侧的`图标设定`按钮，打开`图标库`对话框。
-<img src='../../assets/snapshots/nodes/icon/section.png'>
+<img src='../assets/questionnaireNodes/09icon/section.png'>
 
 `图标库`对话框里展示了系统所有内置图标。点击对话框左上角切换图标类型。或者，在右上角输入框中输入图标名称，快速找到需要的图标。
-<img src='../../assets/snapshots/nodes/icon/popup.png'>
+<img src='../assets/questionnaireNodes/09icon/popup.png'>
 
 ## 布局设置
 
