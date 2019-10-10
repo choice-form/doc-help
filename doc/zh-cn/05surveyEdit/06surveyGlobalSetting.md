@@ -11,7 +11,8 @@
 
 用于设置问卷的全局基本属性，当没有选中画布中的任何内容时，右侧属性编辑栏会显示该问卷的全局设置选项。
 
-<img src='../../assets/snapshots/node-setting/global-setting/global-setting.png'>
+<img src='./assets/06surveyGlobalSetting/global-setting.png'>
+
 
 ## 项目名称
 项目的名称，在问卷管理页面的问卷列表中显示的也是该名称。

@@ -11,4 +11,4 @@
 `题目标签`的用途是使数据表格更加简明。对于比较长的问题文字，可能会影响数据结果表格的视觉效果。用户可以给题目添加自定义标签，数据结果表格中会以标签内容代替问题内容。
 
 如下图，为当前问题设定了“乘车舒适性”标签文字，在数据结果中，这道题目的列名就会以“乘车舒适性”来命名。
-  <img src='../../assets/snapshots/node-setting/question/label.png'>
+  <img src='../assets/01questionSetting/04questionLabel/label.png'>

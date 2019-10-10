@@ -16,4 +16,4 @@
 
 + 无标记：没有标记，选项文字外围显示矩形边框。
 
-<img src='../../assets/snapshots/node-setting/adjust-layout/display-type/normal.png'>
+<img src='../../assets/snapshots/node-setting/adjust-layout/display-type/block.png'>
