@@ -9,7 +9,7 @@
 ```
 # 视频资源
 
-<img src='../../assets/snapshots/layout/media/video.png'>
+<img src='../assets/02mediaResource/03videoResource/video.png'>
 
 视频资源只能在节点的[图片和视频](../../11nodeSettings/01questionSetting/03questionPictureAndVideo.md)中使用。
 

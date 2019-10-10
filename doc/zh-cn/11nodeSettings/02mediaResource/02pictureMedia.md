@@ -10,7 +10,7 @@
 # 图片资源
 这里介绍如何使用图片资源，图片资源允许以2种方式被使用，分别为`普通设置方式`和`富文本框内嵌方式`。
 
-<img src='../../assets/snapshots/layout/media/image.png'>
+<img src='../assets/02mediaResource/02pictureMedia/image.png'>
 
 上图左侧为`普通设置方式`，右侧为`富文本框内嵌方式`。
 

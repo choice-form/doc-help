@@ -10,14 +10,17 @@
 # 媒体库
 
 `媒体库`用来管理当前问卷中的媒体资源。点击滑出`媒体库`面板，其中包含`图片库`和`视频库`两个功能区。
+
 <img src='../assets/03components/02mediaLiberary/assets-cn.jpg'>
 
 ## 图片库
 问卷中的所有图片素材。
+
 <img src='../assets/03components/02mediaLiberary/image.png'>
 
 ## 视频库
 问卷中的所有视频素材。视频资源会默认使用视频的首帧作为缩略图。
+
 <img src='../assets/03components/02mediaLiberary/video.png'>
   > 视频上传后，详细信息栏里可以预览观看视频。
 
@@ -26,6 +29,7 @@
 
 ## 查看媒体信息
 选中`媒体库`里的媒体资源，下方滑出该媒体资源的`详细信息`面板。
+
 <img src='../assets/03components/02mediaLiberary/assets-reference.png'>
 
 媒体资源可以在`节点`和`变量`中引用。问卷中被引用的媒体资源右上角会有一个三角标记。如果三角形是半透明的，则说明该媒体资源虽然被引用了，但是使用它的节点或变量并没有被问卷实际使用。
@@ -42,12 +46,14 @@
 选中`媒体库`里的媒体资源，`上传`按钮变成`替换`按钮。点击`替换`按钮并重新选择一个媒体文件，将会上传并自动替换当前的媒体文件，替换媒体资源会自动更新问卷里所有使用该媒体资源的地方。
 
 系统提供了3种媒体素材布局方式：
+
 <img src='../assets/03components/02mediaLiberary/image-menu.png'>
 + 网格
 + 列表
 + 小列表
 
 还可以对媒体素材进行不同方式的排序：
+
 <img src='../assets/03components/02mediaLiberary/image-newest.png'>
 + 按时间升序
 + 按时间降序
