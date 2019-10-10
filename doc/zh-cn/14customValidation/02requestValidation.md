@@ -21,7 +21,8 @@
 
 ## 请求方式：
 下图是一个接口请求的设置，点击头部下拉列表选择请求方式，请求方式包含：GET、POST、FAKE、EMBED。
-<img src='./images/request.png'>
+
+<img src='./assets/02requestValidation/menu.png'>
 
 + GET: 以HTTP的`GET`方式请求远程接口,参数会当成queryString拼接到url后面。
 + POST: 以HTTP的`POST`方式请求远程接口，参数会放到body中。
