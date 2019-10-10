@@ -37,7 +37,7 @@
 + [映射属性](./04optionAdvancedSetting/05propertyMap.md)
 
 ## 题目通用设置
-+ [必答题](./05questionGeneralSetting/01necessarily.md)
++ [必答题](./05questionGeneralSetting/01required.md)
 + [多选题](./05questionGeneralSetting/02multiChoice.md)
 + [最小输入限制](./05questionGeneralSetting/03inputLimits.md)
 + [设置排序数量](./05questionGeneralSetting/04sortAmout.md)

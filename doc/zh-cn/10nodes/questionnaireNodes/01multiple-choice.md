@@ -40,21 +40,23 @@
 ## 布局设置
 
 ### 选项布局：
-+ 选项布局：用于设置选项图标的排列方式，可选方式有：垂直、水平和指定列数。
+用于设置选项图标的排列方式，可选方式有：垂直、水平和指定列数。
 
 <img src='../assets/questionnaireNodes/01multiple-choice/vertical.png'>
 
 <img src='../assets/questionnaireNodes/01multiple-choice/horizontal.png'>
 
+当设定为`指定列数`时，在下方输入框内输入数量。
 <img src='../assets/questionnaireNodes/01multiple-choice/columns.png'>
 
-+ 选项展示方式：用于切换选项布局。
+###  选项展示方式
+用于切换选项布局。
 + 常规标记：选项左侧显示圆圈（单选）或方框（多选）作为选中标记。
   
 <img src='../assets/questionnaireNodes/01multiple-choice/normal.png'>
 
 + 无标记：没有标记，选项文字外围显示矩形边框。
   
-<img src='../assets/questionnaireNodes/01multiple-choice/normal.png'>
+<img src='../assets/questionnaireNodes/01multiple-choice/type-block.png'>
 
 > 不同题型或功能节点共有的通用设置在[通用设置](../../11nodeSettings/concept.md)中有完整说明。
