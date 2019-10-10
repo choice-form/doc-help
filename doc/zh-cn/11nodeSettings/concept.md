@@ -11,6 +11,16 @@
 
 `巧思系统`内置多种题型，每种题型都可以通过属性设置实现个性化的需求。主要有：
 
+## 题目选项基本操作
+
++ 选项排序：每个选项的右边都有一个拖拽图标，按住图标上下拖动对选项排序。
+  
+<img src='./assets/sorting.png'>
+
++ 删除选项：开启选项列表右上方的`删除`开关，所有选项右侧的拖拽图标会变成删除图标，点击删除图标删除该选项。关闭`删除`开关，变回排序图标。
+  
+<img src='./assets/delete.png'>
+
 ## 问卷题目设置
 + [题型切换和题目编号](./01questionSetting/01questionTypeAndNumber.md)
 + [题目内容和描述](./01questionSetting/02questionContentsAndDescription.md)
@@ -30,6 +40,9 @@
 + [预设选项](./03optionSetting/05propertyMap.md)
 
 ## 选项高级设定
+
+<img src='./assets/advanced-button.png'>
+
 + [选项引用](./04optionAdvancedSetting/01optionReference.md)
 + [显示条件](./04optionAdvancedSetting/02displayCondition.md)
 + [选中条件](./04optionAdvancedSetting/03selectedCondition.md)

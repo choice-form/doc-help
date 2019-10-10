@@ -60,4 +60,4 @@
 + 按字母升序
 + 按字母降序
 
-> 关于媒体的使用方法参见[图片的使用](../../11nodeSettings/02mediaResource/02pictureMedia.md)和[视频的使用](../../11nodeSettings/02mediaResource/03videoResource)。关于媒体在变量中的使用请参见[媒体变量](../../16varible/05mediaVarible.md)。
+> 关于媒体的使用方法参见[图片的使用](../../11nodeSettings/02mediaResource/02pictureMedia.md)和[视频的使用](../../11nodeSettings/02mediaResource/03videoResource)。关于媒体在变量中的使用请参见[媒体变量](../../16variable/05mediaVariable.md)。

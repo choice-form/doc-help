@@ -14,7 +14,7 @@
 
 ## 接口请求验证的使用场景
 `接口请求验证`在以下地方都可以使用，熟练使用后能极大扩展问卷性能。
-+ [接口请求变量](../16varible/06requestVarible.md)
++ [接口请求变量](../16variable/06requestVariable.md)
 + [节点自定义验证](../14customValidation/01customValidation.md)
 + [开始节点验证](../10nodes/otherNodes/01start.md)
 + [结束节点的结束请求](../10nodes/questionnaireNodes/17end.md)
