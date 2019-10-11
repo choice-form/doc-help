@@ -16,8 +16,9 @@
 + `逻辑或`：只要任意条件的结果为`真`，总结果就为`真`。
 
 以下功能中会用到逻辑运算，在各自的功能区打开`逻辑编辑器`后完成逻辑编辑操作。
-+ 针对节点：[逻辑节点](../nodes/logic.md)和自定义验证中的[内置逻辑验证](../node-setting/custom-validation.md#内置逻辑验证)；
-+ 针对选项：[选项显示控制](./opt-display.md)和[选项选中控制](./opt-auto-select.md)；
++ 针对节点：[逻辑节点](../nodes/logic.md)和自定义验证中的[内置逻辑验证](../../14customValidation/03build-inLogicValidation.md)；
++ 针对选项：[选项显示控制](../../11nodeSettings/04optionAdvancedSetting/02displayCondition.md)和[选项选中控制](../../11nodeSettings/04optionAdvancedSetting/03selectedCondition.md)
+
 
 首先我们定义`目标节点`，当从某个节点的属性编辑设置中打开`逻辑编辑器`，我们就把这个节点称为逻辑编辑器的`目标节点`，设定的逻辑关系将影响该`目标节点`。
 
