@@ -13,6 +13,8 @@
 
 画布上每个题目节点都有一个`输入端`和若干`输出端`。
 
+<img src='./assets/04setSkipLogic/inputport-&-outputport.png'>
+
 ## 输出端
 鼠标拖动`输出端`，可以拖出一条连线，连线只能从`输出端`开始。
 
@@ -21,3 +23,5 @@
 
 ## 连线
 连线代表问卷执行的流程走向，从一个题目节点输出到下一道题目的输入。一条连线所连接的`输出端`和`输入端`，代表了2道问卷题目的跳转。
+
+<img src='./assets/04setSkipLogic/default-output.png'>

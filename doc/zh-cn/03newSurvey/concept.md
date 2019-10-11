@@ -16,6 +16,8 @@
 + [从文本创建问卷](./03fromDocFile.md)
 + [从文件创建问卷](./04fromSurveyFile.md)
 
+<img src='./assets/projectNameAndFolder.png'>
+
 ## 问卷项目名称
 `问卷项目名称`与`问卷名称`不同，`问卷名称`会显示在问卷封面，被访者可以看到。而`问卷项目名称`显示在问卷卡片上，被访者无法看到。
 

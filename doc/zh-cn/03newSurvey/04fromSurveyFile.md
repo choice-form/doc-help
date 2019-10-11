@@ -11,3 +11,4 @@
 
 `巧思问卷`系统可将问卷保存为本地文件，扩展名为：`cfpd`。创建问卷时，可直接选择一个`cfpd`文件，系统将直接使用该文件创建新问卷。
 
+<img src='./assets/04fromSurveyFile/fromSurveyFile.png'>
