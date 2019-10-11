@@ -27,6 +27,7 @@
 <img src='../assets/questionnaireNodes/01multiple-choice/answer-presets-normal.png'>
 
 选中一个预设选项后，根据不同的选中，左侧会智能地显示`范围`设定，进一步预设选项的数量和内容。
+
 <img src='../assets/questionnaireNodes/01multiple-choice/answer-presets-scale.png'>
 
 + 选项备注
@@ -47,6 +48,7 @@
 <img src='../assets/questionnaireNodes/01multiple-choice/horizontal.png'>
 
 当设定为`指定列数`时，在下方输入框内输入数量。
+
 <img src='../assets/questionnaireNodes/01multiple-choice/columns.png'>
 
 ###  选项展示方式

@@ -12,9 +12,11 @@
 # 图片选择题
 
 `图片选择题`是选择题的另外一种形式，可以看作是把图片当成选项的选择题，各种设置与选择题相同。
+
 <img src='../assets/questionnaireNodes/10picture/node.png'>
 
 图片选择题效果：
+
 <img src='../assets/questionnaireNodes/10picture/section.png'>
 
 ## 布局设置

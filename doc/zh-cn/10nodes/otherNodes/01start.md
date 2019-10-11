@@ -12,9 +12,11 @@
 # 开始节点
 
 `开始节点`是问卷的封面，可以设定问卷标题、图片、说明等信息。一份问卷必须有，且仅有一个开始节点。答题开始时，先显示问卷封面，随后点击页面上的开始按钮正式开始问卷答题。
+
 <img src='../assets/otherNodes/01start/node.png'>
 
 ## 问卷信息
+
 <img src='../assets/otherNodes/01start/section.png'>
 
 + 问卷标题：

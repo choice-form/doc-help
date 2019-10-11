@@ -12,9 +12,11 @@
 # 填空题
 
 `填空题`用于让被访者输入对题目的回答、评价、说明等文字内容。填空题支持多个填空项，被访者可以在一道题目里输入多个不同的内容。
+
 <img src='../assets/questionnaireNodes/05textbox/node.png'>
 
 如图，被访者可以分别输入对售前和售后服务的评价文字内容。
+
 <img src='../assets/questionnaireNodes/05textbox/section.png'>
 
 + 输入内容验证：

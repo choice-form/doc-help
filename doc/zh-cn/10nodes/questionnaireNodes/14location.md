@@ -41,11 +41,14 @@
 > 如果因网络状况或用户终端权限设置的问题，可能会导致自动定位失败。
 
 考虑到自动定位可能失败的情况，自动定位下面有一个`定位失败可跳过`的勾选项。勾选后，定位失败时会解除该题的必答限制，被访者可以继续后续问卷。
+
 <img src='../assets/questionnaireNodes/14location/failed-skip.png'>
 
 ## 仅收集地域信息
 开启后，定位题仅用于记录被访者的定位结果。
+
 <img src='../assets/questionnaireNodes/14location/info-only.png'>
+
 可以设置定位信息的不同精确度。
 
 > 不同题型或功能节点共有的通用设置在[通用设置](../../11nodeSettings/concept.md)中有完整说明。

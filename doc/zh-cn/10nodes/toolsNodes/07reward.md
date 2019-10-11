@@ -29,6 +29,7 @@
   + 自定义奖励：奖励靠第三方发放，支持发送获奖短信与分配核销码的方式，被访者可以凭短信或核销码到第三方机构领取奖励。
 
 <img src='../assets/toolsNodes/07reward/custom-rewards.png'>
+
 <img src='../assets/toolsNodes/07reward/verification.png'>
 
 > 关于资金扣除，奖励发放等具体功能介绍，参见[奖励机制](../../17advancedFunction/03rewardAndLottery.md)。
