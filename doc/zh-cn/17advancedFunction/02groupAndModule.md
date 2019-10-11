@@ -38,6 +38,7 @@ https://media.choiceform.com/doc-help/zh-cn/design/group/join-and-remove.mp4
 ## 组合的其他功能
 
 将问卷题目节点组合在一起，除了可以使问卷更为清晰简练外，还带来额外功能：
+
 <img src='../17advancedFunction/assets/02groupAndModule/normal.png'>
 
 + 组内容节点显示为一页

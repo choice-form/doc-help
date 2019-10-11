@@ -24,7 +24,8 @@
 在问卷里新增一个`甄别`节点，并连接到合适的位置，随后按问卷要求，将不符合要求的选项输出连接到结束节点，就完成了问卷甄别设定。
 
 以下图为例：
-<img src='../design/advance-topic/images/screening.png'>
+
+<img src='../assets/screening/screening.png'>
 
 通过`LOCATION`题目可以看到，位置不在北上广的被访者都未通过甄别，被直接输出到结束节点，代表不满足问卷要求，直接结束，不记录答案，而北上广的被访者会继续问卷答题。
 

@@ -12,8 +12,10 @@
 
 例如：
 单行文本数设定为1时的效果：
+
 <img src='../../assets/snapshots/nodes/dropdown/line-count-1.png'>
 
 单行文本数设定为2时的效果：
+
 <img src='../../assets/snapshots/nodes/dropdown/line-count-2.png'>
 

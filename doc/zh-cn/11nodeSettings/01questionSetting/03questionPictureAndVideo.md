@@ -13,9 +13,11 @@
 
 ## 添加题目图片
 点击`图片媒体选择器`弹出图片资源列表，显示了当前媒体库中的所有图片资源，点击图片资源选择该图片。
+
 <img src='../assets/01questionSetting/03questionPictureAndVideo/image-menu.png'>
 
 添加图片后，会在问卷内容下方显示当前题目的配图。
+
 <img src='../assets/01questionSetting/03questionPictureAndVideo/image.png'>
 
 + 上传图片：
@@ -36,6 +38,7 @@
 
 ## 添加题目视频
 点击`视频媒体选择器`弹出视频资源列表，显示了当前媒体库中的所有视频资源，点击视频资源选择该视频。
+
 <img src='../assets/01questionSetting/03questionPictureAndVideo/video.png'>
 
 + 上传视频：
@@ -45,6 +48,7 @@
 点击频资源列表最上面的`移除视频`按钮移除题目的当前视频。
 
 ### 视频媒体控制
+
 <img src='../assets/01questionSetting/03questionPictureAndVideo/auto-play.png'>
 
 + `完整播放`：被访者必须看完视频是才能进入下一题的。

@@ -31,7 +31,7 @@
 <img src='./assets/01otherOption/both.png'>
 
 > 当设置为`备注栏`或`选项+备注栏`时，点击选项输入框右侧的`附加设置`小箭头按钮，可以设置验证备注栏中输入的内容，具体参见[输入验证](../11nodeSettings/03optionSetting/04inputValidation.md)。
-> 
+
 <img src='./assets/01otherOption/validation-options.png'>
 
 

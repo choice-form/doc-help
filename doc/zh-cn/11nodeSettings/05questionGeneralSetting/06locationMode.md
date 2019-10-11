@@ -15,10 +15,12 @@
 
 ## 手动定位
 弹出列表让被访者选择自己所在位置；
+
 <img src='../assets/05questionGeneralSetting/06locationMode/manual.png'>
 
 ## 自动定位
 页面显示一个定位图标按钮，被访者点击后，会使用被访者硬件系统的定位功能确定用户所在的位置。
+
 <img src='../assets/05questionGeneralSetting/06locationMode/section.png'>
 
 > 如果因网络状况或用户终端权限设置的问题，可能会导致自动定位失败。
@@ -29,5 +31,7 @@
 
 ## 仅收集地域信息
 开启后，定位题仅用于记录被访者的定位结果。
+
 <img src='../assets/05questionGeneralSetting/06locationMode/info-only.png'>
+
 可以设置定位信息的不同精确度。

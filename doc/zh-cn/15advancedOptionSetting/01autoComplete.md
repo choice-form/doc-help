@@ -13,7 +13,7 @@
 
 下面通过一个小案例来说明。
 
-<img src='../../assets/snapshots/node-setting/answer-choices/validation-options/auto-complete/section.png'>
+<img src='./assets/01autoComplete/section.png'>
 
 假设，希望被访者在填空题里输入某个汽车品牌，但为了节约数据清理的时间，我们希望：
 + 被访者用户输入正确的品牌名称；

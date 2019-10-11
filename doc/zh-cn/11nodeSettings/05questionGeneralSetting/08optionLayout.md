@@ -17,4 +17,5 @@
 <img src='../assets/05questionGeneralSetting/08optionLayout/horizontal.png'>
 
 当设定为`指定列数`时，在下方输入框内输入数量。
+
 <img src='../assets/05questionGeneralSetting/08optionLayout/columns.png'>

@@ -18,21 +18,26 @@
 系统的`多用户冲突管理引擎`可以在产生冲突时提示用户采取措施。
 
 当产生冲突时，问卷编辑器画布右上角会弹出提示卡片：
-<img src='./images/conflict.png'>
+
+<img src='./assets/06teamUserConfilct/conflict.png'>
 
 提示卡片会显示其他用户正在同时查看当前问卷，并显示该用户头像，鼠标放在用户头像上显示用户名称。
 
 发送冲突时，系统会禁用`自动保存`功能，避免多个用户的修改作用到同一份问卷。如果某个用户对问卷进行了修改，其他用户的界面上会明确看到提示卡片，提示当前用户正在编辑问卷遇到了多用户冲突的情况。
-<img src='./images/conflict-editing.png'>
+
+<img src='./assets/06teamUserConfilct/conflict-editing.png'>
 
 这时如果你保存问卷，系统会弹出警告框。
-<img src='./images/conflict-warn-save.png'>
+
+<img src='./assets/06teamUserConfilct/conflict-warn-save.png'>
 
 保存后，其他用户会看到提示问卷已经被保存提示卡片。
-<img src='./images/conflict-saved.png'>
+
+<img src='./assets/06teamUserConfilct/conflict-saved.png'>
 
 此时，其他用户如果想保存自己修改的问卷，系统会提醒其做出明确的选择：
-<img src='./images/conflict-danger-save.png'>
+
+<img src='./assets/06teamUserConfilct/conflict-danger-save.png'>
 
 + 放弃自己修改的问卷，使用其他人保存的问卷内容。
 + 保存自己修改的问卷，覆盖其他人保存的问卷内容。
