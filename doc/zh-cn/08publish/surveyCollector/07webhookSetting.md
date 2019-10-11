@@ -7,9 +7,10 @@
 ```summary
 
 ```
-
 # Webhook设置
 Webhook是一个轻量的事件处理应用，在指定世界发生时立即调用。`巧思系统`的每个收集器都支持Webhook，可以为`回复完成时`，`回复不合格时`，`恢复超过了设定的配额时`事件设定Webhook地址，当事件发生时，就会调用地址并传出参数。
+
+<img src='../assets/surveyCollector/07webhookSetting/webhookSetting.png'>
 
 ## Webhook地址修饰符
 填写的网络地址可以有以下方式：

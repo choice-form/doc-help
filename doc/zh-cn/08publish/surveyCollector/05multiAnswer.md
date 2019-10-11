@@ -7,8 +7,9 @@
 ```summary
 
 ```
-
 # 多次回复和收集器限制
+
+<img src='../assets/surveyCollector/05multiAnswer/multiAnswer.png'>
 
 ## 多次回复
 用于控制在同一台设备上是否允许对同一份问卷进行多次回复。如果问卷包含了奖励，则自动设定为同一设备上只允许回复一次，不允许多次回复。
