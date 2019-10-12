@@ -10,7 +10,7 @@
     "sourceMap": true,
     "lib": [
       "es2017",
-      "dom",
+      "dom"
     ]
   },
   "include": [
