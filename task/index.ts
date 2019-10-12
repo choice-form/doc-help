@@ -368,6 +368,21 @@ const appendHash = (path: string, hash: string) => {
   return result;
 }
 
+/**
+ * 尝试获取文件的自然索引
+ * 会从文件名开头抽取数字,如果抽取不到,
+ * 则使用1000000,好让其排在其他有序号的文件的后面
+ * @param name 
+ */
+const tryGetFileIndex = (name: string) => {
+  const numPrefixMatch = name.match(/^\d+/);
+  let index = 1000000;
+  if (numPrefixMatch) {
+    index = Number(numPrefixMatch)
+  }
+  return index;
+}
+
 
 /**
  * 处理资源文件
@@ -391,10 +406,13 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
     const stat = fs.statSync(sub);
     // 文件夹继续深入
     if (stat.isDirectory()) {
+
       // 生成一个空索引数据
       const indexData: IDocIndexData = {
         path: dir,
-        alias: name, index: 1000000, type: 'dir'
+        alias: name,
+        index: tryGetFileIndex(name),
+        type: 'dir'
       };
       // 扫描子资源的时候会尝试填充这个数据，如果没有填充别名就仍然会是原始名称。
       const data = buildAssets(sub, indexData);
@@ -427,7 +445,7 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
         }
         // 是markdown文件
       } else if (name.endsWith('.md')) {
-        ``
+
         // 推入一个初始数据，
         // 此时填入的地址是原始文件路径，
         // 此时不会转化markdown，
@@ -435,7 +453,7 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
         // 后续会再次扫描indexList来通过url转化markdown,
         // 那时候会将真实的别名,索引和地址填入
         indexList.push({
-          index: 1000000, alias: '',
+          index: tryGetFileIndex(name), alias: '',
           url: sub, type: 'file',
           path: dir,
         })
