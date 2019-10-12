@@ -7,7 +7,7 @@
 ```summary
 
 ```
-# 命名收集器
+# 收集器
 收集器用于收集问卷数据，同一份问卷可以开启多个不同收集器。并且，每个收集器都可以有各自不同的名称和设定。
 
 <img src='../assets/surveyCollector/02Collector/collector.png'>

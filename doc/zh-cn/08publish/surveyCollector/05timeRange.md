@@ -1,5 +1,5 @@
 ```index
-4
+5
 ```
 ```tag
 
@@ -10,7 +10,7 @@
 # 日期与时间限制
 问卷发布之前，需要设定停止收集问卷数据的截止日期与时间，时限达到后，收集器会自动停止收集问卷数据。
 
-<img src='../assets/surveyCollector/04timeRange/timeRange.png'>
+<img src='../assets/surveyCollector/05timeRange/timeRange.png'>
 
 ## 不限制日期和时间
 一直接收回复数据，直到手动关闭该收集器。

@@ -1,5 +1,5 @@
 ```index
-6
+7
 ```
 ```tag
 
@@ -10,7 +10,7 @@
 # 渠道设置
 用于控制发布后的链接可以发布到哪些渠道，每个收集器可设置的渠道有：`网页链接`、`微信`、`微博`。默认开启全部渠道。
 
-<img src='../assets/surveyCollector/06chanalSetting/chanalSetting.png'>
+<img src='../assets/surveyCollector/07chanalSetting/chanalSetting.png'>
 
 ## 关闭渠道
 关闭渠道卡片右上角的开关，当前收集器就不能在该渠道打开了。
