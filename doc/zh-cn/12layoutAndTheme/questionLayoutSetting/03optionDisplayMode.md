@@ -12,8 +12,8 @@
 
 + 常规标记：选项左侧显示圆圈（单选）或方框（多选）作为选中标记。
 
-<img src='../../assets/snapshots/node-setting/adjust-layout/display-type/normal.png'>
+<img src='../assets/questionLayoutSetting/03optionDisplayMode/normal.png'>
 
 + 无标记：没有标记，选项文字外围显示矩形边框。
 
-<img src='../../assets/snapshots/node-setting/adjust-layout/display-type/block.png'>
+<img src='../assets/questionLayoutSetting/03optionDisplayMode/block.png'>

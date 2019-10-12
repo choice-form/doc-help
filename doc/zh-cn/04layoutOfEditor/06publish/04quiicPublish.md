@@ -27,13 +27,13 @@
 
 <img src='../assets/06publish/04quiicPublish/error.png'>
 
-这时，应先尝试[错误修改和测试](./debug.md)来修复错误。
+这时，应先尝试[错误修改和测试](../../06preview/03debugAndTest.md)来修复错误。
 
 + 包含红包奖励：带有红包等奖励的问卷必须先设定收集数量，并计算相关资金。这时，需要按提示点击`高级设置`按钮，前往`高级设置`页面完成发布操作，
 
 <img src='../assets/06publish/04quiicPublish/reward.png'>
 
-  包含红包奖励的问卷设置参见[问卷红包奖励](./reward.md)。
+  包含红包奖励的问卷设置参见[问卷红包奖励](../../17advancedFunction/03rewardAndLottery.md)。
 
 发布状态的问卷会被系统锁定，问卷编辑器可以查看问卷内容，但无法被编辑和保存。
 

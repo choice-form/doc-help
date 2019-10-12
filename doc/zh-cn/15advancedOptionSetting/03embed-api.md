@@ -8,13 +8,13 @@
 ```
 # 内置接口
 
-在[接口请求](../advance-topic/request.md)中提到了四种请求方式，其中一种是`EMBED`方式，需要用到`内置接口`。
+在[接口请求](../14customValidation/02requestValidation.md)中提到了四种请求方式，其中一种是`EMBED`方式，需要用到`内置接口`。
 
 点击左侧工具栏的`内置接口`按钮打开`内置接口面板`，点击`添加`按钮即可添加一个内置接口。
 
 <img src='./assets/03embed-api/embed-api.png'>
 
-内置接口需要指定一个名称和一段`javascript`代码，可以添加参数和测试样例代码，配置好的内置接口在[接口请求模块](../advance-topic/request.md)中可以使用。
+内置接口需要指定一个名称和一段`javascript`代码，可以添加参数和测试样例代码，配置好的内置接口在[接口请求](../14customValidation/02requestValidation.md)中可以使用。
 
 > 内置接口需要JS编程能力。
 
@@ -37,7 +37,7 @@
 ### 接口代码
 按业务需求编写`javascript`代码。
 
-接口代码最后必须返回一个函数作为接口处理函数，该函数的返回值必须是[接口请求](../advance-topic/request.md)里面提到的返回数据接口,即一个包含result和message属性的对象。
+接口代码最后必须返回一个函数作为接口处理函数，该函数的返回值必须是[接口请求](../14customValidation/02requestValidation.md)里面提到的返回数据接口,即一个包含result和message属性的对象。
 
 以上图中代码为例；这个名为`123`的接口要求两个参数`p`和`q`，在代码中，从处理函数的第一个参数`data`中取出真正的参数`p`和`q`，然后用`p`加上`p`与`q`的商作为计算因子，再乘以之前的一个随机数作为结果返回。
 
@@ -76,7 +76,7 @@ return function(data) {
 ```
 通过上面的代码我们就能从给定年份和生肖名称中，判断两者是否匹配，如果不匹配的话还能给出自定义提示消息。
 
-> 结果和提示消息的用法在[接口请求](../advance-topic/request.md)中有说明。
+> 结果和提示消息的用法在[接口请求](../14customValidation/02requestValidation.md)中有说明。
 
 ### 测试代码
 为了确保编写的代码没有错误，或者在后续的更改中不会被改错，可以添加几个测试样例代码。

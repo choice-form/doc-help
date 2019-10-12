@@ -18,7 +18,7 @@
 
 问卷中，一个基本节点就是一道问卷题目，系统支持以下题型：
 
-+ [选择题](./questionnaireNodes/01-multi-choice.md)
++ [选择题](./questionnaireNodes/01multiple-choice.md)
 + [打分题](./questionnaireNodes/02rating.md)
 + [演示评价题](./questionnaireNodes/03slide-rate.md)
 + [权重题](./questionnaireNodes/04weight.md)

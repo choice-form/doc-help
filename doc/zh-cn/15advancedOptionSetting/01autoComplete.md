@@ -60,10 +60,12 @@
 设置配置文件后，会出现`精准匹配`勾选项。
 
 + 勾选`精准匹配`，匹配程序会严格按照配置文件提供的triggers来触发提示，占用系统资源较少。
-<img src='../../assets/snapshots/node-setting/answer-choices/validation-options/auto-complete/precise-matching.png'>
+  
+<img src='./assets/01autoComplete/precise-matching.png'>
 
 + 取消`精准匹配`，匹配程序会在triggers的基础上进行包括汉语拼音在内的多种分析，针对上面的宝马项，当被访者输入“宝妈”等拼音相近的都会提示出`宝马`标签。
-<img src='../../assets/snapshots/node-setting/answer-choices/validation-options/auto-complete/default-matching.png'>
+  
+<img src='./assets/01autoComplete/default-matching.png'>
 
 简单匹配更智能地触发提示，但会消耗很多系统资源，被访者硬件配置较低时，会影响用户体验。
 
@@ -74,7 +76,7 @@
 + 查看问卷的自动提示配置文件
 一份问卷可能会用到多个不同的自动提示配置，`自动提示配置文件管理`面板中能看到当前问卷所有的自动提示配置文件，可对配置文件进行管理。
 
-<img src='../../assets/snapshots/node-setting/answer-choices/validation-options/auto-complete/popup.png'>
+<img src='./assets/01autoComplete/popup.png'>
 
 + 增加问卷的自动提示配置文件
 `自动提示配置文件管理`面板只能从题目的`自动提示配置`界面中点击'`+`'号按钮打开。

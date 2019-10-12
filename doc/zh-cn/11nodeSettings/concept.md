@@ -34,10 +34,10 @@
 
 ## 题目选项设置
 + [选项编号](./03optionSetting/01optionNumber.md)
-+ [选项分组和排他](./03optionSetting/02displayCondition.md)
-+ [选项备注](./03optionSetting/03selectCondition.md)
-+ [输入验证](./03optionSetting/04autoAssignment.md)
-+ [预设选项](./03optionSetting/05propertyMap.md)
++ [选项分组和排他](./03optionSetting/02optionGroupAndExclude.md)
++ [选项备注](./03optionSetting/03optionComment.md)
++ [输入验证](./03optionSetting/04inputValidation.md)
++ [预设选项](./03optionSetting/05presetingOption.md)
 
 ## 选项高级设定
 

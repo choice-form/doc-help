@@ -79,4 +79,4 @@
     <source id="mp4" src="https://media.choiceform.com/doc-help/zh-cn/design/layout/canvas/group.mp4" type="video/mp4">
 </video>
 
-> 参照[组合与模块](../groups/concept.md)了解更多组的信息。
+> 参照[组合与模块](../../17advancedFunction/02groupAndModule.md)了解更多组的信息。
