@@ -356,14 +356,14 @@ const appendHash = (path: string, hash: string) => {
   hash = hash.substr(0, 8);
   let result = '';
   const lastIndex = path.lastIndexOf('.');
-  // 同时有文件名和后缀将hash插到中间
+  // 同时有文件名和后缀将hash插到文件名中间
   if (lastIndex > -1) {
     const head = path.substr(0, lastIndex);
     const tail = path.substr(lastIndex);
     result = head + '-' + hash + tail;
-    // 否则将hash插到前面
+    // 否则将hash插到文件名后面
   } else {
-    result = hash + '-' + path;
+    result = path + '-' + hash;
   }
   return result;
 }
