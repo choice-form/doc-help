@@ -23,7 +23,7 @@
  
 > 全部节点可参见[节点清单](../../10nodes/concept.md)中详细介绍
 
-### 节点构成
+## 节点构成
 大部分节点在画布中表现为一个方块。
 
 <img src='../assets/01canvas/02node/nodes.png'>
@@ -34,7 +34,7 @@
 + 节点题目的内容文字 
 + 节点选项列表，每行代表一个选项。左边数字是选项编号，右侧文字是该选项的名称。有时，选项的最右侧显示了选项的输出口，可以为每个选项设定不同的输出。
 
-### 输入口和输出口
+## 输入口和输出口
 节点上显示的小圆圈是节点的端口，端口分为输入口和输出口，它们各有不同的特性：
 
 <img src='../assets/01canvas/02node/inputport-&-outputport.png'>
@@ -55,7 +55,7 @@
 + 结束节点：没有开启奖励的情况下，只有输入，没有输出。
 + 奖励节点：只有输入，没有输出。
 
-### 快捷输出口
+## 快捷输出口
 节点右上方有一个特殊的`快捷输出口`，快捷输出口有以下2种状态：
 
 <img src='../assets/01canvas/02node/default-output.png'>
@@ -65,14 +65,14 @@
 
 快捷输出口主要用于提高工作效率，这样就不必为每个选项设置大量相同的输出了。
 
-### 节点收起与展开
+## 节点收起与展开
 点击节点左上角的小箭头收起或展开节点，当选项较多且不想经常看到选项时，收起节点会更使画布更简洁。
 
 <video id="video" controls="" preload="none">
     <source id="mp4" src="https://media.choiceform.com/doc-help/zh-cn/design/layout/canvas/collapse.mp4" type="video/mp4">
 </video>
 
-### 节点组合
+## 节点组合
 多个节点可以进行组合，组合后节点组也可以收起和展开，收起后的节点组会收缩成一个小方块，组合内的节点都会藏起来。
 
 <video id="video" controls="" preload="none">

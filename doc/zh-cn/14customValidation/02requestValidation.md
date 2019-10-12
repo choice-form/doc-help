@@ -19,7 +19,7 @@
 + [开始节点验证](../10nodes/otherNodes/01start.md)
 + [结束节点的结束请求](../10nodes/questionnaireNodes/17end.md)
 
-## 请求方式：
+## 请求方式
 下图是一个接口请求的设置，点击头部下拉列表选择请求方式，请求方式包含：GET、POST、FAKE、EMBED。
 
 <img src='./assets/02requestValidation/menu.png'>
@@ -49,7 +49,7 @@
 ### POST
 设置与`GET`相同，只是请求方式的区别。
 
-### FAKE方式请求
+### FAKE
 
 `FAKE`请求是调用服务器上部署好的`javascript`脚本，该javascript脚本需要按指定的规范编写。
 

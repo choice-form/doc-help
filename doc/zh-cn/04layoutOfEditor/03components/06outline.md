@@ -10,6 +10,7 @@
 # 节点导航
 
 `节点导航`面板列出当前问卷的所有节点，包括已使用和未使用节点在内。点击后滑出`节点导航`面板。
+
 <img src='../assets/03components/06outline/navigator-cn.jpg'>
 
 ## 改变问卷题目的输出顺序

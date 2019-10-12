@@ -34,7 +34,6 @@
 
 <img src='./assets/01otherOption/validation-options.png'>
 
-
 ## 特殊行为
 和普通选项相比，其他选项有些特殊行为：
 + 永远显示在普通选项的后面，而且不会参与随机；
