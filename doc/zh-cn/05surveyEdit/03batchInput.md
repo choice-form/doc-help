@@ -20,3 +20,12 @@
 
 批量输入时支持输入变量内容。
 <img src='./assets/03batchInput/variable.png'>
+
+## 试一试
+
+### 批量增加选项
+双击画布上的`MULTIPLE_CHOICE_1`节点，打开`批量输入`窗口，窗口的选项列表里可以看到当前的苹果、桔子、香蕉选项，并且光标停留在最后的位置。
+
+按下键盘`ENTER`键，新增一行，输入菠萝。按下键盘`ENTER`键，新增一行，输入草莓，随后点击确定关闭窗口。画布上的`MULTIPLE_CHOICE_1`节点的选项已经更新了。
+
+<img src='./assets/03batchInput/batchAddNewOption.png'>

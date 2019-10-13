@@ -25,7 +25,7 @@
 + [图片题](../../10nodes/questionnaireNodes/10picture.md)和[演示评价题](../../10nodes/questionnaireNodes/03slide-rate.md)的选项中；
 + [图片热点题](../../10nodes/questionnaireNodes/11hot-spot.md)的热图设置中；
 + [问卷封面](../../10nodes/otherNodes/01start.md)设置中；
-+ [全局设置自定义logo](../../05surveyEdit/06surveyGlobalSetting.md)；
++ [全局设置自定义logo](../../11nodeSettings/06surveyGlobalSetting/01surveyGlobalSetting.md)；
 + [抽奖节点](../../10nodes/toolsNodes/06lottery.md)的中奖描述和未中奖描述中；
 + [视频库](../../11nodeSettings/02mediaResource/03videoResource.md)中作为视频的封面；
 

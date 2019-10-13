@@ -60,4 +60,7 @@
 + [定位方式](./05questionGeneralSetting/06locationMode.md)
 + [选项展示方式](./05questionGeneralSetting/07selectMode.md)
 
+## 问卷全局设置
++ [问卷全局设置](./06surveyGlobalSetting/01surveyGlobalSetting.md)
+  
 在题型节点的具体介绍中也会涉及上述内容。
