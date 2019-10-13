@@ -97,11 +97,11 @@
 
 <img src='../assets/03optionSetting/04inputValidation/popup.png'>
 
-自动匹配默认采取宽泛的弱匹配方式，以返回更多的选项供被访者选择。如下图中，被访者输入`宝妈`时，会匹配到`宝马`。
+自动匹配默认采取宽泛的弱匹配方式，以返回更多的选项供被访者选择。如下图中，被访者输入`平果`时，会匹配到`苹果`。
 
 <img src='../assets/03optionSetting/04inputValidation/default-matching.png'>
 
-打开`精准匹配`，采取严格的匹配方式，此时输入`宝妈`时，则不会匹配到任何对象。
+打开`精准匹配`，采取严格的匹配方式，此时输入`平果`时，则不会匹配到任何对象。
 
 <img src='../assets/03optionSetting/04inputValidation/precise-matching.png'>
 
