@@ -5,11 +5,11 @@
 
 ```
 ```summary
-
+控制题目内容和选项文字大小。
 ```
 # 自定义字体尺寸
 
-用于调节题目页面里问题和选项文字的大小。
+用于调节题目页面里问题内容和选项文字的大小。
 
 <img src='../assets/questionLayoutSetting/02userdefinedFontSize/custom-font-size.png'>
 
