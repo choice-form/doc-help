@@ -2,7 +2,7 @@
 1
 ```
 ```tag
-
+选择题 选项设置 布局设置 选项布局 选项展示方式 题型节点
 ```
 ```summary
 选择题的使用说明。
@@ -38,7 +38,7 @@
 
 ## 布局设置
 
-### 选项布局：
+### 选项布局
 用于设置选项图标的排列方式，可选方式有：垂直、水平和指定列数。
 
 <img src='../assets/questionnaireNodes/01multiple-choice/vertical.png'>

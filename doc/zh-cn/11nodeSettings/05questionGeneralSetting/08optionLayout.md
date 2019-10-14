@@ -2,12 +2,12 @@
 8
 ```
 ```tag
-
+选项布局 通用设置 节点设置
 ```
 ```summary
 控制选项的排列方式。
 ```
-# 选项布局：
+# 选项布局
 用于设置选项图标的排列方式，可选方式有：垂直、水平和指定列数。
 
 <img src='../assets/05questionGeneralSetting/08optionLayout/vertical.png'>

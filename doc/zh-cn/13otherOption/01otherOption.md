@@ -2,7 +2,7 @@
 1
 ```
 ```tag
-
+选项 备注栏 选项+备注栏 特殊行为 其他选项
 ```
 ```summary
 与众不同的其他选项。
@@ -18,12 +18,10 @@
 
 <img src='./assets/01otherOption/choice.png'>
 
-
 ## 备注栏
 显示为输入框，与一般的填空题选项相同。
 
 <img src='./assets/01otherOption/comments.png'>
-
 
 ## 选项+备注栏
 显示为选项，但选中该选项后，选项下方显示输入框。
