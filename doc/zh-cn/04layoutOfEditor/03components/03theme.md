@@ -16,16 +16,15 @@
 系统预设了一些模板配色方案，点选模板直接应用当当前问卷。
 <img src='../assets/03components/03theme/standard-theme.png'>
 
-点击`我的模板`，用户也可以创建并保存自己配色模板方案。
+点击`我的模板`，用户也可以创建并保存自己个性化的配色模板方案。
 <img src='../assets/03components/03theme/my-theme.png'>
 
 ## 样式
 用于设定问卷标题、问题、选项等主要内容类型的颜色、字体等样式。
 
-+ 容器宽度
-设置问卷页面容器的宽度，默认为`自动`，系统会自动适配终端类型。也可以选择`自定义`，个性化地设置容器宽度。
-
 <img src='../assets/03components/03theme/containerunit.jpg'>
+
+主题设定的详细内容参见[全局样式布局和主题](../../12layoutAndTheme/globalLayoutAndTheme.md)
   
 > 在题型节点的属性控制中，还可以[自定义字体尺寸](../../12layoutAndTheme/questionLayoutSetting/02userdefinedFontSize.md)。
 
