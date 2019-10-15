@@ -60,5 +60,5 @@
 ### 颜色
 问卷模板预设了`基础色`、`辅助色`、`对比色`、`背景色`4种颜色属性标签，点击颜色方块打开颜色拾取面板设定颜色。
 
-> 在题型节点的属性控制中，还可以[自定义字体尺寸](../../12layoutAndTheme/questionLayoutSetting/02userdefinedFontSize.md)。
+> 在题型节点的属性控制中，还可以[自定义字体尺寸](../12layoutAndTheme/questionLayoutSetting/02userdefinedFontSize.md)。
 
