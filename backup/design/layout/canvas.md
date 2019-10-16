@@ -83,7 +83,7 @@
 ### 连线
 连线代表问卷的进行流程动线。拖动节点的输出口，可以拉出一条弹性连线，把连线连接到另外一个节点的输入口，连接这2个节点后就形成了一个前后关联的关系。答题时，体现为答完一道题后按连线走到下一题。
 
-<video id="video" controls="" preload="none">
+<video id="video" autoplay="autoplay" loop="loop">
     <source id="mp4" src="https://media.choiceform.com/doc-help/zh-cn/design/layout/canvas/connect.mp4" type="video/mp4">
 </video>
 
@@ -92,7 +92,7 @@
 ### 节点收起与展开
 点击节点左上角的小箭头收起或展开节点，当选项较多且不想经常看到选项时，收起节点会更使画布更简洁。
 
-<video id="video" controls="" preload="none">
+<video id="video" autoplay="autoplay" loop="loop">
     <source id="mp4" src="https://media.choiceform.com/doc-help/zh-cn/design/layout/canvas/collapse.mp4" type="video/mp4">
 </video>
 
@@ -101,7 +101,7 @@
 
 按住`Alt`键，点击连线，就可以在该处添加一个中转点。中转点可以接受多个输入，只可以输出一次。与中转点相连的连线都会变成直线。
 
-<video id="video" controls="" preload="none">
+<video id="video" autoplay="autoplay" loop="loop">
     <source id="mp4" src="https://media.choiceform.com/doc-help/zh-cn/design/layout/canvas/dot.mp4" type="video/mp4">
 </video>
 
@@ -110,7 +110,7 @@
 ### 节点组合
 多个节点可以进行组合，组合后节点组也可以收起和展开，收起后的节点组会收缩成一个小方块，组合内的节点都会藏起来。
 
-<video id="video" controls="" preload="none">
+<video id="video" autoplay="autoplay" loop="loop">
     <source id="mp4" src="https://media.choiceform.com/doc-help/zh-cn/design/layout/canvas/group.mp4" type="video/mp4">
 </video>
 

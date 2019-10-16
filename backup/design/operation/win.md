@@ -79,5 +79,6 @@
 | 添加中转点| 按住`Alt`键，点击连线 |
 | 快速放大缩小画布 | 按住`Ctrl`键，鼠标滚轮滚动|
 
-
-https://media.choiceform.com/doc-help/zh-cn/design/shortcut/select-after-and-before.mp4
+<video id="video" autoplay="autoplay" loop="loop">
+    <source id="mp4" src="https://media.choiceform.com/doc-help/zh-cn/design/shortcut/select-after-and-before.mp4" type="video/mp4">
+</video>

@@ -28,7 +28,9 @@
 
 + 取消组合：选中一个组合，按下组合操作快捷键完成取消组合。
 
-https://media.choiceform.com/doc-help/zh-cn/design/group/join-and-remove.mp4
+<video id="video" autoplay="autoplay" loop="loop">
+    <source id="mp4" src="https://media.choiceform.com/doc-help/zh-cn/design/group/join-and-remove.mp4" type="video/mp4">
+</video>
 
 + 移出组内选定节点：选中组内某个节点，按下`组合操作快捷键`，该节点会脱离该组合。
 
@@ -42,7 +44,9 @@ https://media.choiceform.com/doc-help/zh-cn/design/group/join-and-remove.mp4
   
 开启后，答题过程中组内的节点将会在同一页出现。可以按问题的内容，把问题组合成为几个大的部分，每个部分就能单独在一页内呈现给被访者，提升用户体验。默认情况下，答题过程中一个页面仅显示一道题目。
 
-https://media.choiceform.com/doc-help/zh-cn/design/group/save-symbols.mp4
+<video id="video" autoplay="autoplay" loop="loop">
+    <source id="mp4" src="https://media.choiceform.com/doc-help/zh-cn/design/group/save-symbols.mp4" type="video/mp4">
+</video>
 
 + 把组合另存为问卷内容模块
   
