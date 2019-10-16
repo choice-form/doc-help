@@ -1,5 +1,5 @@
 ```index
-1
+2
 ```
 ```tag
 问卷卡片 问卷管理
@@ -13,7 +13,7 @@
 
 `问卷卡片`包含以下主要信息：
 
-<img src='./assets/01surveyCard/surveyCard.png'>
+<img src='./assets/02surveyCard/surveyCard.png'>
 
 + 问卷封面；
 + 问卷创建者信息；
