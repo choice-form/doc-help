@@ -8,7 +8,6 @@ import marked = require('marked');
 import cheerio = require('cheerio');
 import { isExclusiveFile, indexReg, tagReg, summaryReg, aliasReg } from './common';
 
-
 export interface ISignStrStr {
   [key: string]: string;
 }
@@ -16,6 +15,7 @@ export interface ISignStrStr {
 export interface IDocMainUrl {
   indexUrl: string;
   searchUrl: string;
+  footUrl: string;
 }
 
 export interface IDocMain {
@@ -85,7 +85,8 @@ const buildLang = (lang: string): IDocMainUrl => {
   const { assetsHashMap, indexList } = buildAssets(docDir + '/' + lang, null);
   // 然后处理索引目录
   const searchList = buildIndexList(assetsHashMap, indexList);
-  sortIndexList(indexList);
+  const footList: IDocIndexData[] = []
+  unifyIndexList(indexList, footList);
   // 写入索引文件
   const indexText = JSON.stringify(indexList);
   const indexHash = hasha(indexText);
@@ -98,11 +99,19 @@ const buildLang = (lang: string): IDocMainUrl => {
   let searchPath = distDir + '/' + lang + '/search.json';
   searchPath = appendHash(searchPath, searchHash);
   writeFileInsureDir(searchPath, searchText);
+  // 写入脚部文件
+  const footText = JSON.stringify(footList);
+  const footHash = hasha(footText);
+  let footPath = distDir + '/' + lang + '/foot.json';
+  footPath = appendHash(footPath, footHash);
+  writeFileInsureDir(footPath, footText);
+
   // // 重写文档文件
   // rewriteDoc(searchList);
   return {
     indexUrl: eraseDistPrefix(indexPath),
-    searchUrl: eraseDistPrefix(searchPath)
+    searchUrl: eraseDistPrefix(searchPath),
+    footUrl: eraseDistPrefix(footPath),
   };
 }
 
@@ -146,15 +155,26 @@ const buildLang = (lang: string): IDocMainUrl => {
 // }
 
 
+
+
 /**
+ * 提炼目录
  * 给索引目录排序并移除临时属性
+ * 同时,如若文件名携带了$$_符号的则移除
  * @param indexList 
  */
-const sortIndexList = (indexList: IDocIndexData[]) => {
+const unifyIndexList = (indexList: IDocIndexData[], footList: IDocIndexData[]) => {
   indexList.sort((a, b) => {
     return a.index > b.index ? 1 : -1;
   })
-  indexList.forEach(item => {
+  for (let i = indexList.length - 1; i >= 0; i--) {
+    const item = indexList[i];
+    if (item.url && item.url.includes('/$foot$_')) {
+      indexList.splice(i, 1).forEach(item => {
+        footList.unshift(item);
+      });
+      continue;
+    }
     delete item.index;
     delete item.path;
     delete item.type;
@@ -165,10 +185,14 @@ const sortIndexList = (indexList: IDocIndexData[]) => {
       if (item.children.length === 0) {
         delete item.children;
       } else {
-        sortIndexList(item.children)
+        unifyIndexList(item.children, footList);
+        // 如果内部已经清除干净了则清除自己
+        if (item.children.length === 0) {
+          indexList.splice(i, 1);
+        }
       }
     }
-  })
+  }
 }
 
 /**
