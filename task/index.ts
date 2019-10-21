@@ -236,21 +236,23 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[], 
       if (tagMatch) {
         text = text.replace(tagReg, '');
       }
+
+      const titleMatch = text.match(/#{1,5}\s+.+?\s*\n/g) || [];
+      const tagsFromTitle = titleMatch.map(text => {
+        return text.replace(/[#\s]/g, '');
+      });
       // 找到了tag标记且其中有内容
       if (containsCommentData(tagMatch)) {
         // 去除掉多余的空格后按空格分割
         search.tags = tagMatch[1].replace(/\s+/g, ' ').trim().split(' ');
         // 没有找到tag的话使用各级标题做tag
       } else {
-        const titleMatch = text.match(/#{1,5}\s+.+?\s*\n/g);
-        if (titleMatch) {
-          search.tags = titleMatch.map(text => {
-            return text.replace(/[#\s]/g, '');
-          });
-        }
+        search.tags = tagsFromTitle;
+
       }
-      // 同时用第一个标题做名称
-      data.alias = search.tags[0] || '';
+
+      // 同时用第一个标题或第一个tag做名称
+      data.alias = tagsFromTitle[0] || search.tags[0] || '';
 
       const summaryMatch = text.match(summaryReg);
       // 如果能匹配到，则删除这个注释
