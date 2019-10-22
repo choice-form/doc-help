@@ -169,17 +169,16 @@ const unifyIndexList = (indexList: IDocIndexData[], footList: IDocIndexData[]) =
   })
   for (let i = indexList.length - 1; i >= 0; i--) {
     const item = indexList[i];
-    if (item.url && item.url.includes('/$foot$_')) {
-      indexList.splice(i, 1).forEach(item => {
-        footList.unshift(item);
-      });
-      continue;
-    }
     delete item.index;
     delete item.path;
     delete item.type;
     if (item.url) {
       item.path = jsonUrlToArticleName(item.url);
+    }
+    if (item.url && item.url.includes('/$foot$_')) {
+      indexList.splice(i, 1).forEach(item => {
+        footList.unshift(item);
+      });
     }
     if (item.children) {
       if (item.children.length === 0) {
@@ -334,7 +333,6 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[], 
         }
       }
 
-
       const resourceText = JSON.stringify(resource);
       const resourceHash = hasha(resourceText);
       let writePath = data.url.replace(/\.md$/, '.json')
@@ -342,12 +340,10 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[], 
       writePath = appendHash(writePath, resourceHash);
       writeFileInsureDir(writePath, resourceText);
       search.url = data.url = eraseDistPrefix(writePath);
-      const exTitle = `<span>${data.alias}</span>`;
-      search.title = pTitle ? pTitle + '<span>|<span>' + exTitle : exTitle;
+      search.title = wrapTitle(pTitle, data.alias);
       searchList.push(search);
     } else {
-      const exTitle = `<span>${data.alias}</span>`;
-      const title = pTitle ? pTitle + '<span>|<span>' + exTitle : exTitle;
+      const title = wrapTitle(pTitle, data.alias);
       // 是文件夹的深入扫描
       searchList = [
         ...searchList,
@@ -357,6 +353,20 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[], 
   })
 
   return searchList;
+}
+
+/**
+ * 包裹头部信息
+ * @param pTitle 
+ * @param title 
+ */
+const wrapTitle = (pTitle: string, title: string) => {
+  const exTitle = title.startsWith('<span>')
+    ? title : `<span>${title}</span>`;
+  const rs = pTitle
+    ? pTitle + '<span>|<span>' + exTitle
+    : exTitle;
+  return rs;
 }
 
 /**
