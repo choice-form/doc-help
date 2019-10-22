@@ -342,10 +342,12 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[], 
       writePath = appendHash(writePath, resourceHash);
       writeFileInsureDir(writePath, resourceText);
       search.url = data.url = eraseDistPrefix(writePath);
-      search.title = pTitle ? pTitle + '>' + data.alias : data.alias;
+      const exTitle = `<span>${data.alias}</span>`;
+      search.title = pTitle ? pTitle + '<span>|<span>' + exTitle : exTitle;
       searchList.push(search);
     } else {
-      const title = pTitle ? pTitle + '>' + data.alias : data.alias;
+      const exTitle = `<span>${data.alias}</span>`;
+      const title = pTitle ? pTitle + '<span>|<span>' + exTitle : exTitle;
       // 是文件夹的深入扫描
       searchList = [
         ...searchList,
