@@ -1,12 +1,21 @@
-```index
+\```index
+
 1
-```
-```tag
+
+\```
+
+\```tag
+
 创建空白问卷 创建新问卷 新建空白问卷 空白问卷 新建问卷
-```
-```summary
+
+\```
+
+\```summary
+
 从空白问卷开始，一步步构建您的个性化调查问卷。
-```
+
+\```
+
 # 创建空白问卷
 
 <img src='./assets/01fromBlankSurvey/fromBlankSurvey.png'>
