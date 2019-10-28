@@ -17,10 +17,11 @@
     "marked": "^0.7.0",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.7.0",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "yamljs": "^0.3.0"
   },
   "scripts": {
-    "gen-lang":"./node_modules/.bin/tsc && node build/task/copy-lang-dir.js",
+    "gen-lang": "./node_modules/.bin/tsc && node build/task/copy-lang-dir.js",
     "check-link": "./node_modules/.bin/tsc && node build/tool/check-link.js",
     "prod": "./node_modules/.bin/tsc  && node build/tool/check-link.js && node build/task/index.js prod",
     "staging": "./node_modules/.bin/tsc && node build/tool/check-link.js && node build/task/index.js staging"

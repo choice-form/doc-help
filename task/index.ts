@@ -6,7 +6,10 @@ import mkdirp = require('mkdirp');
 import path = require('path');
 import marked = require('marked');
 import cheerio = require('cheerio');
-import { isExclusiveFile, indexReg, tagReg, summaryReg, aliasReg } from './common';
+import yamljs = require('yamljs');
+import { isExclusiveFile, ymalReg } from './common';
+
+interface IYmlJson { index?: number, tags?: string[], summary?: string, alias?: string };
 
 export interface ISignStrStr {
   [key: string]: string;
@@ -115,48 +118,6 @@ const buildLang = (lang: string): IDocMainUrl => {
   };
 }
 
-// /**
-//  * 重写文档,因为要更正里面的链接，而连接都得带hash
-//  * 所以只能等全部文件写完判定好hash后才能改写，
-//  * 改写后元hash会和真实hash不一样，但这不影响我们，
-//  * 我们的hash只用来区别更改的版本。
-//  * @param searchList 
-//  */
-// const rewriteDoc = (searchList: IDocSearchData[]) => {
-//   searchList.forEach(item => {
-//     const filePath = distDir + '/' + item.url;
-//     const data = JSON.parse(fs.readFileSync(filePath).toString()) as IDocData;
-//     const $ = cheerio.load(`<div>${data.content}</div>`, { decodeEntities: false });
-//     const $aList = $('a');
-//     const selfPath = path.dirname(item.url)
-//     // 尝试替换其中a标签的链接
-//     $aList.each((idx, a) => {
-//       const $a = $(a);
-//       const href = $a.attr('href');
-//       if (href) {
-//         const [realHref, suffix] = href.split('#');
-//         if (realHref.endsWith('.md')) {
-//           const relativeHref = realHref.replace(/.md$/, '');
-//           const realUrl = getRealUrl(selfPath, relativeHref);
-//           const targetItem = searchList.find(sItem => {
-//             return sItem.url.startsWith(realUrl) && sItem.url.length === realUrl.length + 14;
-//           })
-//           if (targetItem) {
-//             const recoverUrl = suffix ? targetItem.url + '#' + suffix : targetItem.url;
-//             $a.attr('href', recoverUrl);
-//           }
-//         }
-//       }
-//     });
-//     data.content = $('body > div').html();
-//     // 替换完成后写回文件
-//     fs.writeFileSync(filePath, JSON.stringify(data));
-//   })
-// }
-
-
-
-
 /**
  * 提炼目录
  * 给索引目录排序并移除临时属性
@@ -198,9 +159,9 @@ const unifyIndexList = (indexList: IDocIndexData[], footList: IDocIndexData[]) =
  * 检查匹配结果中是包含有效的注释信息
  * @param rs 
  */
-const containsCommentData = (rs: RegExpMatchArray) => {
-  return rs && rs[1] && rs[1].replace(/\s+/g, '') !== '';
-}
+// const containsCommentData = (rs: RegExpMatchArray) => {
+//   return rs && rs[1] && rs[1].replace(/\s+/g, '') !== '';
+// }
 
 /**
  * 获取基于当成仓库的根目录的真实路径
@@ -244,30 +205,20 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[], 
         tags: [], summary: '', url: ''
       };
       let text = fs.readFileSync(data.url).toString();
-      const indexMatch = text.match(indexReg);
-      // 如果能匹配到，则删除这个注释
-      if (indexMatch) {
-        text = text.replace(indexReg, '');
-      }
+      let ymlJson = getYmlJson(text);
       // 找到了索引配置且其中有内容
-      if (containsCommentData(indexMatch)) {
+      if (ymlJson.index != undefined) {
         // 写入索引，没找到的使用原始的0做索引
-        data.index = Number(indexMatch[1]);
+        data.index = ymlJson.index;
       }
-      const tagMatch = text.match(tagReg);
-      // 如果能匹配到，则删除这个注释
-      if (tagMatch) {
-        text = text.replace(tagReg, '');
-      }
-
       const titleMatch = text.match(/#{1,5}\s+.+?\s*\n/g) || [];
       const tagsFromTitle = titleMatch.map(text => {
         return text.replace(/[#\s]/g, '');
       });
       // 找到了tag标记且其中有内容
-      if (containsCommentData(tagMatch)) {
+      if (ymlJson.tags != undefined) {
         // 去除掉多余的空格后按空格分割
-        search.tags = tagMatch[1].replace(/\s+/g, ' ').trim().split(' ');
+        search.tags = ymlJson.tags;
         // 没有找到tag的话使用各级标题做tag
       } else {
         search.tags = tagsFromTitle;
@@ -276,17 +227,12 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[], 
 
       // 同时用第一个标题或第一个tag做名称
       data.alias = tagsFromTitle[0] || search.tags[0] || '';
-
-      const summaryMatch = text.match(summaryReg);
-      // 如果能匹配到，则删除这个注释
-      if (summaryMatch) {
-        text = text.replace(summaryReg, '');
-      }
       // 找到了summary
-      if (containsCommentData(summaryMatch)) {
-        search.summary = summaryMatch[1];
+      if (ymlJson.summary != undefined) {
+        search.summary = ymlJson.summary;
         // 没有找到则后续再转化好的HTML提取文章第一个段落作为summary
       }
+
 
       // 替换图片地址
       const imgUrlReplaceFn = (match: string, first: string) => {
@@ -471,15 +417,15 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
       // 是文件夹索引文件
       if (name === '.index' && pIndexData) {
         const text = fs.readFileSync(sub).toString();
-        const indexMatch = text.match(indexReg);
+
+        let ymlJson = getYmlJson(text);
         // 能匹配到序号
-        if (containsCommentData(indexMatch)) {
-          pIndexData.index = Number(indexMatch[1])
+        if (ymlJson.index != undefined) {
+          pIndexData.index = ymlJson.index;
         }
-        const aliasMatch = text.match(aliasReg);
         // 能匹配到别名
-        if (containsCommentData(aliasMatch)) {
-          pIndexData.alias = aliasMatch[1].replace(/\s+/g, ' ').trim();
+        if (ymlJson.alias) {
+          pIndexData.alias = ymlJson.alias;
         }
         // 是markdown文件
       } else if (name.endsWith('.md')) {
@@ -535,5 +481,82 @@ const prepare = () => {
 
 
 
+// /**
+//  * 重写文档,因为要更正里面的链接，而连接都得带hash
+//  * 所以只能等全部文件写完判定好hash后才能改写，
+//  * 改写后元hash会和真实hash不一样，但这不影响我们，
+//  * 我们的hash只用来区别更改的版本。
+//  * @param searchList 
+//  */
+// const rewriteDoc = (searchList: IDocSearchData[]) => {
+//   searchList.forEach(item => {
+//     const filePath = distDir + '/' + item.url;
+//     const data = JSON.parse(fs.readFileSync(filePath).toString()) as IDocData;
+//     const $ = cheerio.load(`<div>${data.content}</div>`, { decodeEntities: false });
+//     const $aList = $('a');
+//     const selfPath = path.dirname(item.url)
+//     // 尝试替换其中a标签的链接
+//     $aList.each((idx, a) => {
+//       const $a = $(a);
+//       const href = $a.attr('href');
+//       if (href) {
+//         const [realHref, suffix] = href.split('#');
+//         if (realHref.endsWith('.md')) {
+//           const relativeHref = realHref.replace(/.md$/, '');
+//           const realUrl = getRealUrl(selfPath, relativeHref);
+//           const targetItem = searchList.find(sItem => {
+//             return sItem.url.startsWith(realUrl) && sItem.url.length === realUrl.length + 14;
+//           })
+//           if (targetItem) {
+//             const recoverUrl = suffix ? targetItem.url + '#' + suffix : targetItem.url;
+//             $a.attr('href', recoverUrl);
+//           }
+//         }
+//       }
+//     });
+//     data.content = $('body > div').html();
+//     // 替换完成后写回文件
+//     fs.writeFileSync(filePath, JSON.stringify(data));
+//   })
+// }
+
+
+const getYmlJson = (text: string): IYmlJson => {
+  const ymlMatch = text.match(ymalReg);
+  if (ymlMatch) {
+    return yamljs.parse(ymlMatch[0]);
+  }
+  return {};
+}
+
+/**
+ * 
+ * @param file 
+ * @param json 
+ * @param text 
+ */
+// @ts-ignore
+// const feedbackYaml = (file: string, json: IYmlJson, text: string) => {
+//   let ymlText = '---\n';
+//   Object.keys(json).forEach((key: keyof IYmlJson) => {
+//     let txt = '  ' + key + ': ';
+//     let val = json[key];
+//     if (val instanceof Array) {
+//       txt += '[' + val.join(', ') + ']';
+//     } else {
+//       txt += val;
+//     }
+//     txt += '\n';
+//     ymlText += txt;
+//   })
+//   ymlText += '---\n' + text;
+//   fs.writeFileSync(file, ymlText);
+
+// }
+
+
 
 build();
+
+
+

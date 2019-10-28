@@ -1,13 +1,10 @@
-```index
-6
-```
-```tag
+---
+  index: 6
+---
 
-```
 
-```summary
 
-```
+
 
 # auto-complete
 auto-complete

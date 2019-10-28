@@ -1,13 +1,10 @@
-```index
-4
-```
-```tag
+---
+  index: 4
+---
 
-```
 
-```summary
 
-```
+
 
 # boolean-type
 boolean-type

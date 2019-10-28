@@ -1,20 +1,15 @@
-\```index
+---
+  index: 2
+  tags: [接口请求验证, GET, POST, FAKE, EMBED, 接口请求变量, 节点自定义验证, 开始节点验证, 结束请求, 自定义验证]
+  summary: 编写代码，设定接口，通过接口请求验证的方式实现个性化验证。
 
-2
 
-\```
+---
 
-\```tag
 
-接口请求验证 GET POST FAKE EMBED 接口请求变量 节点自定义验证 开始节点验证 结束请求 自定义验证
 
-\```
 
-\```summary
 
-编写代码，设定接口，通过接口请求验证的方式实现个性化验证。
-
-\```
 
 # 接口请求验证
 
@@ -47,12 +42,12 @@
 
   答题过程中，当问卷运行使用接口请求的地方时，就会携带参数往指定地址发送一次请求，并期待接口返回以下格式的数据：
 
-\```typescript
+```typescript
     {
         result: {string|number|boolean}   // 计算结果，如果是验证性接口，返回false代表验证失败，返回true代表验证成功，非验证性的接口返回数值或字符转作为计算结果
         message?: string // 针对验证型的接口，如果result属性是false，没有通过验证，这时应该通过message属性携带一个验证失败的消息，
     }
-\```
+```
 
   返回结果的==message==属性还可添加带有特殊意义的格式，不同格式会对答题页造成不同的影响：
   + ==https://==开头的URL：收到返回结果后会跳到该地址，离开问卷。
@@ -75,7 +70,7 @@
 则需按下面的步骤操作：
 
 1. 首先按如下规范编写一个脚本
-\```javascript
+```javascript
     (function () {
         // 前面三行这样写,这是定死的规则
         var plugin = window.CFPlugin = window.CFPlugin || {};
@@ -124,7 +119,7 @@
         // 如果要伪造 https://example.cf.io/fake/test 接口
         // 则需要一本fake.js的脚本部署到 https://example.cf.io 中,并且按上面的格式编写,有一个'test'方法即可
     })();
-\```
+```
 
 2. 将该脚本部署到服务器上，保证通过==https://xxx.test.com/plugin.js==地址能访问到刚才的那本脚本。
 

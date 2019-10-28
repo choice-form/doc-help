@@ -1,13 +1,10 @@
-```index
-7
-```
-```tag
+---
+  index: 7
+---
 
-```
 
-```summary
 
-```
+
 
 # global-setting
 global-setting
