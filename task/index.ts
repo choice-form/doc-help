@@ -205,7 +205,9 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[], 
         tags: [], summary: '', url: ''
       };
       let text = fs.readFileSync(data.url).toString();
-      let ymlJson = getYmlJson(text);
+      let result = getYmlJson(text);
+      const ymlJson = result.json;
+      text = result.text;
       // 找到了索引配置且其中有内容
       if (ymlJson.index != undefined) {
         // 写入索引，没找到的使用原始的0做索引
@@ -261,8 +263,11 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[], 
         }
         return match;
       }
-
+      // 替换链接地址
       text = text.replace(/(\[.+?\])\((.+?)\)/g, linkReplaceFn);
+
+      // 替换双等号高亮
+      text = text.replace(/==(.+?)==/g, '<mark>$1</mark>');
 
       // 转化markdown
       const resource: IDocData = {
@@ -418,7 +423,7 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
       if (name === '.index' && pIndexData) {
         const text = fs.readFileSync(sub).toString();
 
-        let ymlJson = getYmlJson(text);
+        let { json: ymlJson } = getYmlJson(text);
         // 能匹配到序号
         if (ymlJson.index != undefined) {
           pIndexData.index = ymlJson.index;
@@ -521,12 +526,15 @@ const prepare = () => {
 // }
 
 
-const getYmlJson = (text: string): IYmlJson => {
+const getYmlJson = (text: string): { json: IYmlJson, text: string } => {
   const ymlMatch = text.match(ymalReg);
   if (ymlMatch) {
-    return yamljs.parse(ymlMatch[0]);
+    return {
+      json: yamljs.parse(ymlMatch[0]),
+      text: text.replace(ymalReg, ''),
+    };
   }
-  return {};
+  return { text, json: {} };
 }
 
 /**
