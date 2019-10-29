@@ -1,13 +1,18 @@
-```index
-1
-```
-```tag
-选项引用 引用不同的属性 叠加过滤条件 随机抽取 高级设置 节点设置
-```
-```summary
-选项引用在当前题目选项中插入该被访者在之前的选择。
-```
+---
+  index: 1
+  tags: [选项引用, 引用不同的属性, 叠加过滤条件, 随机抽取, 高级设置, 节点设置]
+  summary: 选项引用在当前题目选项中插入该被访者在之前的选择。
+
+
+---
+
+
+
+
+
+
 # 选项引用
+
 题目除了可以自己添加指定选项之外，还能引用之前其他节点的指定选项。
 
 <img src='../assets/04optionAdvancedSetting/01optionReference/menu.png'>
@@ -27,6 +32,7 @@
 <img src='../assets/04optionAdvancedSetting/01optionReference/text.png'>
 
 ## 引用不同的属性
+
 选项引用时，可以选择引用选项的不同属性，以满足不同的需求。
 
 下图是Q02的选项引用Q01中已选中选项的选项编号：
@@ -36,6 +42,7 @@
 使用`选项引用过滤器`对可被引用的选项进行进过滤筛选。
 
 ## 叠加过滤条件
+
 可以对引用过来的选项再叠加判断条件。点击Q02的引用选项，弹出过滤设置面板。
 
 <img src='../assets/04optionAdvancedSetting/01optionReference/var-filter.png'>
@@ -49,6 +56,7 @@
 <img src='../assets/04optionAdvancedSetting/01optionReference/require-menu.png'>
 
 ## 从符合条件的选项中随机抽取引用
+
 可以从符合条件的所有选项中，抽取一部分引用到当前题目。
 
 下图是Q02的选项从Q01中已选中选项抽取2个，并引用抽取到的选项的编号。

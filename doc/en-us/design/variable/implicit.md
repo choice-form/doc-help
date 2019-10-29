@@ -1,13 +1,10 @@
-```index
-10
-```
-```tag
+---
+  index: 10
+---
 
-```
 
-```summary
 
-```
+
 
 # implicit
 implicit

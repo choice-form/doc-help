@@ -1,28 +1,34 @@
-```index
-4
-```
-```tag
-输入验证 必填 内容验证 自动提示 选项设置 节点设置
-```
-```summary
-对被访者输入的内容进行格式验证，拒绝接收不符合格式要求的数据。
-```
+---
+  index: 4
+  tags: [输入验证, 必填, 内容验证, 自动提示, 选项设置, 节点设置]
+  summary: 对被访者输入的内容进行格式验证，拒绝接收不符合格式要求的数据。
+
+
+---
+
+
+
+
+
+
 # 输入验证
 
 对于填空题选项、选项备注栏等需要输入任意内容的地方添加输入验证规则，可限制输入指定类型的数据，防止收集到无用的内容。
 
 <img src='../assets/03optionSetting/04inputValidation/options-button.png'>
 
-点击这些选项右侧的`附加设置`小箭头按钮，打开输入验证选项面板。
+点击这些选项右侧的==附加设置==小箭头按钮，打开输入验证选项面板。
 
 <img src='../assets/03optionSetting/04inputValidation/section.png'>
 
 ## 必填
-开启`必填`开关，代表该项必须输入内容，不输入则会报错，且不能进入下一题。
+
+开启==必填==开关，代表该项必须输入内容，不输入则会报错，且不能进入下一题。
 
 <img src='../assets/03optionSetting/04inputValidation/require.png'>
 
 ## 内容验证
+
 检查输入是否满足指定格式，如果不满足则报错。点击设置面板中的下拉列表可以选择验证规则。
 
 <img src='../assets/03optionSetting/04inputValidation/menu.png'>
@@ -35,7 +41,7 @@
 
 <img src='../assets/03optionSetting/04inputValidation/character-range.png'>
 
-选中字符规则后，会出现三个勾选框：`数字`、`英文`、`中文`用于限制输入字符的类型，如果不勾选任何项目，则表示允许所有字符，当勾选指定项目后，表示只允许输入所选规则的字符。
+选中字符规则后，会出现三个勾选框：==数字==、==英文==、==中文==用于限制输入字符的类型，如果不勾选任何项目，则表示允许所有字符，当勾选指定项目后，表示只允许输入所选规则的字符。
 
 可以设置输入字符数量的范围。
 
@@ -97,11 +103,11 @@
 
 <img src='../assets/03optionSetting/04inputValidation/popup.png'>
 
-自动匹配默认采取宽泛的弱匹配方式，以返回更多的选项供被访者选择。如下图中，被访者输入`平果`时，会匹配到`苹果`。
+自动匹配默认采取宽泛的弱匹配方式，以返回更多的选项供被访者选择。如下图中，被访者输入==平果==时，会匹配到==苹果==。
 
 <img src='../assets/03optionSetting/04inputValidation/default-matching.png'>
 
-打开`精准匹配`，采取严格的匹配方式，此时输入`平果`时，则不会匹配到任何对象。
+打开==精准匹配==，采取严格的匹配方式，此时输入==平果==时，则不会匹配到任何对象。
 
 <img src='../assets/03optionSetting/04inputValidation/precise-matching.png'>
 

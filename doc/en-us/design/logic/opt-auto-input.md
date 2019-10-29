@@ -1,13 +1,10 @@
-```index
-5
-```
-```tag
+---
+  index: 5
+---
 
-```
 
-```summary
 
-```
+
 
 # opt-auto-input
 opt-auto-input

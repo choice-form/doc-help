@@ -1,15 +1,20 @@
-```index
-7
-```
-```tag
-菜单题 选项设置 预设选项 布局设置 底部滑出 顶部滑出 中间弹出 菜单项文本行数 题型节点
-```
-```summary
-菜单题的使用说明。
-```
+---
+  index: 7
+  tags: [菜单题, 选项设置, 预设选项, 布局设置, 底部滑出, 顶部滑出, 中间弹出, 菜单项文本行数, 题型节点]
+  summary: 菜单题的使用说明。
+
+
+---
+
+
+
+
+
+
 # 菜单题
 
-`菜单题`使用下拉列表的方式呈现题目选项供被访者选择。
+==菜单题==使用下拉列表的方式呈现题目选项供被访者选择。
+
 <img src='../assets/questionnaireNodes/07dropdown/node.png'>
 
 ## 选项设置
@@ -18,7 +23,8 @@
 菜单题预设了一些常用的选项内容，点选后会直接生成相关选项。具体内容参见[预设选项](../../11nodeSettings/03optionSetting/05presetingOption.md)。
 
 ## 布局设置
-菜单题的`布局设置`用于控制菜单弹出的方式和样式：
+
+菜单题的==布局设置==用于控制菜单弹出的方式和样式：
 
 菜单弹出方式：可设定为以下三种方式。
 
@@ -41,7 +47,8 @@
 
 <img src='../assets/questionnaireNodes/07dropdown/line-count-1.png'>
 
-  单行文本数设定为2时的效果：
+单行文本数设定为2时的效果：
+
 <img src='../assets/questionnaireNodes/07dropdown/line-count-1.png'>
 
 > 菜单题可以用来为级联题提供数据，参见[级联题](./08cascade.md)。
