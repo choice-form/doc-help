@@ -315,7 +315,7 @@ const wrapTitle = (pTitle: string, title: string) => {
   const exTitle = title.startsWith('<span>')
     ? title : `<span>${title}</span>`;
   const rs = pTitle
-    ? pTitle + '<span>|<span>' + exTitle
+    ? pTitle + '<span>|</span>' + exTitle
     : exTitle;
   return rs;
 }
