@@ -1,5 +1,5 @@
 ---
-  index: 17
+  index: 7
   tags: [学习案例,教学,sample,tutor,]
   summary: 设定多选题的可选限制；在题目内容中使用变量；
 ---
