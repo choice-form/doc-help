@@ -20,7 +20,7 @@
 
 点击数据表头弹出数据表格布局控制菜单，可选的功能有：
 
-<img src='../assets/02dataTable/02dataTableLayout/editDataTableColumn.png'>
+<img src='../assets/02dataTable/01dataTableLayout/editDataTableColumn.png'>
 
 ### 固定列
 固定当前列所在位置。

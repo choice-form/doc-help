@@ -1,5 +1,7 @@
 ---
-  index: 1
+  index: 3
+  tags: [学习案例,教学,sample,tutor,]
+  summary: 添加微信红包奖励；
 ---
 
 
