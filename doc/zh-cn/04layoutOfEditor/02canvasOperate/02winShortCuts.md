@@ -1,20 +1,15 @@
-\```index
+---
+  index: 2
+  tags: [快捷键, 操作技巧, Windows快捷键, 问卷编辑器, 问卷编辑器操作界面]
+  summary: Windows系统快捷键及操作技巧
 
-2
 
-\```
+---
 
-\```tag
 
-快捷键 操作技巧 Windows快捷键 问卷编辑器 问卷编辑器操作界面
 
-\```
 
-\```summary
 
-Windows系统快捷键及操作技巧
-
-\```
 
 # Windows系统快捷键及操作技巧
 
