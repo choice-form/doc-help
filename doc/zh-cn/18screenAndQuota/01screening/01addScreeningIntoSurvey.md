@@ -33,7 +33,7 @@
 
 增加甄别节点后，从下图可以看到甄别节点前的题目变成了灰色，代表这些题目处于甄别模式，可进行配额设置：
 
-<img src='../assets/01screening/01addScreeningIntoSurvey/Screening.png'>
+<img src='../assets/01screening/01addScreeningIntoSurvey/screening.png'>
 
 其中，可以看到==LOCATION==题目的==其他区域==选项输出直接连接到了结束节点，代表位置不在北上广的被访者都未通过甄别，不满足问卷要求而直接结束问卷，不记录答案。北上广的被访者会继续问卷答题。
 
