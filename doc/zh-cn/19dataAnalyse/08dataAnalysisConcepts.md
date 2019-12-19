@@ -29,14 +29,13 @@
 
 1. 选择题、菜单题（非级联题）、图标题、图片选择题、图片热点题
 
-    + 为单选时：题目可对应类目（Category）、数值（Numbers）变量，进行数量分析或数值分析。数值分析时采用对应的选项编号作为具体数值参与统计。
-      
+  + 为单选时：题目可对应类目（Category）、数值（Numbers）变量，进行数量分析或数值分析。数值分析时采用对应的选项编号作为具体数值参与统计。
 
-    <img src='./assets/08dataAnalysisConcepts/1_1.png'>
+  <img src='./assets/08dataAnalysisConcepts/1_1.png'>
 
-    + 为多选时：题目对应多选类型（Checkboxes）变量，进行数量分析。选项对应类目（Category）变量，针对单一选项是否选中进行数量分析。
+  + 为多选时：题目对应多选类型（Checkboxes）变量，进行数量分析。选项对应类目（Category）变量，针对单一选项是否选中进行数量分析。
 
-    <img src='./assets/08dataAnalysisConcepts/1_2.png'>
+  <img src='./assets/08dataAnalysisConcepts/1_2.png'>
 
 2. 打分题、权重题、演示评价题
 
