@@ -21,9 +21,11 @@
 
 <img src='../assets/questionLayoutSetting/05questionAndChoice/questionTextStyleAdjuest.png'>
 
-点击图标弹出文本样式编辑器，可以像使用Word软件那样调整样式文本，主要功能有：
+点击图标弹出文本样式编辑器，可以像使用Word软件那样调整样式文本：
 
 <img src='../assets/questionLayoutSetting/05questionAndChoice/styleEditor.png'>
+
+主要功能有:
 
 + 粗体
 + 斜体
