@@ -18,9 +18,9 @@
 例如：
 单行文本数设定为1时的效果：
 
-<img src='../assets/questionLayoutSetting/04menuItemTotalLine/line-count-1.png'>
+<img src='../assets/01questionLayoutSetting/04menuItemTotalLine/line-count-1.png'>
 
 单行文本数设定为2时的效果：
 
-<img src='../assets/questionLayoutSetting/04menuItemTotalLine/line-count-2.png'>
+<img src='../assets/01questionLayoutSetting/04menuItemTotalLine/line-count-2.png'>
 

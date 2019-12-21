@@ -19,11 +19,11 @@
 
 鼠标移入问卷题目文本输入框，此时输入框的右下角会显示一个==文本样式设定==小图标。
 
-<img src='../assets/questionLayoutSetting/05questionAndChoice/questionTextStyleAdjuest.png'>
+<img src='../assets/01questionLayoutSetting/05questionAndChoice/questionTextStyleAdjuest.png'>
 
 点击图标弹出==文本样式编辑器==，可以像使用Word软件那样调整样式文本：
 
-<img src='../assets/questionLayoutSetting/05questionAndChoice/styleEditor.png'>
+<img src='../assets/01questionLayoutSetting/05questionAndChoice/styleEditor.png'>
 
 主要功能有:
 
@@ -48,8 +48,8 @@
 
 同样，选项文本也可以进行样式调整，当鼠标移入选项输入框时，右下角显示==文本样式设定==小图标。
 
-<img src='../assets/questionLayoutSetting/05questionAndChoice/choiceTextStyleAdjuest.png'>
+<img src='../assets/01questionLayoutSetting/05questionAndChoice/choiceTextStyleAdjuest.png'>
 
 点击后打开==文本样式编辑器==调整选项文本。每个选项都可以单独调整。
 
-<img src='../assets/questionLayoutSetting/05questionAndChoice/styleEffect.png'>
+<img src='../assets/01questionLayoutSetting/05questionAndChoice/styleEffect.png'>

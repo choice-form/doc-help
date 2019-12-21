@@ -35,5 +35,5 @@
 
 主题设定的详细内容参见[全局样式布局和主题](../../12layoutAndTheme/globalLayoutAndTheme.md)
 
-> 在题型节点的属性控制中，还可以[自定义字体尺寸](../../12layoutAndTheme/questionLayoutSetting/02userdefinedFontSize.md)。
+> 在题型节点的属性控制中，还可以[自定义字体尺寸](../../12layoutAndTheme/01questionLayoutSetting/02userdefinedFontSize.md)。
 
