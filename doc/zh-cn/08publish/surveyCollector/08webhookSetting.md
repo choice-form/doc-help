@@ -1,6 +1,6 @@
 ---
   index: 8
-  tags: [Webhook, Webhook设置, Webhook地址修饰符, 在网址中注入变量, 问卷发布]
+  tags: [Webhook, Webhook设置, Webhook地调用方式, 在网址中注入变量, 问卷发布]
   summary: 设置问卷Webhook触发事件，当发生特定事件时触发指定的处理流程，例如与样本库实现状态对接等。
 
 
@@ -13,28 +13,40 @@
 
 # Webhook设置
 
-Webhook是一个轻量的事件处理应用，在指定世界发生时立即调用。==巧思系统==的每个收集器都支持Webhook，可以为==回复完成时==，==回复不合格时==，==恢复超过了设定的配额时==事件设定Webhook地址，当事件发生时，就会调用地址并传出参数。
+Webhook是一个轻量的事件处理应用，在指定事件发生时立即调用。==巧思系统==的每个收集器都支持Webhook，当指定事件触发时调用预先配置的地址，并穿出参数。
+
+## Webhook触发事件
+
+Webhook配置区域有3个输入框，用于填写以下3种事件触发时的回掉地址：
+
+<img src='../assets/surveyCollector/08webhookSetting/webhookEvents.png'>
+
++ 回复完成：被访者完成问卷并提交结果时触发。
++ 回复不合格：被访者被甄别时触发。
++ 回复超过了设定的配额：被访者通过甄别题目进入正式问卷时，系统会判断被访者对应的配额是否要有空余配额，当还有配额时被访者可以继续问卷，否则配额满时被触发。
+
+## Webhook调用方式
+
+Webhook支持4种不同的调用方式：
+
++ BACKEND
+  
+  事件发生后会在后台调用这个接口，后台调用默认以==POST==方式调用。
+
++ GET
+  
+  事件发生后会在前端以==GET==方式调用这个接口，后面可以附加参数，请求参数将会拼接到url的后面。
+
++ POST
+  
+  事件发生后会在前端以==POST==方式调用这个接口，请求时参数会放到HttpRequest的body中。
+
++ 跳转
+  事件发生情况后会直接跳转到该网址页面。
+
+可以在每个事件的调用方式下拉菜单种设置，随后在输入框种填入调用地址即可。
 
 <img src='../assets/surveyCollector/08webhookSetting/webhookSetting.png'>
-
-## Webhook地址修饰符
-
-填写的网络地址可以有以下方式：
-
-+ 直接==http==或==https==开头的网址
-  例如==https://www.choiceform.com==，则发生情况后会直接跳转到该网址页面。
-
-+ 以==GET:==开头再加上网址
-  
-  例如==GET:https://api.choiceform.com/test?number=1&name=lqq==，则事件发生后会在前端以==GET==方式调用这个接口，后面可以附加参数，请求参数将会拼接到url的后面。
-
-+ 以==POST:==开头再加上网址
-  
-  例如==POST:https://api.choiceform.com/test?number=1&name=lqq==，则事件发生后会在前端以==POST==方式调用这个接口，请求时参数会放到HttpRequest的body中。
-
-+ 以==BACKEND:==开头再加上网址
-  
-  例如==BACKEND:https://api.choiceform.com/test?number=1&name=lqq==，则事件发生后会在后台调用这个接口，后台调用默认以==POST==方式调用。
 
 ## 在网址中注入变量
 
