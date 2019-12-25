@@ -17,12 +17,12 @@
 
 ## 垂直
 
-<img src='../assets/questionLayoutSetting/01optionLayout/vertical.png'>
+<img src='../assets/01questionLayoutSetting/01optionLayout/vertical.png'>
 
 ## 水平
 
-<img src='../assets/questionLayoutSetting/01optionLayout/horizontal.png'>
+<img src='../assets/01questionLayoutSetting/01optionLayout/horizontal.png'>
 
 ## 列数
 
-<img src='../assets/questionLayoutSetting/01optionLayout/columns.png'>
+<img src='../assets/01questionLayoutSetting/01optionLayout/columns.png'>

@@ -15,7 +15,7 @@
 
 用于调节题目页面里问题内容和选项文字的大小。
 
-<img src='../assets/questionLayoutSetting/02userdefinedFontSize/custom-font-size.png'>
+<img src='../assets/01questionLayoutSetting/02userdefinedFontSize/custom-font-size.png'>
 
 ==字体控制==默认由全局样式控制，问卷[主题](../../04layoutOfEditor/03components/03theme.md)中字体大小改变时，所有问卷节点的字体大小都会跟随着改变。
 
