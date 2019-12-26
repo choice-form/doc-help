@@ -8,6 +8,6 @@
 
 # 活动
 
-团队成员的操作日志记录，所有操作按
+按记录日期排列团队成员的所有操作日志记录。
 
 <img src='../assets/02teamAdministration/04activity/activity.png'>
