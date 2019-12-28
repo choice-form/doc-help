@@ -22,13 +22,15 @@
 
 <img src='../assets/02dataTable/05dataTool/buildTestData.png'>
 
-系统开始自动生成测试数据，并反馈在对话框中，生成完毕后关闭对话框。
+系统开始自动生成测试数据，生成成功或者失败的状态会实时在对话框中反馈，生成完毕后关闭对话框。
 
 <img src='../assets/02dataTable/05dataTool/buildingTestData.png'>
 
 随后可以看到系统已经生成相关测试数据，测试数据无法在系统中进行数据分析，但用户可以下载测试数据进行进一步检查。
 
 <img src='../assets/02dataTable/05dataTool/testDataResult.png'>
+
+> 有些带有外部接口或者接口变量的问卷无法自动生测试数据。
 
 ## 添加测试数据
 
