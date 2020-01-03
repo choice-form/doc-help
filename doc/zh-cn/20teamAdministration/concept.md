@@ -16,11 +16,10 @@
 
 团队成员可以分配不同角色权限完成各自的工作，还可以对成员进行分组管理，提高工作效率。进一步内容参见：
 
-
-[新增团队](./01newTeam.md)：创建新的团队。
-[成员](./02teamAdministration/01teamMember.md)：团队成员管理。
-[角色](./02teamAdministration/02role.md)：团队角色管理和设定，角色可以配置各项系统权限，并赋予成员。
-[分组](./02teamAdministration/03division.md)：对团队成员进行分组管理，例如按部门分组，使成员管理更清晰。
-[活动](./02teamAdministration/04activity.md)：团队活动操作日志。
-[账单明细](./02teamAdministration/05invoice.md)：团队账户的资金变动情况，以及充值和开票操作。
-[团队设置](./02teamAdministration/06teamConfig.md)：团队基本信息设定。
++ [新增团队](./01newTeam.md)：创建新的团队。
++ [成员](./02teamAdministration/01teamMember.md)：团队成员管理。
++ [角色](./02teamAdministration/02role.md)：团队角色管理和设定，角色可以配置各项系统权限，并赋予成员。
++ [分组](./02teamAdministration/03division.md)：对团队成员进行分组管理，例如按部门分组，使成员管理更清晰。
++ [活动](./02teamAdministration/04activity.md)：团队活动操作日志。
++ [账单明细](./02teamAdministration/05invoice.md)：团队账户的资金变动情况，以及充值和开票操作。
++ [团队设置](./02teamAdministration/06teamConfig.md)：团队基本信息设定。
