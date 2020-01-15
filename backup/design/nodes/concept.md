@@ -24,7 +24,7 @@
 + [权重题](./weight.md)
 + [填空题](./fill.md)
 + [排序题](./rank.md)
-+ [菜单题](./menu.md)
++ [菜单题](./dropdown.md)
 + [级联菜单题](./cascade.md)
 + [图标题](./icon.md)
 + [图片选择题](./picture.md)

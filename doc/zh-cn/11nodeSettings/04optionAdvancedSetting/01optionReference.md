@@ -47,7 +47,7 @@
 
 <img src='../assets/04optionAdvancedSetting/01optionReference/var-filter.png'>
 
-按下图设置，我们可以在Q02中仅仅引用Q01中选项编号大于1的选项的文字。
+按下图设置，我们可以在Q02中仅仅引用Q01中选项编号大于1的选项的编号。
 
 <img src='../assets/04optionAdvancedSetting/01optionReference/require.png'>
 

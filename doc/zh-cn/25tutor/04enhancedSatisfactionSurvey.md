@@ -126,4 +126,4 @@
 
 ![04enhancedSatisfactionSurvey05](assets/04enhancedSatisfactionSurvey/04enhancedSatisfactionSurvey05.png)
 
-使用这种方式，可以实现很对复杂的逻辑判断操作。
+使用这种方式，可以实现很复杂的逻辑判断操作。

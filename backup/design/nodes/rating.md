@@ -29,7 +29,7 @@
   + 分值范围：即最小分值和最大分值，会显示在答题页滑杆的两端。
   + 分值步进：答题页中每次拖动滑杆所造成的分值变化幅度。
 <img src='../../assets/snapshots/nodes/slider/step.png'>
-  + 分值描述：分别是对低分和高分的描述，文字会显示在答题页滑杆的两端。
+  + 分值描述：分别是对低分和高分的描述，文字会显示在答题页滑杆的上方。
 <img src='../../assets/snapshots/nodes/slider/label.png'>
 
 ## 通用设置

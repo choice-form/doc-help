@@ -99,7 +99,7 @@
 
 <img src='../assets/03optionSetting/04inputValidation/auto-hint-section.png'>
 
-使用时，先要上传自动提示配置文件。如下图，Brand就是一本配置文件，用于指示系统如何根据用户的输入，弹出对应的匹配项。
+使用时，先要上传自动提示配置文件。如下图，fruit就是一本配置文件，用于指示系统如何根据用户的输入，弹出对应的匹配项。
 
 <img src='../assets/03optionSetting/04inputValidation/popup.png'>
 

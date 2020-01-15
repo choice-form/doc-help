@@ -19,7 +19,7 @@
 
 ## 模版
 
-系统预设了一些模板配色方案，点选模板直接应用当当前问卷。
+系统预设了一些模板配色方案，点选模板直接应用当前问卷。
 
 <img src='../assets/03components/03theme/standard-theme.png'>
 

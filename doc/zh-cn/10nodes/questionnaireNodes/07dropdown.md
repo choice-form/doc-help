@@ -49,7 +49,7 @@
 
 单行文本数设定为2时的效果：
 
-<img src='../assets/questionnaireNodes/07dropdown/line-count-1.png'>
+<img src='../assets/questionnaireNodes/07dropdown/line-count-2.png'>
 
 > 菜单题可以用来为级联题提供数据，参见[级联题](./08cascade.md)。
 

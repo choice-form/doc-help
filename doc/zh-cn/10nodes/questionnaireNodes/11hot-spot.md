@@ -31,7 +31,7 @@
 
 <img src='../assets/questionnaireNodes/11hot-spot/show.png'>
 
-+ 显示文字：开启后，图片上会显示勾选框，提示被访者进行选择。
++ 显示文字：开启后，被访者选到热点时，会在图片下方显示热点对应的选项文字。
 
 <img src='../assets/questionnaireNodes/11hot-spot/label.png'>
 

@@ -38,7 +38,7 @@
   
 <img src='../assets/questionnaireNodes/02rating/slider-step.png'>
 
-  + 分值描述：分别是对低分和高分的描述，文字会显示在答题页滑杆的两端。
+  + 分值描述：分别是对低分和高分的描述，文字会显示在答题页滑杆的上方。
 
 <img src='../assets/questionnaireNodes/02rating/slider-label.png'>
 

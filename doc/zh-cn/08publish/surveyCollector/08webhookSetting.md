@@ -13,11 +13,11 @@
 
 # Webhook设置
 
-Webhook是一个轻量的事件处理应用，在指定事件发生时立即调用。系统每个收集器都支持Webhook，当指定事件触发时调用预先配置的地址，并穿出参数。
+Webhook是一个轻量的事件处理应用，在指定事件发生时立即调用。系统每个收集器都支持Webhook，当指定事件触发时调用预先配置的地址，并传出参数。
 
 ## Webhook触发事件
 
-Webhook配置区域有3个输入框，用于填写以下3种事件触发时的回掉地址：
+Webhook配置区域有3个输入框，用于填写以下3种事件触发时的回调地址：
 
 <img src='../assets/surveyCollector/08webhookSetting/webhookEvents.png'>
 
@@ -42,6 +42,7 @@ Webhook支持4种不同的调用方式：
   事件发生后会在前端以==POST==方式调用这个接口，请求时参数会放到HttpRequest的body中。
 
 + 跳转
+  
   事件发生情况后会直接跳转到该网址页面。
 
 可以在每个事件的==调用方式==下拉菜单种设置，随后在输入框种填入调用地址即可。
@@ -68,7 +69,7 @@ Webhook支持4种不同的调用方式：
 
 根据以上各项，最终的Webhook地址应为：==https://www.choiceform.com?number={{var1}}&name={{key1}}==。
 
-被访者 ==lucy==回复问卷时，==key1==解析到的值是==lucy==，如果她输入了员工工号==000==，那么==var1==解析到的值是==0001==。最后跳转的真实地址会是：==https://www.choiceform.com?number=0001&name=lucy==。
+被访者 ==lucy==回复问卷时，==key1==解析到的值是==lucy==，如果她输入了员工工号==0001==，那么==var1==解析到的值是==0001==。最后跳转的真实地址会是：==https://www.choiceform.com?number=0001&name=lucy==。
 
 
 

@@ -33,7 +33,7 @@
 
 仅针对于从[节点的选项分组中](./08implictVariable.md#节点中抽取的常用变量组)抽取的变量可用。
 
-==过滤条件==用于进行进一步的过滤操作，要求只引用某个满足某些[逻辑判断规则](../17advancedFunction/advancedLogicSetting/02logicRule.md)的变量结果.
+==过滤条件==用于进行进一步的过滤操作，要求只引用某个满足某些[逻辑判断规则](../17advancedFunction/advancedLogicSetting/02logicRule.md)的变量结果。
 
 + ==要求==：点击下拉列表可以选择要求的条件。
 + ==满足以下条件==：下拉列表和输入框控制，使用的是[逻辑判断规则](../17advancedFunction/advancedLogicSetting/02logicRule.md)

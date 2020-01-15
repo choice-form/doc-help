@@ -50,7 +50,7 @@ https://media.choiceform.com/doc-help/zh-cn/design/group/join-and-remove.mp4
 
 <img src='../17advancedFunction/assets/02groupAndModule/normal.png'>
 
-+ 组内容节点显示为一页
++ 组内节点显示为一页
 
   开启后，答题过程中组内的节点将会在同一页出现。可以按问题的内容，把问题组合成为几个大的部分，每个部分就能单独在一页内呈现给被访者，提升用户体验。
 
