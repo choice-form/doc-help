@@ -13,17 +13,19 @@
 
 # 主题
 
-==主题==用于问卷颜色、字体大小等样式控制，点击后滑出==主题==面板。
+==主题==用于问卷颜色、字体大小等样式控制。
 
 <img src='../assets/03components/03theme/theme-cn.jpg'>
 
 ## 模版
 
-系统预设了一些模板配色方案，点选模板直接应用当前问卷。
+### 预设模版
+系统预设了一些模板配色方案，点选模板直接应用到当前问卷。
 
 <img src='../assets/03components/03theme/standard-theme.png'>
 
-点击==我的模板==，用户也可以创建并保存自己个性化的配色模板方案。
+### 我的模版
+用户也可以创建并保存自己个性化的配色模板方案。
 
 <img src='../assets/03components/03theme/my-theme.png'>
 

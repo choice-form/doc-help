@@ -12,6 +12,7 @@
 
 
 # 视图操作
+<img src='../assets/04views/01canvasViewOperate/viewportControlToolBar.jpg'>
 
 ## 缩小
 

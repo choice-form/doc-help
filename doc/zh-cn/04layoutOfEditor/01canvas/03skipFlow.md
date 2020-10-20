@@ -13,7 +13,7 @@
 
 # 连线
 
-连线代表问卷行进的流程动线。拖动节点的输出口，可以拉出一条弹性连线，把连线连接到另外一个节点的输入口，连接这2个节点后就形成了一个前后关联的关系。答题时，体现为答完一道题后按连线走到下一题。
+连线是问卷执行流程的视觉展现。拖动节点的输出口，可以拉出一条弹性连线，把连线连接到另外一个节点的输入口，连接这2个节点后就形成了一个前后关联的关系。答题时，体现为答完一道题后按连线走到下一题。
 
 <video id="video" controls="" preload="none">
     <source id="mp4" src="https://media.choiceform.com/doc-help/zh-cn/design/layout/canvas/connect.mp4" type="video/mp4">
