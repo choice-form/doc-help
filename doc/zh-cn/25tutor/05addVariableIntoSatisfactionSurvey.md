@@ -30,6 +30,7 @@
 + 变量值：在输入框里输入==@==，在弹出菜单中选择==Q4->指定选项->卫生情况->选项排序序号==
 
 如下图所示：
+>图中选中原料质量,应该为卫生情况
 
 ![05addVariableIntoSatisfactionSurvey01](assets/05addVariableIntoSatisfactionSurvey/05addVariableIntoSatisfactionSurvey01.png)
 

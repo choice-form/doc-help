@@ -42,3 +42,26 @@
 <img src='../assets/questionnaireNodes/06rank/common.png'>
 
 > 不同题型或功能节点共有的通用设置在[通用设置](../../11nodeSettings/concept.md)中有完整说明。
+
+
+## 布局设置
+
+用于设置排序操作方式，可选方式有：拖拽排序、挑选排序和挑选跌落排序。
+
++ 拖拽排序：
+
+通过==拖拽==的方式排列，序号位置永远固定,选项的顺序会不停变化
+
+<img src='../assets/questionnaireNodes/06rank/way-darg.png'>
+
++ 挑选排序：
+
+通过==点击==的方式排列，点击哪个选项，就会给当前选项抢到当前还剩余的==最前面==的一个序号，然后在选项上表明排序号即可，无需调准选项的位置，再次点击已有需要的选项则取消该选项的序号。
+
+<img src='../assets/questionnaireNodes/06rank/way-pick.png'>
+
++ 挑选跌落排序
+
+通过==点击==的方式排列，点击生成序号时同挑选排序，但是放弃序号后，之前比当前选项排序号高的选项的序号都会坍塌跌落。
+
+<img src='../assets/questionnaireNodes/06rank/way-drop.png'>
