@@ -30,6 +30,7 @@
 + [图标题](./questionnaireNodes/09icon.md)
 + [图片选择题](./questionnaireNodes/10picture.md)
 + [图片热点题](./questionnaireNodes/11hot-spot.md)
++ [图片热力题](./questionnaireNodes/18heat-map.md)
 + [描述节点](./questionnaireNodes/12description.md)
 + [上传题](./questionnaireNodes/13file-upload.md)
 + [定位题](./questionnaireNodes/14location.md)
