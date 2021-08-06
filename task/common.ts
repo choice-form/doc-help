@@ -11,10 +11,17 @@ export const isExclusiveFile = (file: string): boolean => {
   }
   return false;
 }
-
+/**
+ * 目录索引顺序匹配正则
+ */
 export const indexReg = /```\s*index\s*(\d*)\s*```/;
-export const aliasReg = /```\s*alias\s*((?:[^`]+?\s?)*)\s*```/;
-export const tagReg = /```\s*tag\s*((?:[^`]+?\s?)*)\s*```/;
-export const summaryReg = /```\s*summary\s*((?:[^`]+?\s?)*)\s*```/;
 
+/**
+ * 目录别名匹配正则
+ */
+export const aliasReg = /```\s*alias\s*((?:[^`]+?\s?)*)\s*```/;
+
+/**
+ * yaml数据文本匹配正则
+ */
 export const yamlReg = /---\n(?:.*\n)+---\n/

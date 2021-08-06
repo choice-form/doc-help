@@ -12,9 +12,9 @@ import { isExclusiveFile, indexReg } from './common';
  */
 
 /**
- * 转移文档层级结构
+ * 复制文档层级结构
  */
-const copy = () => {
+function copy(): void {
   const fromLang = process.argv[2];
   const toLang = process.argv[3];
   // 参数检查
@@ -30,11 +30,11 @@ const copy = () => {
 }
 
 /**
- * 转移某个目录
- * @param fromDir 
- * @param toDir 
+ * 复制某个目录
+ * @param fromDir 来源目录
+ * @param toDir 目标目录
  */
-const copyDir = (fromDir: string, toDir: string) => {
+function copyDir(fromDir: string, toDir: string): void {
   const list = fs.readdirSync(fromDir);
   list.forEach(name => {
     if (isExclusiveFile(name)) {
@@ -47,7 +47,7 @@ const copyDir = (fromDir: string, toDir: string) => {
     if (stat.isDirectory()) {
       // 创建文件夹
       mkdirp.sync(toSub);
-      // 并深层转移
+      // 并深入复制
       copyDir(fromSub, toSub);
       // 文档文件或索引文件
     } else if (name.endsWith('.md') || name === '.index') {

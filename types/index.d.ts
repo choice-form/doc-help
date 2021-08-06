@@ -1,5 +1,14 @@
+/**
+ * 文档树结构
+ */
 interface IDocTree {
+  /**
+   * 该层名字
+   */
   name: string;
+  /**
+   * 自层数据
+   */
   children?: IDocTree[];
 }
 

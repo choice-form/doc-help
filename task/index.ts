@@ -9,49 +9,148 @@ import cheerio = require('cheerio');
 import yamljs = require('yamljs');
 import { isExclusiveFile, yamlReg } from './common';
 
-interface IYamlJson { index?: number, tags?: string[], summary?: string, alias?: string };
 
+/**
+ * 傻白甜
+ */
 export interface ISignStrStr {
   [key: string]: string;
 }
 
+/**
+ * 同yaml格式定义的头部信息解析出来后的数据结构
+ */
+interface IYamlJson {
+  /**
+   * 排序索引，影响在目录中前后顺序
+   */
+  index?: number,
+  /**
+   * 标签，用于辅助搜索
+   */
+  tags?: string[],
+  /**
+   * 概要信息，用于辅助搜索和搜索结果中展示概要
+   */
+  summary?: string,
+  /**
+   * 别名，用于在目录结构中显示的名字
+   */
+  alias?: string
+};
+
+/**
+ * 编译到主入口文件中的资源地址总结数据结构
+ */
 export interface IDocMainUrl {
+  /**
+   * 目录结构资源地址
+   */
   indexUrl: string;
+  /**
+   * 搜索辅助数据资源地址
+   */
   searchUrl: string;
+  /**
+   * 页脚布局说明资源地址
+   */
   footUrl: string;
 }
 
+/**
+ * 总入口文件的数据结构
+ */
 export interface IDocMain {
+  /**
+   * cdn地址，所有的都来自这里
+   */
   cdn: string;
+  /**
+   * 各个语言的入口数据组
+   */
   langs: {
     [key: string]: IDocMainUrl;
   }
 }
 
+/**
+ * 索引目录的数据结构
+ */
 export interface IDocIndexData {
+  /**
+   * 别名
+   */
   alias: string;
+  /**
+   * 排序索引
+   */
   index?: number;
+  /**
+   * 类型，分文件和目录
+   */
   type?: 'file' | 'dir';
+  /**
+   * [目录专用]子目录
+   */
   children?: IDocIndexData[];
+  /**
+   * [文件专用]对应的文档数据资源地址，
+   */
   url?: string;
+  /**
+   * 路径标识名
+   */
   path?: string;
 }
 
+/**
+ * 辅助搜索文件的数据结构
+ */
 export interface IDocSearchData {
+  /**
+   * 标签列表
+   */
   tags: string[];
+  /**
+   * 对应的文档概要说明
+   */
   summary: string;
+  /**
+   * 对应的文档资源地址
+   */
   url: string;
+  /**
+   * 对应文档的路径标识名
+   */
   path: string;
+  /**
+   * 对一个的文档标题
+   */
   title: string;
 }
 
+/**
+ * 文档内容文件的数据结构
+ */
 export interface IDocData {
+  /**
+   * 标签列表
+   */
   tags: string[],
+  /**
+   * 文档内容
+   */
   content: string;
 }
 
-
+/**
+ * 文档目录
+ */
 const docDir = 'doc';
+
+/**
+ * 构建目标目录
+ */
 const distDir = 'dist';
 
 const cdnHost: { [key: string]: string } = {
@@ -62,11 +161,11 @@ const cdnHost: { [key: string]: string } = {
 const env = process.argv[2];
 const cdn = cdnHost[env] || cdnHost.staging;
 
-
-const build = () => {
+/**
+ * 开始构建
+ */
+function build(): void {
   prepare();
-
-
   const langDirs = fs.readdirSync(docDir);
   const main: IDocMain = { cdn, langs: {} };
   langDirs.forEach(lang => {
@@ -83,7 +182,7 @@ const build = () => {
  * 构建一个语言
  * @param lang 
  */
-const buildLang = (lang: string): IDocMainUrl => {
+function buildLang(lang: string): IDocMainUrl {
   // 先处理资源文件
   const { assetsHashMap, indexList } = buildAssets(docDir + '/' + lang, null);
   // 然后处理索引目录
@@ -109,8 +208,6 @@ const buildLang = (lang: string): IDocMainUrl => {
   footPath = appendHash(footPath, footHash);
   writeFileInsureDir(footPath, footText);
 
-  // // 重写文档文件
-  // rewriteDoc(searchList);
   return {
     indexUrl: eraseDistPrefix(indexPath),
     searchUrl: eraseDistPrefix(searchPath),
@@ -124,7 +221,7 @@ const buildLang = (lang: string): IDocMainUrl => {
  * 同时,如若文件名携带了$$_符号的则移除
  * @param indexList 
  */
-const unifyIndexList = (indexList: IDocIndexData[], footList: IDocIndexData[]) => {
+function unifyIndexList(indexList: IDocIndexData[], footList: IDocIndexData[]): void {
   indexList.sort((a, b) => {
     return a.index > b.index ? 1 : -1;
   })
@@ -156,32 +253,33 @@ const unifyIndexList = (indexList: IDocIndexData[], footList: IDocIndexData[]) =
 }
 
 /**
- * 检查匹配结果中是包含有效的注释信息
- * @param rs 
- */
-// const containsCommentData = (rs: RegExpMatchArray) => {
-//   return rs && rs[1] && rs[1].replace(/\s+/g, '') !== '';
-// }
-
-/**
  * 获取基于当成仓库的根目录的真实路径
  * @param selfPath 
  * @param relativeHref 
  */
-const getRealUrl = (selfPath: string, relativeHref: string) => {
+function getRealUrl(selfPath: string, relativeHref: string): string {
   const cwd = path.resolve();
   const absoluteUrl = path.resolve(selfPath, relativeHref);
   const realUrl = absoluteUrl.substr(cwd.length + 1);
   return realUrl;
 }
 
-
-const mdUrlToArticleName = (url: string) => {
+/**
+ * md地址转文章名
+ * @param url 
+ * @returns 
+ */
+function mdUrlToArticleName(url: string): string {
   return url.replace(/doc\/.+?\//, '')
     .replace(/\.md$/, '').replace(/\//g, '_');
 }
 
-const jsonUrlToArticleName = (url: string) => {
+/**
+ * json地址转文章名
+ * @param url 
+ * @returns 
+ */
+function jsonUrlToArticleName(url: string) {
   return url.replace(/^.+?\//, '')
     .replace(/-\w{8}\.json$/, '').replace(/\//g, '_');
 }
@@ -191,7 +289,7 @@ const jsonUrlToArticleName = (url: string) => {
  * @param assetsHashMap 
  * @param indexList 
  */
-const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[], pTitle = '') => {
+function buildIndexList(assetsHashMap: ISignStrStr, indexList: IDocIndexData[], pTitle = '') {
 
   let searchList: IDocSearchData[] = [];
 
@@ -311,7 +409,7 @@ const buildIndexList = (assetsHashMap: ISignStrStr, indexList: IDocIndexData[], 
  * @param pTitle 
  * @param title 
  */
-const wrapTitle = (pTitle: string, title: string) => {
+function wrapTitle(pTitle: string, title: string): string {
   const exTitle = title.startsWith('<span>')
     ? title : `<span>${title}</span>`;
   const rs = pTitle
@@ -324,7 +422,7 @@ const wrapTitle = (pTitle: string, title: string) => {
  * 转化为目标文件地址
  * @param path 
  */
-const toDistPath = (path: string) => {
+function toDistPath(path: string): string {
   return path.replace(/^doc\//, 'dist/');
 }
 
@@ -332,7 +430,7 @@ const toDistPath = (path: string) => {
  * 擦除路径开头的dist目录信息
  * @param path 
  */
-const eraseDistPrefix = (path: string) => {
+function eraseDistPrefix(path: string): string {
   return path.replace(/^dist\//, '');
 }
 
@@ -341,7 +439,7 @@ const eraseDistPrefix = (path: string) => {
  * @param path 
  * @param hash 
  */
-const appendHash = (path: string, hash: string) => {
+function appendHash(path: string, hash: string): string {
   hash = hash.substr(0, 8);
   let result = '';
   const lastIndex = path.lastIndexOf('.');
@@ -363,7 +461,7 @@ const appendHash = (path: string, hash: string) => {
  * 则使用1000000,好让其排在其他有序号的文件的后面
  * @param name 
  */
-const tryGetFileIndex = (name: string) => {
+function tryGetFileIndex(name: string): number {
   const numPrefixMatch = name.match(/^\d+/);
   let index = 1000000;
   if (numPrefixMatch) {
@@ -383,7 +481,10 @@ const tryGetFileIndex = (name: string) => {
  * @param dir 
  * @param pIndexData 
  */
-const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
+function buildAssets(dir: string, pIndexData: IDocIndexData): {
+  assetsHashMap: ISignStrStr;
+  indexList: IDocIndexData[];
+} {
   const list = fs.readdirSync(dir);
   let assetsHashMap: ISignStrStr = {};
   const indexList: IDocIndexData[] = [];
@@ -467,7 +568,7 @@ const buildAssets = (dir: string, pIndexData: IDocIndexData) => {
  * @param path 
  * @param content 
  */
-const writeFileInsureDir = (path: string, content: string | Buffer) => {
+function writeFileInsureDir(path: string, content: string | Buffer): void {
   const lastIndex = path.lastIndexOf('/');
   const pDir = path.substr(0, lastIndex);
   if (pDir) {
@@ -479,54 +580,17 @@ const writeFileInsureDir = (path: string, content: string | Buffer) => {
 /**
  * 做准备，移除dist目录，在重新创建空的dist目录
  */
-const prepare = () => {
+function prepare(): void {
   rimraf.sync(distDir);
   fs.mkdirSync(distDir);
 }
 
-
-
-// /**
-//  * 重写文档,因为要更正里面的链接，而连接都得带hash
-//  * 所以只能等全部文件写完判定好hash后才能改写，
-//  * 改写后元hash会和真实hash不一样，但这不影响我们，
-//  * 我们的hash只用来区别更改的版本。
-//  * @param searchList 
-//  */
-// const rewriteDoc = (searchList: IDocSearchData[]) => {
-//   searchList.forEach(item => {
-//     const filePath = distDir + '/' + item.url;
-//     const data = JSON.parse(fs.readFileSync(filePath).toString()) as IDocData;
-//     const $ = cheerio.load(`<div>${data.content}</div>`, { decodeEntities: false });
-//     const $aList = $('a');
-//     const selfPath = path.dirname(item.url)
-//     // 尝试替换其中a标签的链接
-//     $aList.each((idx, a) => {
-//       const $a = $(a);
-//       const href = $a.attr('href');
-//       if (href) {
-//         const [realHref, suffix] = href.split('#');
-//         if (realHref.endsWith('.md')) {
-//           const relativeHref = realHref.replace(/.md$/, '');
-//           const realUrl = getRealUrl(selfPath, relativeHref);
-//           const targetItem = searchList.find(sItem => {
-//             return sItem.url.startsWith(realUrl) && sItem.url.length === realUrl.length + 14;
-//           })
-//           if (targetItem) {
-//             const recoverUrl = suffix ? targetItem.url + '#' + suffix : targetItem.url;
-//             $a.attr('href', recoverUrl);
-//           }
-//         }
-//       }
-//     });
-//     data.content = $('body > div').html();
-//     // 替换完成后写回文件
-//     fs.writeFileSync(filePath, JSON.stringify(data));
-//   })
-// }
-
-
-const getYmlJson = (text: string): { json: IYamlJson, text: string } => {
+/**
+ * 獲取yaml文本中的数据转成json对象
+ * @param text
+ * @returns 
+ */
+function getYmlJson(text: string): { json: IYamlJson, text: string } {
   const ymlMatch = text.match(yamlReg);
   if (ymlMatch) {
     return {
@@ -536,33 +600,6 @@ const getYmlJson = (text: string): { json: IYamlJson, text: string } => {
   }
   return { text, json: {} };
 }
-
-/**
- * 
- * @param file 
- * @param json 
- * @param text 
- */
-// @ts-ignore
-// const feedbackYaml = (file: string, json: IYmlJson, text: string) => {
-//   let ymlText = '---\n';
-//   Object.keys(json).forEach((key: keyof IYmlJson) => {
-//     let txt = '  ' + key + ': ';
-//     let val = json[key];
-//     if (val instanceof Array) {
-//       txt += '[' + val.join(', ') + ']';
-//     } else {
-//       txt += val;
-//     }
-//     txt += '\n';
-//     ymlText += txt;
-//   })
-//   ymlText += '---\n' + text;
-//   fs.writeFileSync(file, ymlText);
-
-// }
-
-
 
 build();
 
