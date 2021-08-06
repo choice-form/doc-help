@@ -55,6 +55,10 @@ export interface IDocMainUrl {
    * 页脚布局说明资源地址
    */
   footUrl: string;
+  /**
+   * 自定义区块说明资源地址
+   */
+  blockUrl: string;
 }
 
 /**
@@ -188,30 +192,28 @@ function buildLang(lang: string): IDocMainUrl {
   // 然后处理索引目录
   const searchList = buildIndexList(assetsHashMap, indexList);
   const footList: IDocIndexData[] = []
-  unifyIndexList(indexList, footList);
-  // 写入索引文件
-  const indexText = JSON.stringify(indexList);
-  const indexHash = hasha(indexText);
-  let indexPath = distDir + '/' + lang + '/index.json';
-  indexPath = appendHash(indexPath, indexHash);
-  writeFileInsureDir(indexPath, indexText);
-  // 写入搜索文件
-  const searchText = JSON.stringify(searchList);
-  const searchHash = hasha(searchText);
-  let searchPath = distDir + '/' + lang + '/search.json';
-  searchPath = appendHash(searchPath, searchHash);
-  writeFileInsureDir(searchPath, searchText);
-  // 写入脚部文件
-  const footText = JSON.stringify(footList);
-  const footHash = hasha(footText);
-  let footPath = distDir + '/' + lang + '/foot.json';
-  footPath = appendHash(footPath, footHash);
-  writeFileInsureDir(footPath, footText);
+  const blockList: IDocIndexData[] = []
+  unifyIndexList(indexList, footList, blockList);
+
+  const writeFile = (list: any[], fileName: string) => {
+    // 写入索引文件
+    const text = JSON.stringify(list);
+    const hash = hasha(text);
+    let path = distDir + '/' + lang + '/' + fileName;
+    path = appendHash(path, hash);
+    writeFileInsureDir(path, text);
+    return path;
+  }
+  const indexPath = writeFile(indexList, 'index.json');
+  const searchPath = writeFile(searchList, 'search.json');
+  const footPath = writeFile(footList, 'foot.json');
+  const blockPath = writeFile(blockList, 'block.json');
 
   return {
     indexUrl: eraseDistPrefix(indexPath),
     searchUrl: eraseDistPrefix(searchPath),
     footUrl: eraseDistPrefix(footPath),
+    blockUrl: eraseDistPrefix(blockPath),
   };
 }
 
@@ -221,7 +223,7 @@ function buildLang(lang: string): IDocMainUrl {
  * 同时,如若文件名携带了$$_符号的则移除
  * @param indexList 
  */
-function unifyIndexList(indexList: IDocIndexData[], footList: IDocIndexData[]): void {
+function unifyIndexList(indexList: IDocIndexData[], footList: IDocIndexData[], blockList: IDocIndexData[]): void {
   indexList.sort((a, b) => {
     return a.index > b.index ? 1 : -1;
   })
@@ -233,16 +235,22 @@ function unifyIndexList(indexList: IDocIndexData[], footList: IDocIndexData[]): 
     if (item.url) {
       item.path = jsonUrlToArticleName(item.url);
     }
-    if (item.url && item.url.includes('/$foot$_')) {
-      indexList.splice(i, 1).forEach(item => {
-        footList.unshift(item);
-      });
+    if (item.url) {
+      if (item.url.includes('/$foot$_')) {
+        indexList.splice(i, 1).forEach(item => {
+          footList.unshift(item);
+        });
+      } else if (item.url.includes('/$block$_')) {
+        indexList.splice(i, 1).forEach(item => {
+          blockList.unshift(item);
+        });
+      }
     }
     if (item.children) {
       if (item.children.length === 0) {
         delete item.children;
       } else {
-        unifyIndexList(item.children, footList);
+        unifyIndexList(item.children, footList, blockList);
         // 如果内部已经清除干净了则清除自己
         if (item.children.length === 0) {
           indexList.splice(i, 1);
