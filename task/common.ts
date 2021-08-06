@@ -17,4 +17,4 @@ export const aliasReg = /```\s*alias\s*((?:[^`]+?\s?)*)\s*```/;
 export const tagReg = /```\s*tag\s*((?:[^`]+?\s?)*)\s*```/;
 export const summaryReg = /```\s*summary\s*((?:[^`]+?\s?)*)\s*```/;
 
-export const ymalReg = /---\n(?:.*\n)+---\n/
+export const yamlReg = /---\n(?:.*\n)+---\n/

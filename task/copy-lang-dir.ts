@@ -3,10 +3,12 @@ import mkdirp = require('mkdirp');
 import { isExclusiveFile, indexReg } from './common';
 
 /**
- * 这个脚本用来将一个语言的文档层次结构为蓝本，生成另外一个语言的文档层次结构，生成的机构中文档内容出了基础注释外都为空。
+ * 这个脚本用来将一个语言的文档层次结构为蓝本，生成另外一个语言的文档层次结构，生成的新结构中文档内容出了基础注释外都为空。
  * 命令行使用格式： tsc & node build/task/copy-lang-dir.js fromLang toLang
  * 例如，当前有中文文档，而没有英文文档，可以运行以下命令生成一个和中文文档层次结构一样的英文文档文件夹：
  * tsc & build/task/copy-lang-dir.js zh-cn en-us
+ * 
+ * 方便后续在生成的新文件家中按部就班的添加文档内容
  */
 
 /**

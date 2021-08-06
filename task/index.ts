@@ -7,9 +7,9 @@ import path = require('path');
 import marked = require('marked');
 import cheerio = require('cheerio');
 import yamljs = require('yamljs');
-import { isExclusiveFile, ymalReg } from './common';
+import { isExclusiveFile, yamlReg } from './common';
 
-interface IYmlJson { index?: number, tags?: string[], summary?: string, alias?: string };
+interface IYamlJson { index?: number, tags?: string[], summary?: string, alias?: string };
 
 export interface ISignStrStr {
   [key: string]: string;
@@ -526,12 +526,12 @@ const prepare = () => {
 // }
 
 
-const getYmlJson = (text: string): { json: IYmlJson, text: string } => {
-  const ymlMatch = text.match(ymalReg);
+const getYmlJson = (text: string): { json: IYamlJson, text: string } => {
+  const ymlMatch = text.match(yamlReg);
   if (ymlMatch) {
     return {
       json: yamljs.parse(ymlMatch[0]),
-      text: text.replace(ymalReg, ''),
+      text: text.replace(yamlReg, ''),
     };
   }
   return { text, json: {} };
