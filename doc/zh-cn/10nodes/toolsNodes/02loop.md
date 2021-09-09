@@ -44,7 +44,7 @@
 
 > 循环节点目前最多能支持2层循环。
 
-## 变量循序随机
+## 变量顺序随机
 
 循环变量使用的顺序可被打乱，其打乱规则与[选项随机](../../11nodeSettings/05questionGeneralSetting/05randomOption.md)相同。
 
