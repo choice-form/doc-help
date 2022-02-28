@@ -30,7 +30,7 @@
 
 当问卷发布后，并且收集到了回复数据后，就可以渐入数据分析板块，对问卷数据进行统计分析。默认情况下，系统不会自动为问卷题目生成统计分析。
 
-<img src='./assets/dataAnalysisBlank.png'>
+<img src='../assets/dataAnalysisBlank.png'>
 
 接下来，我们就可以开始对数据生成统计图表，主要操作有：
 + [生成数据分析图表](./01buildDataAnalyse.md)

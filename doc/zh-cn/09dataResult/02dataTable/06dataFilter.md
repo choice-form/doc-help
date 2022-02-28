@@ -21,7 +21,7 @@
 
 下图==管理过滤条件==对话框中的高亮区域是==数据过滤条件编辑器==。
 
-<img src='../assets/02dataTable//06dataFilter/dataFilterConditionSet.png'>
+<img src='../assets/02dataTable/06dataFilter/dataFilterConditionSet.png'>
 
 图中，已经增加了2个数据过滤==条件==设定，分别是：
 
@@ -29,8 +29,7 @@
   + 询问空余时间安排的题目答案包含==棋牌活动==。
 
 以上2个条件设定的逻辑运算方式为==AND==，点击菜单可切换为==OR==。
-
-<img src='../assets/02dataTable//06dataFilter/dataFilterConditionSetLogicSet.png'>
+<img src='../assets/02dataTable/06dataFilter/dataFilterConditionSetLogicSet.png'>
 
 以上2个条件和运算方式设定构成1个数据过滤==条件集==。
 

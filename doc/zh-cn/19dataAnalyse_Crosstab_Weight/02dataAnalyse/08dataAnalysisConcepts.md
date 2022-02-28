@@ -31,17 +31,17 @@
 
   + 为单选时：题目可对应类目（Category）、数值（Numbers）变量，进行数量分析或数值分析。数值分析时采用对应的选项编号作为具体数值参与统计。
 
-  <img src='./assets/08dataAnalysisConcepts/1_1.png'>
+  <img src='../assets/08dataAnalysisConcepts/1_1.png'>
 
   + 为多选时：题目对应多选类型（Checkboxes）变量，进行数量分析。选项对应类目（Category）变量，针对单一选项是否选中进行数量分析。
 
-  <img src='./assets/08dataAnalysisConcepts/1_2.png'>
+  <img src='../assets/08dataAnalysisConcepts/1_2.png'>
 
 2. 打分题、权重题、演示评价题
 
     选项可对应类目（Category）、数值（Numbers）变量进行数量分析或数值分析。数量分析基于结果中出现的可能分值进行分析，例如打了某个分值的人数有多少等。
 
-    <img src='./assets/08dataAnalysisConcepts/2_1.png'>
+    <img src='../assets/08dataAnalysisConcepts/2_1.png'>
 
 3. 排序题
 
@@ -99,27 +99,27 @@
 
   + 类目（Category）与数值（Numbers）关联：计算各类目（Category）与数值（Numbers）变量的交叉分布结果，得出分值分布(柱状图）、平均数、中位数、样本计数信息。
 
-  <img src='./assets/08dataAnalysisConcepts/CrossCat_Num.png'>
+  <img src='../assets/08dataAnalysisConcepts/CrossCat_Num.png'>
 
   + 多选类型（Checkboxes）与数值（Numbers）关联：基于各选项（区分选中与未选中）计算与数值（Numbers）变量的交叉分布结果。
 
-  <img src='./assets/08dataAnalysisConcepts/CrossChe_Num.png'>
+  <img src='../assets/08dataAnalysisConcepts/CrossChe_Num.png'>
 
   + 数值（Numbers）与数值（Numbers）关联：各个值（Numbers）的数值统计表及分值分布柱状图。
 
-  <img src='./assets/08dataAnalysisConcepts/CrossNum_Num.png'>
+  <img src='../assets/08dataAnalysisConcepts/CrossNum_Num.png'>
 
   + 类目（Category）与类目（Category）关联：计算各类目（Category）之间的交叉分布，包含样本计数及各百分比。
 
-  <img src='./assets/08dataAnalysisConcepts/CrossChe_Cat.png'>
+  <img src='../assets/08dataAnalysisConcepts/CrossChe_Cat.png'>
 
   + 类目（Category）与多选类型（Checkboxes）关联：基于各选项（区分选中与未选中）与类目（Category）进行交叉计算，得到数量、百分比分布结果。
 
-  <img src='./assets/08dataAnalysisConcepts/CrossCat_Che.png'>
+  <img src='../assets/08dataAnalysisConcepts/CrossCat_Che.png'>
 
   + 多选类型（Checkboxes）与多选类型（Checkboxes）关联：基于各选项（区分选中与未选中）进行交叉计算，得到数量、百分比分布结果。
 
-  <img src='./assets/08dataAnalysisConcepts/CrossChe_Che.png'>
+  <img src='../assets/08dataAnalysisConcepts/CrossChe_Che.png'>
 
 ## 数据分析时的限制
 

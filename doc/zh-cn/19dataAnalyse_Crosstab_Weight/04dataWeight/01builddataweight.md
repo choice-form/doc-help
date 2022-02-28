@@ -21,18 +21,18 @@
 选择题目，选择1题或者多题。
 设置目标权重百分比。
 
-<img src='./assets/10dataweight/weight01.png'>
+<img src='../assets/10dataweight/weight01.png'>
 
 # 引用权重
 
 进入统计板块，选择配置项，点击分析配置，设置权重。
 
-<img src='./assets/10dataweight/weight02.png'>
+<img src='../assets/10dataweight/weight02.png'>
 
 数据表中增加数据权重系数按钮。
 
-<img src='./assets/10dataweight/weight03.png'>
+<img src='../assets/10dataweight/weight03.png'>
 
 进入分析板块，选择设置，点击更新设置选项，设置权重。
 
-<img src='./assets/10dataweight/weight04.png'>
+<img src='../assets/10dataweight/weight04.png'>

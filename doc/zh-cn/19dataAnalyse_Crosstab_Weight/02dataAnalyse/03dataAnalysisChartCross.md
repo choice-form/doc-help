@@ -17,11 +17,11 @@
 
 ### 单选与单选交叉
 
-<img src='./assets/03dataAnalysisChartCross/dataBuildCrossTable.png'>
+<img src='../assets/03dataAnalysisChartCross/dataBuildCrossTable.png'>
 
 如下图，选择A1、A2后，点击关联按钮，生成如下交叉数据分析图表。
 
-<img src='./assets/03dataAnalysisChartCross/dataChartCrossCount.png'>
+<img src='../assets/03dataAnalysisChartCross/dataChartCrossCount.png'>
 
 交叉数据分析图表行、列分别为A1、A2的题目选项，行列交叉位置的数值就是同时选中这2个选项的被访者的数量。
 
@@ -35,23 +35,23 @@
 + 百分比：计算总体的百分比。
   
 
-<img src='./assets/03dataAnalysisChartCross/dataChartCrossPercent.png'>
+<img src='../assets/03dataAnalysisChartCross/dataChartCrossPercent.png'>
 
 + 行百分比：按行计算百分比。
   
 
-<img src='./assets/03dataAnalysisChartCross/dataChartCrossPercent_Row.png'>
+<img src='../assets/03dataAnalysisChartCross/dataChartCrossPercent_Row.png'>
 
 + 列百分比：按列计算百分比。
   
 
-<img src='./assets/03dataAnalysisChartCross/dataChartCrossPercent_Col.png'>
+<img src='../assets/03dataAnalysisChartCross/dataChartCrossPercent_Col.png'>
 
 ### 单选与多选的数据交叉
 
 在题目列表中选择一道单选题和一道多选题，生成如下交叉分析图表。
 
-<img src='./assets/03dataAnalysisChartCross/dataChartCrossCount_1.png'>
+<img src='../assets/03dataAnalysisChartCross/dataChartCrossCount_1.png'>
 
 单选与多选交叉是将2道题目的所有选项进行==两两匹配==，并统计数据。上图表格中，最左边2列是单选题和多选题所有选项，并进行两两匹配，每种匹配规则占据一行。剩余数据列从左到右边各列分别为：
 
@@ -63,7 +63,7 @@
 
 在题目列表中选择一道多选题和一道多选题，生成如下交叉分析图表。
 
-<img src='./assets/03dataAnalysisChartCross/dataChartCrossMultichoiceVSMultichoice.png'>
+<img src='../assets/03dataAnalysisChartCross/dataChartCrossMultichoiceVSMultichoice.png'>
 
 与单选与多选数据交叉类似，多选与多选的数据较长也是将2道题目的所有选项进行两两匹配，并统计数据。上图表格中，最左边4列分别是2道多选题所有选项，并根据是否选中该选项来进行两两匹配，每种匹配规则占据一行。剩余数据列从左到右边各列分别为：
 

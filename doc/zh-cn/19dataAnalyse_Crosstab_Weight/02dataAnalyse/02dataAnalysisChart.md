@@ -15,7 +15,7 @@
 
 生成数据分析图表后，系统会为选中的题目生成1张==数据分析图表卡片==。
 
-<img src='./assets/02dataAnalysisChart/dataAnalysisDataChart.png'>
+<img src='../assets/02dataAnalysisChart/dataAnalysisDataChart.png'>
 
 ### 数据分析表格
 
@@ -38,7 +38,7 @@
 
 点击数据表格列名可以设定数据表格排序规则，下图为点击置信区间列后，数据分析表格按置信区间列降序排列后的效果。
 
-<img src='./assets/02dataAnalysisChart/dataAnalysisDataSorted.png'>
+<img src='../assets/02dataAnalysisChart/dataAnalysisDataSorted.png'>
 
 > 点击数据表格列名可以循环切换升序、降序排列规则。
 
@@ -46,31 +46,31 @@
 
 勾选数据分析表格上方的==排序==按钮，数据表格最左边的题目选项列变为可拖动的形式，如下图所示选项名称左边显示了拖动手柄。
 
-<img src='./assets/02dataAnalysisChart/dataAnalysisDataCustomSort1.png'>
+<img src='../assets/02dataAnalysisChart/dataAnalysisDataCustomSort1.png'>
 
 点击拖动手柄并移动到期望的目标位置。
 
-<img src='./assets/02dataAnalysisChart/dataAnalysisDataCustomSort2.png'>
+<img src='../assets/02dataAnalysisChart/dataAnalysisDataCustomSort2.png'>
 
 数据分析图表随即以自定义的排列顺序显示。
 
-<img src='./assets/02dataAnalysisChart/dataAnalysisDataCustomSorted.png'>
+<img src='../assets/02dataAnalysisChart/dataAnalysisDataCustomSorted.png'>
 
 ### 筛选数据并生成分析图表
 
 数据分析图表对当前题目数据进行统计分析，并且支持数据进行筛选后生成统计分析。点击数据分析图表卡片右上角的==过滤器==按钮，在当前数据分析卡片中增加过滤器控制。数据分析卡片的过滤器功能与数据表格的过滤器功能完全相同。
 
-<img src='./assets/02dataAnalysisChart/dataAnalysisDataAddFilter.png'>
+<img src='../assets/02dataAnalysisChart/dataAnalysisDataAddFilter.png'>
 
 > 过滤器详细介绍参见[过滤器](../09dataResult/02dataTable/06dataFilter.md)。
 
 如下图，对当前数据设定过滤条件，设定为：题目A1中包含任意通勤、旅游选项的数据，系统随后更新数据分析图表，可以看到数据分析图表、样本统计表格都已经更新为最新的筛选数据。此时，样本统计表格中的样品计数就是筛选后得到的总数量。
 
-<img src='./assets/02dataAnalysisChart/dataAnalysisDataFiltered.png'>
+<img src='../assets/02dataAnalysisChart/dataAnalysisDataFiltered.png'>
 
 目前我们都是对A1进行筛选，并显示A1对数据分析图表。其实，对数据进行筛选时，可以对其他题目进行筛选，并不限于仅能对当前题目数据进行筛选操作。如下图，将数据过滤条件设定为：题目A4中包含任意26-35岁、36-45岁的数据，系统随后更新数据分析图表。
 
-<img src='./assets/02dataAnalysisChart/dataAnalysisDataFilteredOtherCondition.png'>
+<img src='../assets/02dataAnalysisChart/dataAnalysisDataFilteredOtherCondition.png'>
 
 根据分析的需求，还可以为数据分析卡片添加多组不同条件组合的过滤条件，方便、快速地得到更为个性化的数据分析图表。
 
@@ -78,13 +78,13 @@
 
 点击==注释==按钮，数据分析图表上方会显示注释文本输入框，可以为数据分析图表添加注释说明，便于解读数据图表。
 
-<img src='./assets/02dataAnalysisChart/dataAnalysisDataAddComment.png'>
+<img src='../assets/02dataAnalysisChart/dataAnalysisDataAddComment.png'>
 
 ### 导出数据分析图表
 
 点击==导出==按钮，可以输出当前数据分析图表的Excel文件。
 
-<img src='./assets/02dataAnalysisChart/dataExport.png'>
+<img src='../assets/02dataAnalysisChart/dataExport.png'>
 
 输出到Excel文件中的图表采用原生的Excel组件，可以在Excel软件中进行二次编辑调整。
 
@@ -92,7 +92,7 @@
 
 数据分析页面上方除了描述和关联按钮外，还设有==数据分析基本操作工具栏==。
 
-<img src='./assets/02dataAnalysisChart/dataAnalysisToolBar.png'>
+<img src='../assets/02dataAnalysisChart/dataAnalysisToolBar.png'>
 
 数据分析基本操作工具栏中的操作设定==会影响所有数据==，主要有以下功能：
 
@@ -124,7 +124,7 @@
 
 点击变量配置，弹出对话框中列出了问卷所有题目和当前参与数据分析统计所采用的变量类型。点击==类型==下拉菜单切换变量类型。
 
-<img src='./assets/02dataAnalysisChart/dataAnalysisConfigType.png'>
+<img src='../assets/02dataAnalysisChart/dataAnalysisConfigType.png'>
 
 如上图所示，A1题可选择==类目（Category）==和==数值（Numbers）==，默认采用类目（Category），选额数值（Numbers）后，将采用数值对A1题进行数据统计分析。
 

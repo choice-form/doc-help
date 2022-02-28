@@ -13,7 +13,7 @@
 
 数据交叉基本操作工具栏中的操作设定会影响所有数据，主要有以下功能：
 
-<img src='./assets/09datacrosstab/crosstab07.png'>
+<img src='../assets/09datacrosstab/crosstab07.png'>
 
 ## 交叉表
 
@@ -32,7 +32,7 @@
 
 数据交叉卡片中的导出可以导出当前或者其他交叉表的Excel文件，每张交叉数据为Excel文件里的一个Sheet。
 
-<img src='./assets/09datacrosstab/crosstab08.png'>
+<img src='../assets/09datacrosstab/crosstab08.png'>
 
 管理导出数据：导出数据会在云端生成文件，点击管理导出数据后，在弹出对话框里显示了所有的导出文件，选中文件并点击下载从云端下载数据文件。或者，点击删除从云端删除文件。
 
