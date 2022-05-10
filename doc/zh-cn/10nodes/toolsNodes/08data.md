@@ -1,6 +1,6 @@
 ---
   index: 8
-  tags: [数据节点, 隐式变量, 替身节点, 映射属性, 工具节点]
+  tags: [数据节点, 隐式变量, 隐藏题, 映射属性, 工具节点]
   summary: 数据节点只用于承载数据，象一个盒子一样聚合不同涞源的数据，便于后续数据引用。
 
 
@@ -25,7 +25,7 @@
 
 ## 相似功能
 
-开启[替身节点](../../15advancedOptionSetting/02substitute.md)功能和[映射属性](../../11nodeSettings/04optionAdvancedSetting/05propertyMap.md)功能的题目节点也可以达到和数据节点类似的功能。
+开启[隐藏题](../../15advancedOptionSetting/02substitute.md)功能和[映射属性](../../11nodeSettings/04optionAdvancedSetting/05propertyMap.md)功能的题目节点也可以达到和数据节点类似的功能。
 
 > 不同题型或功能节点共有的通用设置在[通用设置](../../11nodeSettings/concept.md)中有完整说明。
 
