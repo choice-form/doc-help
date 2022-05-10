@@ -15,7 +15,7 @@
 
 ==隐藏题==功能只针对题型节点有效，也就是说只能把某一道题目设置成隐藏题。
 
-<img src='./assets/02substitute/advance.png'>
+<img src='./assets/07advancedSetting/hide-question.png'>
 
 开启==隐藏题==模式后，该节点只用于承载数据而不会被展示给被访者，其所有属性可以通过[变量](../16variable/01concept.md)使用。
 
