@@ -27,7 +27,7 @@
 
 <img src='../assets/04optionAdvancedSetting/01optionReference/node-Q02.png'>
 
-点击后打开`变量选择器`配置选项引用，下图是选择"Q01/已选中的选项/选项文字"后的效果，Q02的选项引用Q01中已选中选项的文字内容：
+点击`引用之前选项`后打开`变量选择器`配置选项引用，下图是选择"Q01/已选中的选项/选项文字"后的效果，Q02的选项引用Q01中已选中选项的文字内容：
 
 <img src='../assets/04optionAdvancedSetting/01optionReference/text.png'>
 
