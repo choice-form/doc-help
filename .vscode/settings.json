@@ -6,7 +6,8 @@
       "/node_modules": true,
       "/build": true,
       "/dist": true,
-      "/tmp": true
+      "/tmp": true,
+      "/backup": true,
     },
     "files.autoSave": "onFocusChange",
 }
