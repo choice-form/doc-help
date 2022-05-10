@@ -1,13 +1,14 @@
 {
-    "editor.tabSize": 2,
-    "editor.detectIndentation": false,
-    "search.exclude": {
-      "/.git": true,
-      "/node_modules": true,
-      "/build": true,
-      "/dist": true,
-      "/tmp": true,
-      "/backup": true,
-    },
-    "files.autoSave": "onFocusChange",
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "search.exclude": {
+    "/.git": true,
+    "/node_modules": true,
+    "/build": true,
+    "/dist": true,
+    "/tmp": true,
+    "/backup": true,
+    "/questionaireNodes": true
+  },
+  "files.autoSave": "onFocusChange"
 }
