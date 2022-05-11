@@ -29,4 +29,14 @@
 
 <img src='../assets/01questionSetting/02questionContentsAndDescription/description.png'>
 
+## 隐藏题目
+当题目时在单页组内时，可以控制是否隐藏掉题目内容。
+
+请看视频：
+<br />
+<video width="500" height="300" controls >
+  <source src="https://media.cform.io/editor/changelog/v3.1.0single-page-hide-head.mov" type="video/mp4">
+</video>
+<br />
+
 

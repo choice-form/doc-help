@@ -30,3 +30,24 @@
 选中组合中的节点，点击移出组合，从组合中移除所选的节点。
 
 > 选中一个组合，随后在属性面板中开启单页显示，将在一个单页面中显示该组合中的所有节点。
+
+## 单页组
+
+1. 开启`组内节点显示为一页`功能后，组内所有题目会显示为一页。
+
+2. 可以控制`横向`或`竖向`显示这些题目
+
+<br />
+<video width="500" height="300" controls >
+  <source src="https://media.cform.io/editor/changelog/v3-0-0/组内单页显示.mov" type="video/mp4">
+</video>
+
+3. 循环圈的单页组，如果不包含循环节点，则每页只包含单词循环的的所有题目，如果这个组包含了循环节点，则所有次循环都显示为一页。
+
+4. 包含循环节点的循环圈的单页组，可以控制是否所有次循环一起显示在一个表格中，这种情况下循环内的题目不能太过复杂。
+
+<br />
+<video width="500" height="300" controls >
+  <source src="https://media.cform.io/editor/changelog/v3.1.0single-page-table.mov" type="video/mp4">
+</video>
+<br />
