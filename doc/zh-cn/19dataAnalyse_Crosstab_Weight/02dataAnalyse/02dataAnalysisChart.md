@@ -62,7 +62,7 @@
 
 <img src='../assets/02dataAnalysisChart/dataAnalysisDataAddFilter.png'>
 
-> 过滤器详细介绍参见[过滤器](../09dataResult/02dataTable/06dataFilter.md)。
+> 过滤器详细介绍参见[过滤器](../../09dataResult/02dataTable/06dataFilter.md)。
 
 如下图，对当前数据设定过滤条件，设定为：题目A1中包含任意通勤、旅游选项的数据，系统随后更新数据分析图表，可以看到数据分析图表、样本统计表格都已经更新为最新的筛选数据。此时，样本统计表格中的样品计数就是筛选后得到的总数量。
 
@@ -110,7 +110,7 @@
 
 数据分析卡片中的过滤器仅对该卡片数据有效，而数据分析工具栏中过滤器会对所有数据生效，是全局的数据过滤器，优先级高于卡片中的过滤器。全局数据过滤器功能与数据表格的过滤器功能完全相同。
 
-> 过滤器详细介绍参见[过滤器](../09dataResult/02dataTable/06dataFilter.md)。
+> 过滤器详细介绍参见[过滤器](../../09dataResult/02dataTable/06dataFilter.md)。
 
 ### 导出
 

@@ -111,7 +111,7 @@
 
 <img src='../assets/03optionSetting/04inputValidation/precise-matching.png'>
 
-> 自动提示配置具体规则参见[自动提示](../../15advancedOptionSetting/01autoComplete.md)。
+> 自动提示配置具体规则参见[自动提示](../../15advancedControl/01autoComplete.md)。
 
 + 列表选择
 

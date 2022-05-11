@@ -15,4 +15,4 @@
 可以改成`是`，那么这道题即使只有一个选项时也会显示。
 可与改成`满足条件时是`，并设置逻辑条件，那么这道题只有一个选项，但逻辑条件运算结果为`真`时，这个题目也会显示。
 
-<img src='./assets/07advancedSetting/single-ref-option.png'>
+<img src='../assets/07advancedSetting/single-ref-option.png'>
